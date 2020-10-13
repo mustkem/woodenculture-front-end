@@ -1,13 +1,15 @@
-import React from 'react';
-import Header from '../Shared/Header/Header'
-import Footer from '../Shared/Footer/Footer'
+import React from "react";
+import Header from "../Shared/Header/Header";
+import SecondaryHeader from "../Shared/Header/SecondaryHeader";
+import Footer from "../Shared/Footer/Footer";
 
 export default function (props) {
-    return (
-        <div>
-            <Header />
-            {props.children}
-            <Footer />
-        </div>
-    )
+  return (
+    <div>
+      <SecondaryHeader />
+      <Header />
+      {props.children}
+      <Footer />
+    </div>
+  );
 }

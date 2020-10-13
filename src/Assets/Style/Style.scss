@@ -210,7 +210,7 @@ a {
 }
 
 .primary-header .nav-item > a {
-  padding: 20px 14px;
+  padding: 20px 25px;
 }
 .header.primary-header a {
   border-top: 3px solid transparent;
@@ -218,11 +218,30 @@ a {
 .header.primary-header a:hover {
   color: $primary-theme-color;
   text-decoration: none;
-  border-top: 3px solid $primary-theme-color;
 }
 .header.primary-header .logo a:hover {
   text-decoration: none;
   border: 0px;
+}
+
+.right-pannel .inner-dropdown-parent {
+  float: none;
+  position: relative;
+  a {
+    padding: 20px 30px;
+  }
+  &:hover .inner-dropdown {
+    display: block;
+  }
+  .inner-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #fff;
+    width: 120%;
+    padding-bottom: 15px;
+    display: none;
+  }
 }
 
 .primary-header .nav-inner {
@@ -308,6 +327,11 @@ a {
 .App .header-wrap {
   background-color: #fff;
   color: #333;
+}
+
+.header-wrap {
+  z-index: 1;
+  position: relative;
 }
 
 .header-wrap header.header {
