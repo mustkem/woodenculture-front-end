@@ -25,6 +25,10 @@ inline-block
   flex-wrap: wrap;
 }
 
+.center {
+  text-align: center;
+}
+
 body {
   font-size: 12px;
   box-sizing: border-box;
@@ -476,11 +480,12 @@ h1 {
 
 .social-reach {
   padding: 23px 0;
-  background-color: #1da1f2;
+  margin-top: 120px;
+  background-image: url("../Images/be9dec42c9059f051c86364ec6dd278c.jpg");
+  background-repeat: repeat;
 }
 
 .social-reach h2 {
-  background-color: #1da1f2;
   color: #fff;
   text-align: center;
   margin-top: 30px;
