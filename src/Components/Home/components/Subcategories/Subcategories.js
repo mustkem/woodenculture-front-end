@@ -73,6 +73,24 @@ function Subcategories() {
               <div className="label">Tables</div>
             </div>
           </div>
+          <div className="col-3">
+            <div className="poster">
+              <img src={Image1} alt="" />
+              <span className="sticker">Visit Gallery</span>
+            </div>
+            <div className="head">
+              <div className="label">Double Bed</div>
+            </div>
+          </div>
+          <div className="col-3">
+            <div className="poster">
+              <img src={Image2} alt="" />
+              <span className="sticker">Visit Gallery</span>
+            </div>
+            <div className="head">
+              <div className="label">Almirah</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

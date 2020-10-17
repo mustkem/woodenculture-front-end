@@ -23,10 +23,18 @@ function Banner() {
           <img className="image" src={image1} alt="" />
         </div>
         <div className="item">
-          <img className="image" src={image2} alt="" />
+          <img
+            className="image"
+            src="https://woodenculture.s3.us-east-2.amazonaws.com/images/banner-2.jpg"
+            alt=""
+          />
         </div>
         <div className="item">
-          <img className="image" src={image3} alt="" />
+          <img
+            className="image"
+            src="https://woodenculture.s3.us-east-2.amazonaws.com/images/banner-3.jpg"
+            alt=""
+          />
         </div>
       </Slider>
     </div>

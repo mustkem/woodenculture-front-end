@@ -9,6 +9,7 @@
       height: 100%;
       width: 100%;
       object-fit: cover;
+      border-radius: 4px;
     }
     margin-bottom: 15px;
   }
@@ -36,7 +37,7 @@
 .head-a {
   margin-bottom: 15px;
   display: block;
-  font-size: 25px;
+  font-size: 30px;
   color: $gray-secondary;
 }
 
@@ -44,4 +45,5 @@
   margin-bottom: 25px;
   display: block;
   color: $gray-secondary;
+  font-size: 18px;
 }

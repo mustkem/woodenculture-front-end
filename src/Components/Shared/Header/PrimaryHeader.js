@@ -9,7 +9,7 @@ export default class extends React.Component {
         <div>
           <header className="header primary-header clearfix">
             <div className="logo">
-              <Link to="">Wooden Culture</Link>
+              <Link to="">WoodenCulture</Link>
             </div>
             <div className="nav-section">
               <ul className="clearfix">

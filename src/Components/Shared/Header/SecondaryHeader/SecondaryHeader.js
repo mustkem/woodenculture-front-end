@@ -10,7 +10,7 @@ function SecondaryHeader() {
     <div className="secondary-strip">
       <Container>
         <div className="content">
-          <p>The Wooden Art that speak for you</p>
+          <p>Wooden Art that speaks for you</p>
           <ul>
             <li>
               <a href="tel:+91-9314444747" className="contact-us ">

@@ -11,15 +11,14 @@ function Footer() {
         <div className="footer-wrp">
           <div className="sec about-us">
             <div className="logo">
-              <a href="">SHIPCENT</a>
+              <a href="">WoodenCulture</a>
             </div>
             <ul className="">
               <li>
                 <p>
-                  Shipcent, a product of Stackfoot Retail Solution Pvt. Ltd., is India’s best
-                  logistics software, which offers you automated shipping solution. Using this, you
-                  can ship anywhere in India and abroad using the best courier company and at
-                  discounted rates.
+                  We are pioneer in furniture manufacturing and designing, working in this field
+                  since 2 decades. We believe in quality and excellency. Furniture made easy at the
+                  comfort of your doorstep.
                 </p>
               </li>
             </ul>
@@ -38,42 +37,21 @@ function Footer() {
           </div>
           <div className="sec more">
             <div className="">
-              <h5>More</h5>
+              <h5>Company</h5>
             </div>
             <ul className="">
               <li>
-                <a href="">Track your order</a>
-              </li>
-              <li>
-                <a href="">Shipping rate Calculator</a>
-              </li>
-              <li>
-                <a href="">NDR Management</a>
-              </li>
-            </ul>
-          </div>
-          <div className="sec more info">
-            <div className="">
-              <h5>Knowledge base</h5>
-            </div>
-            <ul className="">
-              <li>
-                <a href="">F&Q</a>
-              </li>
-              <li>
-                <a href="">Merchant Aggrement</a>
-              </li>
-              <li>
-                <a href="">Privacy Policy</a>
-              </li>
-              <li>
-                <a href="">Refund & Cancellation Policy</a>
+                <a href="">About Us</a>
               </li>
               <li>
                 <a href="">Contact Us</a>
               </li>
+              <li>
+                <a href="">Subscribe</a>
+              </li>
             </ul>
           </div>
+
           <div className="sec more connect">
             <div className="">
               <h5>Connect with Us</h5>
@@ -82,7 +60,7 @@ function Footer() {
               <li>
                 <IoIosMail className="connect-icon" />
 
-                <a href="">support@shipcent.com</a>
+                <a href="">contact@woodenculture.com</a>
               </li>
               <li>
                 <FaPhoneVolume className="connect-icon" />
@@ -95,7 +73,7 @@ function Footer() {
               </li>
             </ul>
           </div>
-          <div className="copyright">Copyright Ⓒ 2019 Shipcent. All Rights Reserved.</div>
+          <div className="copyright">Copyright Ⓒ 2019 WoodenCulture. All Rights Reserved.</div>
         </div>
       </Container>
     </footer>
