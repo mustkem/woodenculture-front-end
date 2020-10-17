@@ -20,6 +20,8 @@ import theme from "./MaterialUI/theme";
 import { appStore } from "./store";
 
 import Home from "./Components/Home/Home";
+import SubCategories from "./Components/SubCategories";
+
 import Login from "./Components/Login/Login";
 import Signup from "./Components/SignUp/SignUp";
 
@@ -34,6 +36,9 @@ function App() {
             <div className="router">
               <Switch>
                 {/* common components */}
+                <Route exact path="/:category">
+                  <SubCategories />
+                </Route>
                 <Route exact path="/">
                   <Home />
                 </Route>

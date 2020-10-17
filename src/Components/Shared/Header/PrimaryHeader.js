@@ -14,27 +14,27 @@ export default class extends React.Component {
             <div className="nav-section">
               <ul className="clearfix">
                 <li className="nav-item">
-                  <Link class="active" to="#home">
+                  <Link class="active" to="/living-room">
                     Living
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link to="#news">Bedroom</Link>
+                  <Link to="/bedroom">Bedroom</Link>
                 </li>
                 <li className="nav-item">
-                  <Link to="#about">Dining</Link>
+                  <Link to="/dining">Dining</Link>
                 </li>
                 <li className="nav-item">
-                  <Link to="/login">Office</Link>
+                  <Link to="/office">Office</Link>
                 </li>
                 <li className="nav-item">
-                  <Link to="/login">Kids</Link>
+                  <Link to="/kids">Kids</Link>
                 </li>
                 <li className="nav-item">
-                  <Link to="/login">Decor</Link>
+                  <Link to="/decor">Decor</Link>
                 </li>
                 <li className="nav-item">
-                  <Link to="/login">Bar</Link>
+                  <Link to="/bar">Bar</Link>
                 </li>
               </ul>
             </div>
