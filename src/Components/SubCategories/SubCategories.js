@@ -4,8 +4,8 @@ import { path } from "ramda";
 
 import Layout from "../Layout/Layout";
 import Subcategories from "./components/Subcategories";
-import WorkShop from "./components/WorkShop";
-import ContactBar from "./components/ContactBar";
+import ScreenBanner from "../Common/ScreenBanner";
+import ContactBar from "../Common/ContactBar";
 
 function Home() {
   const params = useParams();
@@ -13,7 +13,7 @@ function Home() {
   return (
     <Layout>
       <Subcategories headingData={pageData} />
-      <WorkShop />
+      <ScreenBanner />
       <ContactBar />
     </Layout>
   );

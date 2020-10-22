@@ -1,5 +1,7 @@
 import React from "react";
 
+import { Link, useParams } from "react-router-dom";
+
 import "./style/index.scss";
 
 import Image1 from "../../../../Assets/Images/francesca-tosolini-HD7QBx2Yfa4-unsplash.jpg";
@@ -7,6 +9,7 @@ import Image2 from "../../../../Assets/Images/f188621063b3fac8503d81fb92b32fde.j
 import Image3 from "../../../../Assets/Images/oval-dining-table-set-for-6.jpg";
 
 function Subcategories(props) {
+  const params = useParams();
   const { headingData } = props;
   return (
     <div className="subcat-strip">
@@ -21,13 +24,15 @@ function Subcategories(props) {
         </div>
         <div className="row">
           <div className="col-3">
-            <div className="poster">
-              <img src={Image1} alt="" />
-              <span className="sticker">Visit Gallery</span>
-            </div>
-            <div className="head">
-              <div className="label">Double Bed</div>
-            </div>
+            <Link to="/bedroom/double-bed">
+              <div className="poster">
+                <img src={Image1} alt="" />
+                <span className="sticker">Visit Gallery</span>
+              </div>
+              <div className="head">
+                <div className="label">Double Bed</div>
+              </div>
+            </Link>
           </div>
           <div className="col-3">
             <div className="poster">

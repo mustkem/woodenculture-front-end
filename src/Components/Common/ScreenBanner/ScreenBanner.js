@@ -2,7 +2,7 @@ import React from "react";
 
 import "./style/index.scss";
 
-function WorkShop() {
+function ScreenBanner() {
   return (
     <div className="workshop-strip">
       <div className="container">
@@ -41,4 +41,4 @@ function WorkShop() {
   );
 }
 
-export default WorkShop;
+export default ScreenBanner;

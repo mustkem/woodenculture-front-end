@@ -18,14 +18,14 @@ import { Link } from "react-router-dom";
 import Layout from "../Layout/Layout";
 import Banner from "./components/Banner";
 import Subcategories from "./components/Subcategories";
-import WorkShop from "./components/WorkShop";
+import ScreenBanner from "../Common/ScreenBanner";
 
 function Home() {
   return (
     <Layout>
       <Banner />
       <Subcategories />
-      <WorkShop />
+      <ScreenBanner />
       <div className="social-reach">
         <Container>
           <h2>What do people say about us</h2>

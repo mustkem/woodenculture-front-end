@@ -35,6 +35,7 @@
     "react-twitter-embed": "^3.0.3",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
+    "remove-trailing-zeros": "^1.0.3",
     "slick-carousel": "^1.8.1",
     "yup": "^0.28.3"
   },

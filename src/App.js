@@ -21,6 +21,7 @@ import { appStore } from "./store";
 
 import Home from "./Components/Home/Home";
 import SubCategories from "./Components/SubCategories";
+import SubCategoryDetail from "./Components/SubCategoryDetail";
 
 import Login from "./Components/Login/Login";
 import Signup from "./Components/SignUp/SignUp";
@@ -36,6 +37,9 @@ function App() {
             <div className="router">
               <Switch>
                 {/* common components */}
+                <Route exact path="/:category/:subcategory">
+                  <SubCategoryDetail />
+                </Route>
                 <Route exact path="/:category">
                   <SubCategories />
                 </Route>
