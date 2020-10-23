@@ -19,6 +19,8 @@ import theme from "./MaterialUI/theme";
 
 import { appStore } from "./store";
 
+import Layout from "./Components/Layout";
+
 import Home from "./Components/Home/Home";
 import SubCategories from "./Components/SubCategories";
 import SubCategoryDetail from "./Components/SubCategoryDetail";
@@ -31,28 +33,28 @@ function App() {
     <Provider store={appStore}>
       <div className="App">
         <ThemeProvider theme={theme}>
-          {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
           <CssBaseline />
           <Router>
             <div className="router">
-              <Switch>
-                {/* common components */}
-                <Route exact path="/:category/:subcategory">
-                  <SubCategoryDetail />
-                </Route>
-                <Route exact path="/:category">
-                  <SubCategories />
-                </Route>
-                <Route exact path="/">
-                  <Home />
-                </Route>
-                <Route exact path="/login">
-                  <Login />
-                </Route>
-                <Route exact path="/signup">
-                  <Signup />
-                </Route>
-              </Switch>
+              <Layout>
+                <Switch>
+                  <Route exact path="/:category/:subcategory">
+                    <SubCategoryDetail />
+                  </Route>
+                  <Route exact path="/:category">
+                    <SubCategories />
+                  </Route>
+                  <Route exact path="/">
+                    <Home />
+                  </Route>
+                  <Route exact path="/login">
+                    <Login />
+                  </Route>
+                  <Route exact path="/signup">
+                    <Signup />
+                  </Route>
+                </Switch>
+              </Layout>
             </div>
           </Router>
         </ThemeProvider>

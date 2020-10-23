@@ -15,14 +15,13 @@ import {
 
 import { Link } from "react-router-dom";
 
-import Layout from "../Layout/Layout";
 import Banner from "./components/Banner";
 import Subcategories from "./components/Subcategories";
 import ScreenBanner from "../Common/ScreenBanner";
 
 function Home() {
   return (
-    <Layout>
+    <div>
       <Banner />
       <Subcategories />
       <ScreenBanner />
@@ -42,7 +41,7 @@ function Home() {
           </ul>
         </Container>
       </div>
-    </Layout>
+    </div>
   );
 }
 

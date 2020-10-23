@@ -2,7 +2,6 @@ import React from "react";
 import { Link, useParams } from "react-router-dom";
 
 import "./style/index.scss";
-import Layout from "../Layout/Layout";
 import ScreenBanner from "../Common/ScreenBanner";
 import ContactBar from "../Common/ContactBar";
 
@@ -12,7 +11,7 @@ function SubCategoryDetail() {
   console.log(params);
 
   return (
-    <Layout>
+    <div>
       <div className="header-strip-product-list">
         <div className="container">
           <div className="row">
@@ -75,7 +74,7 @@ function SubCategoryDetail() {
       </div>
       <ScreenBanner />
       <ContactBar />
-    </Layout>
+    </div>
   );
 }
 

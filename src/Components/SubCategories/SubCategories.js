@@ -2,7 +2,6 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { path } from "ramda";
 
-import Layout from "../Layout/Layout";
 import Subcategories from "./components/Subcategories";
 import ScreenBanner from "../Common/ScreenBanner";
 import ContactBar from "../Common/ContactBar";
@@ -11,11 +10,11 @@ function Home() {
   const params = useParams();
   const pageData = path([params.category], metaData);
   return (
-    <Layout>
+    <div>
       <Subcategories headingData={pageData} />
       <ScreenBanner />
       <ContactBar />
-    </Layout>
+    </div>
   );
 }
 
