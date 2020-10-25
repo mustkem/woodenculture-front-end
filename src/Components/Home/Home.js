@@ -1,29 +1,32 @@
 import React from "react";
 import Container from "react-bootstrap/Container";
-import {
-  TwitterTimelineEmbed,
-  TwitterShareButton,
-  TwitterFollowButton,
-  TwitterHashtagButton,
-  TwitterMentionButton,
-  TwitterTweetEmbed,
-  TwitterMomentShare,
-  TwitterDMButton,
-  TwitterVideoEmbed,
-  TwitterOnAirButton,
-} from "react-twitter-embed";
 
-import { Link } from "react-router-dom";
+import { DataApi } from "../../data/data";
+
+import { TwitterTweetEmbed } from "react-twitter-embed";
 
 import Banner from "./components/Banner";
 import Subcategories from "./components/Subcategories";
 import ScreenBanner from "../Common/ScreenBanner";
 
-function Home() {
+function Home(props) {
+  const {} = props;
+
+  const dataObj = new DataApi();
+
+  const subCategoriesDetails = {
+    fetchSubCategories: () => {},
+    data: {
+      payload: dataObj.getPopularSubCategories({ populat: true }),
+      loading: true,
+      error: null,
+    },
+  };
+
   return (
     <div>
       <Banner />
-      <Subcategories />
+      <Subcategories subCategoriesDetails={subCategoriesDetails} />
       <ScreenBanner />
       <div className="social-reach">
         <Container>

@@ -2,23 +2,37 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { path } from "ramda";
 
+import { DataApi } from "../../data/data";
+
 import Subcategories from "./components/Subcategories";
 import ScreenBanner from "../Common/ScreenBanner";
 import ContactBar from "../Common/ContactBar";
 
-function Home() {
+function Index(props) {
+  const {} = props;
   const params = useParams();
+
+  const dataObj = new DataApi();
+
+  const subCategoriesDetails = {
+    fetchSubCategories: () => {},
+    data: {
+      payload: dataObj.getSubCategories({ category: params.category }),
+      loading: true,
+      error: null,
+    },
+  };
   const pageData = path([params.category], metaData);
   return (
     <div>
-      <Subcategories headingData={pageData} />
+      <Subcategories headingData={pageData} subCategoriesDetails={subCategoriesDetails} />
       <ScreenBanner />
       <ContactBar />
     </div>
   );
 }
 
-export default Home;
+export default Index;
 
 const metaData = {
   "living-room": {

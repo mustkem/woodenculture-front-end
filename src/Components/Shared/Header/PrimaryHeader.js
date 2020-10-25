@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
+import { categories } from "../../../data/data";
 
 export default class extends React.Component {
   render() {
@@ -13,29 +14,15 @@ export default class extends React.Component {
             </div>
             <div className="nav-section">
               <ul className="clearfix">
-                <li className="nav-item">
-                  <Link class="active" to="/living-room">
-                    Living
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link to="/bedroom">Bedroom</Link>
-                </li>
-                <li className="nav-item">
-                  <Link to="/dining">Dining</Link>
-                </li>
-                <li className="nav-item">
-                  <Link to="/office">Office</Link>
-                </li>
-                <li className="nav-item">
-                  <Link to="/kids">Kids</Link>
-                </li>
-                <li className="nav-item">
-                  <Link to="/decor">Decor</Link>
-                </li>
-                <li className="nav-item">
-                  <Link to="/bar">Bar</Link>
-                </li>
+                {categories.map((item) => {
+                  return (
+                    <li className="nav-item">
+                      <Link class="active" to={`/${item.slug}`}>
+                        {item.label}
+                      </Link>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
 

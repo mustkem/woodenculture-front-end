@@ -1,14 +1,25 @@
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { DataApi } from "../../data/data";
 
 import "./style/index.scss";
 import ScreenBanner from "../Common/ScreenBanner";
 import ContactBar from "../Common/ContactBar";
 
-function SubCategoryDetail() {
+function Products(props) {
+  const {} = props;
   const params = useParams();
 
-  console.log(params);
+  const dataObj = new DataApi();
+
+  const productsDetails = {
+    fetchSubCategories: () => {},
+    data: {
+      payload: dataObj.getProducts(params),
+      loading: true,
+      error: null,
+    },
+  };
 
   return (
     <div>
@@ -27,7 +38,7 @@ function SubCategoryDetail() {
       <div className="product-list-strip">
         <div className="container">
           <div className="product-list">
-            {productList.data.map((item) => {
+            {productsDetails.data.payload.map((item) => {
               return (
                 <div className="row product-item">
                   <div className="col-6">
@@ -78,48 +89,7 @@ function SubCategoryDetail() {
   );
 }
 
-export default SubCategoryDetail;
-
-const productList = {
-  data: [
-    {
-      images: [
-        {
-          url:
-            "https://woodenculture.s3.us-east-2.amazonaws.com/images/Iglesias%2BCoffee%2BTable.jpg",
-        },
-      ],
-      title: "Iglesias Coffee Table",
-      description:
-        "Sure to make a statement as a centerpiece in your seating ensemble, this coffee table offers rustic, modern charm in one posh piece! Showcasing.",
-      details: {
-        Material: "Wood, Glass",
-        Customization: "Available",
-        "Best Suited For": "Bedroom",
-        Prediction:
-          "even if you live in the city, this piece will bring the beach feel to your living room!",
-      },
-    },
-    {
-      images: [
-        {
-          url:
-            "https://woodenculture.s3.us-east-2.amazonaws.com/images/Iglesias%2BCoffee%2BTable.jpg",
-        },
-      ],
-      title: "Iglesias Coffee Table",
-      description:
-        "Sure to make a statement as a centerpiece in your seating ensemble, this coffee table offers rustic, modern charm in one posh piece! Showcasing.",
-      details: {
-        Material: "Wood, Glass",
-        Customization: "Available",
-        "Best Suited For": "Bedroom",
-        Prediction:
-          "even if you live in the city, this piece will bring the beach feel to your living room!",
-      },
-    },
-  ],
-};
+export default Products;
 
 const metaData = {
   "living-room": {

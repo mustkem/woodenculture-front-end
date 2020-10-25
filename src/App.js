@@ -23,7 +23,7 @@ import Layout from "./Components/Layout";
 
 import Home from "./Components/Home/Home";
 import SubCategories from "./Components/SubCategories";
-import SubCategoryDetail from "./Components/SubCategoryDetail";
+import Products from "./Components/Products";
 
 import Login from "./Components/Login/Login";
 import Signup from "./Components/SignUp/SignUp";
@@ -39,7 +39,7 @@ function App() {
               <Layout>
                 <Switch>
                   <Route exact path="/:category/:subcategory">
-                    <SubCategoryDetail />
+                    <Products />
                   </Route>
                   <Route exact path="/:category">
                     <SubCategories />
