@@ -17,16 +17,13 @@ import "./Assets/Style/myAccount/myAccount.scss";
 
 import theme from "./MaterialUI/theme";
 
-import { appStore } from "./store";
+import appStore from "./store/store";
 
 import Layout from "./Components/Layout";
 
-import Home from "./Components/Home/Home";
+import Home from "./Components/Home";
 import SubCategories from "./Components/SubCategories";
 import Products from "./Components/Products";
-
-import Login from "./Components/Login/Login";
-import Signup from "./Components/SignUp/SignUp";
 
 function App() {
   return (
@@ -46,12 +43,6 @@ function App() {
                   </Route>
                   <Route exact path="/">
                     <Home />
-                  </Route>
-                  <Route exact path="/login">
-                    <Login />
-                  </Route>
-                  <Route exact path="/signup">
-                    <Signup />
                   </Route>
                 </Switch>
               </Layout>

@@ -1,9 +1,20 @@
 import Home from "./Home";
+import { homeActions, homeSelectors } from "../../store/Home";
 
 import { connect } from "react-redux";
 
 const mapStateToProps = (state) => {
-  return {};
+  const { getSubCategoriesData } = homeSelectors;
+  return {
+    subCategories: getSubCategoriesData(state),
+  };
 };
 
-export default connect(mapStateToProps)(Home);
+const mapDispatchToProps = (dispatch) => {
+  const { fetchSubCategories } = homeActions;
+  return {
+    fetchSubCategories: () => dispatch(fetchSubCategories()),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

@@ -20,9 +20,10 @@ function Subcategories(props) {
           </div>
         </div>
         <div className="row">
-          {data.payload.map((item, index) => {
-            return <SubcategoryItem key={index} item={item} />;
-          })}
+          {data &&
+            data.items.map((item, index) => {
+              return <SubcategoryItem key={index} item={item} />;
+            })}
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Container from "react-bootstrap/Container";
 
 import { DataApi } from "../../data/data";
@@ -10,18 +10,20 @@ import Subcategories from "./components/Subcategories";
 import ScreenBanner from "../Common/ScreenBanner";
 
 function Home(props) {
-  const {} = props;
-
-  const dataObj = new DataApi();
+  const { fetchSubCategories, subCategories } = props;
 
   const subCategoriesDetails = {
-    fetchSubCategories: () => {},
-    data: {
-      payload: dataObj.getPopularSubCategories({ populat: true }),
-      loading: true,
-      error: null,
-    },
+    fetchSubCategories,
+    data: subCategories.data,
+    loading: subCategories.loading,
+    error: subCategories.error,
   };
+
+  useEffect(() => {
+    fetchSubCategories();
+  }, [fetchSubCategories]);
+
+  console.log("subCategoriesDetails", subCategoriesDetails);
 
   return (
     <div>
