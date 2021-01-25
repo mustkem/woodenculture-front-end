@@ -13,7 +13,7 @@ function SubcategoryItem(props) {
           <span className="sticker">Visit Gallery</span>
         </div>
         <div className="head">
-          <div className="label">{item.label}</div>
+          <div className="label">{item.title}</div>
         </div>
       </Link>
     </div>

@@ -32,25 +32,25 @@ export const categories = [
 
 export const subcategories = [
   {
-    label: "Double Bed",
+    title: "Double Bed",
     image_url: "https://woodenculture.s3.us-east-2.amazonaws.com/images/sub-cate-1.jpg",
     popular: true,
     category_slug: "bedroom",
   },
   {
-    label: "Almirah",
+    title: "Almirah",
     image_url: "https://woodenculture.s3.us-east-2.amazonaws.com/images/sub-cate-2.jpg",
     popular: true,
     category_slug: "bedroom",
   },
   {
-    label: "Tables",
+    title: "Tables",
     image_url: "https://woodenculture.s3.us-east-2.amazonaws.com/images/sub-cate-3.jpg",
     popular: true,
     category_slug: "bedroom",
   },
   {
-    label: "Mirrors",
+    title: "Mirrors",
     image_url: "https://woodenculture.s3.us-east-2.amazonaws.com/images/sub-cate-1.jpg",
     popular: true,
     category_slug: "bedroom",

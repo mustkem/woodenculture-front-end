@@ -22,3 +22,15 @@
   margin-left: 10px;
   font-size: 13px;
 }
+
+.form-body {
+  .form-set {
+    label {
+      display: block;
+      margin-bottom: 7px;
+    }
+    input {
+      display: block;
+    }
+  }
+}
