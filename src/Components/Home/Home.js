@@ -23,8 +23,6 @@ function Home(props) {
     fetchSubCategories();
   }, [fetchSubCategories]);
 
-  console.log("subCategoriesDetails", subCategoriesDetails);
-
   return (
     <div>
       <Banner />

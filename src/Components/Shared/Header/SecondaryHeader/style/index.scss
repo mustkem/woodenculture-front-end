@@ -34,3 +34,40 @@
     }
   }
 }
+
+.login-modal {
+  .modal-content {
+    border: 0 solid transparent;
+  }
+  .modal-dialog {
+    width: 800px;
+    max-width: 800px;
+  }
+  .modal-body {
+    padding: 0;
+  }
+  .login-wrapper {
+    display: flex;
+    .sec-1 {
+      color: #fff;
+      background-color: #2874f0;
+      width: 40%;
+      padding: 50px;
+      h2 {
+        margin-bottom: 50px;
+      }
+      p {
+        margin-bottom: 100px;
+      }
+    }
+    .sec-2 {
+      width: 60%;
+      padding: 50px;
+    }
+  }
+  .button-grp {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 0;
+  }
+}

@@ -1,6 +1,6 @@
-import SimpleCrypto from 'simple-crypto-js';
+import SimpleCrypto from "simple-crypto-js";
 // Function for set location on window
-import qs from 'qs';
+import qs from "qs";
 
 const LocalStorage = {};
 
@@ -30,15 +30,13 @@ LocalStorage.clean = () => localStorage.clear();
 
 export default LocalStorage;
 
-
 export const localStorageKey = {
-  user: 'USER',
-  authToken: 'AUTH_TOKEN',
-  authData: 'AUTH_DATA',
+  user: "USER",
+  authToken: "AUTH_TOKEN",
+  authData: "AUTH_DATA",
 };
 
-
-const secretKey = 'herajnextapps';
+const secretKey = "herajnextapps";
 
 export const Crypto = new SimpleCrypto(secretKey);
 
@@ -61,7 +59,7 @@ export const getSessionUser = () => {
 };
 
 export const getQueryData = (string) => {
-  const data = (string).substring(1);
+  const data = string.substring(1);
   return qs.parse(data);
 };
 

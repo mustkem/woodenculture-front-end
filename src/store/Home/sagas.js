@@ -5,12 +5,9 @@ import { fetchSubCategories as fetchSubCategoriesApi } from "./api";
 
 // worker Saga: will be fired on USER_FETCH_REQUESTED actions
 function* fetchSubCategories(payload) {
-  console.log("Second Saga");
-
   try {
     // do api call
     const response = yield call(fetchSubCategoriesApi, payload);
-    console.log("response", response);
     yield put({
       type: types.FETCH_PRODUCTS_SUCCESS,
       payload: response,

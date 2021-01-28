@@ -1,1 +1,2 @@
-export const API_URL = "https://jwtln5j31c.execute-api.us-east-2.amazonaws.com/dev";
+// export const API_URL = "https://woodenculture-backend.herokuapp.com";
+export const API_URL = "http://localhost:8080";
