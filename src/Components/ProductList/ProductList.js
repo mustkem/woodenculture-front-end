@@ -1,25 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import { useParams } from "react-router-dom";
-import { DataApi } from "../../data/data";
 
 import "./style/index.scss";
 import ScreenBanner from "../Common/ScreenBanner";
 import ContactBar from "../Common/ContactBar";
+import { API_URL } from "../../config";
+import { path } from "ramda";
 
 function Products(props) {
-  const {} = props;
+  const [products, setProducts] = useState([]);
+
   const params = useParams();
+  const cateId = params.category.split("-")[1];
 
-  const dataObj = new DataApi();
-
-  const productsDetails = {
-    fetchSubCategories: () => {},
-    data: {
-      payload: dataObj.getProducts(params),
-      loading: true,
-      error: null,
-    },
-  };
+  React.useEffect(() => {
+    axios({
+      method: "get",
+      url: API_URL + "/common/category/" + cateId,
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("woodenculture-token"),
+      },
+    })
+      .then(function (response) {
+        setProducts(response.data.products);
+        return response.data;
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }, [cateId]);
 
   return (
     <div>
@@ -27,10 +37,7 @@ function Products(props) {
         <div className="container">
           <div className="row">
             <div className="col">
-              {Object.keys(params).map((item) => {
-                const key = params[item];
-                return <span>{metaData[key].title} </span>;
-              })}
+              <span>Bedroom</span>
             </div>
           </div>
         </div>
@@ -38,15 +45,12 @@ function Products(props) {
       <div className="product-list-strip">
         <div className="container">
           <div className="product-list">
-            {productsDetails.data.payload.map((item) => {
+            {products.map((item) => {
               return (
                 <div className="row product-item">
                   <div className="col-6">
                     <div className="poster">
-                      {item.images.map((itm) => {
-                        console.log(itm.url);
-                        return <img className="image" src={itm.url} alt="" />;
-                      })}
+                      <img className="image" src={path(["images", 0, "url"], item)} alt="" />;
                     </div>
                   </div>
                   <div className="col-6">
@@ -57,19 +61,19 @@ function Products(props) {
                         <button className="btn btn-small">Request Calback</button>
                       </div>
                     </div>
-                    <p className="description">{item.description} </p>
+                    <p className="description">{item.description}</p>
                     <div className="features">
                       <div className="title-small">Features</div>
                       <div className="details">
-                        {Object.keys(item.details).map((key) => {
+                        {item.features.map((item) => {
                           return (
                             <div className="row">
                               <div className="col col-6 left">
-                                <div className="sheet">{key} </div>
+                                <div className="sheet">{item.title}</div>
                               </div>
                               <div className="col col-6 right">
                                 {" "}
-                                <div className="sheet"> {item.details[key]} </div>
+                                <div className="sheet">{item.desc}</div>
                               </div>
                             </div>
                           );

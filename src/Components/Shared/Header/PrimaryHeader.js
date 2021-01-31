@@ -38,7 +38,7 @@ const PrimaryHeader = () => {
               {menuData.map((item) => {
                 return (
                   <li className="nav-item">
-                    <Link class="active" to={`category-${item._id}`}>
+                    <Link class="active" to={`category-${item.cateId}`}>
                       {item.title}
                     </Link>
                   </li>

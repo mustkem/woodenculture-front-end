@@ -23,7 +23,7 @@ import Layout from "./Components/Layout";
 
 import Home from "./Components/Home";
 import SubCategories from "./Components/SubCategories";
-import Products from "./Components/Products";
+import ProductList from "./Components/ProductList";
 
 function App() {
   return (
@@ -35,12 +35,12 @@ function App() {
             <div className="router">
               <Layout>
                 <Switch>
-                  <Route exact path="/:category/:subcategory">
-                    <Products />
-                  </Route>
                   <Route exact path="/:category">
-                    <SubCategories />
+                    <ProductList />
                   </Route>
+                  {/* <Route exact path="/:category">
+                    <SubCategories />
+                  </Route> */}
                   <Route exact path="/">
                     <Home />
                   </Route>
