@@ -7,17 +7,20 @@ import ScreenBanner from "../Common/ScreenBanner";
 import ContactBar from "../Common/ContactBar";
 import { API_URL } from "../../config";
 import { path } from "ramda";
+import { Button } from "react-bootstrap";
+import { BsTagFill } from "react-icons/bs";
+import ReactImageMagnify from "react-image-magnify";
 
 function Products(props) {
   const [products, setProducts] = useState([]);
 
   const params = useParams();
-  const cateId = params.category.split("-")[1];
+  const cate = params.category;
 
   React.useEffect(() => {
     axios({
       method: "get",
-      url: API_URL + "/common/category/" + cateId,
+      url: API_URL + "/common/category/" + cate,
       headers: {
         Authorization: "Bearer " + localStorage.getItem("woodenculture-token"),
       },
@@ -29,17 +32,17 @@ function Products(props) {
       .catch(function (error) {
         console.log(error);
       });
-  }, [cateId]);
+  }, [cate]);
 
   return (
     <div>
       <div className="header-strip-product-list">
         <div className="container">
-          <div className="row">
+          {/* <div className="row">
             <div className="col">
               <span>Bedroom</span>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
       <div className="product-list-strip">
@@ -48,18 +51,37 @@ function Products(props) {
             {products.map((item) => {
               return (
                 <div className="row product-item">
-                  <div className="col-6">
+                  <div className="col-6 sec-1">
                     <div className="poster">
                       <img className="image" src={path(["images", 0, "url"], item)} alt="" />;
+                      {/* <ReactImageMagnify
+                        {...{
+                          smallImage: {
+                            alt: item.title,
+                            isFluidWidth: true,
+                            src: path(["images", 0, "url"], item),
+                            height: 400,
+                          },
+                          largeImage: {
+                            src: path(["images", 0, "url"], item),
+                            height: 800,
+                            width: 700,
+                          },
+                        }}
+                      /> */}
+                    </div>
+                    <div className="actions-product">
+                      <Button className="left" variant="outline-primary">
+                        Enquiry
+                      </Button>
+                      <Button className="right" variant="outline-primary">
+                        Get a call
+                      </Button>
                     </div>
                   </div>
                   <div className="col-6">
                     <div className="head-sec">
                       <div className="title">{item.title}</div>
-                      <div className="actions">
-                        <a href="/#">Call Us</a>
-                        <button className="btn btn-small">Request Calback</button>
-                      </div>
                     </div>
                     <p className="description">{item.description}</p>
                     <div className="features">
@@ -67,14 +89,10 @@ function Products(props) {
                       <div className="details">
                         {item.features.map((item) => {
                           return (
-                            <div className="row">
-                              <div className="col col-6 left">
-                                <div className="sheet">{item.title}</div>
-                              </div>
-                              <div className="col col-6 right">
-                                {" "}
-                                <div className="sheet">{item.desc}</div>
-                              </div>
+                            <div className="features-row">
+                              <BsTagFill className="icon" />
+                              <strong>{item.title}</strong>
+                              <span>{item.desc}</span>
                             </div>
                           );
                         })}

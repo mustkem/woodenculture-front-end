@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import axios from "axios";
 
@@ -31,16 +31,16 @@ const PrimaryHeader = () => {
       <div>
         <header className="header primary-header clearfix">
           <div className="logo">
-            <Link to="">WoodenCulture</Link>
+            <NavLink to="">WoodenCulture</NavLink>
           </div>
           <div className="nav-section">
             <ul className="clearfix">
-              {menuData.map((item) => {
+              {menu.map((item) => {
                 return (
                   <li className="nav-item">
-                    <Link class="active" to={`category-${item.cateId}`}>
+                    <NavLink class="active" to={`${item.cate}`}>
                       {item.title}
-                    </Link>
+                    </NavLink>
                   </li>
                 );
               })}
@@ -50,13 +50,13 @@ const PrimaryHeader = () => {
           <div className="right-pannel">
             <ul className="clearfix user-sec">
               <li className="inner-dropdown-parent">
-                <Link to="/login">Company</Link>
+                <NavLink to="/login">Company</NavLink>
                 <ul className="user-sec inner-dropdown">
                   <li className="login-btn">
-                    <Link to="/login">Contact Us</Link>
+                    <NavLink to="/login">Contact Us</NavLink>
                   </li>
                   <li className="login-btn">
-                    <Link to="/login">About Us</Link>
+                    <NavLink to="/login">About Us</NavLink>
                   </li>
                 </ul>
               </li>
@@ -69,3 +69,78 @@ const PrimaryHeader = () => {
 };
 
 export default PrimaryHeader;
+
+const menu = [
+  {
+    title: "Bedroom",
+    cate: "bedroom",
+    categories: [
+      {
+        title: "Almerah",
+        cate: "almerah",
+      },
+      {
+        title: "Double Bed",
+        cate: "double-bed",
+      },
+    ],
+  },
+  {
+    title: "Living",
+    cate: "living",
+    categories: [
+      {
+        title: "Cabinates",
+        cate: "cabinates",
+      },
+      {
+        title: "Tv Tables",
+        cate: "tv-tables",
+      },
+    ],
+  },
+  {
+    title: "Dining",
+    cate: "dining",
+    categories: [
+      {
+        title: "Dining Tables",
+        cate: "Dining-tables",
+      },
+      {
+        title: "Dining Storage",
+        cate: "dining-storage",
+      },
+    ],
+  },
+  {
+    title: "Office",
+    cate: "office",
+    categories: [
+      {
+        title: "File Cabinates",
+        cate: "file-cabinates",
+      },
+    ],
+  },
+  {
+    title: "Decore",
+    cate: "decore",
+    categories: [
+      {
+        title: "Scereens and wall Deviders",
+        cate: "screen-and-deviders",
+      },
+    ],
+  },
+  {
+    title: "Floor",
+    cate: "floor",
+    categories: [
+      {
+        title: "Mapple Flooring",
+        cate: "mapple-flooring",
+      },
+    ],
+  },
+];
