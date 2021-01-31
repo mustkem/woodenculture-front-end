@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import { Modal, Button, Form } from "react-bootstrap";
-import axios from "axios";
 import { connect } from "react-redux";
 
-import { API_URL } from "../../../../config";
 import { commonActions } from "../../../../store/common";
 import { CgProfile } from "react-icons/cg";
 

@@ -9,7 +9,8 @@ export const login = async (payload) => {
     data: payload,
   })
     .then(function (response) {
-      console.log("response", response.data);
+      localStorage.setItem("woodenculture-token", response.data.token);
+
       return response.data;
     })
     .catch(function (error) {
