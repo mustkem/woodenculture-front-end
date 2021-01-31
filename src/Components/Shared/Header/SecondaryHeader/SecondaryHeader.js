@@ -97,7 +97,7 @@ function SecondaryHeader(props) {
               {isUserLogedin ? (
                 <CgProfile />
               ) : (
-                <Button onClick={handleShow} className="button">
+                <Button size="sm" variant="outline-dark" onClick={handleShow} className="button">
                   Login
                 </Button>
               )}
@@ -139,15 +139,15 @@ function SecondaryHeader(props) {
                       />
                     </Form.Group>
                     <div className="button-grp">
-                      <button
+                      <Button
                         onClick={() => {
                           setShouldShowLoginForm(!shouldShowLoginForm);
                         }}
-                        variant="primary"
+                        variant="outline-primary"
                         type="button"
                       >
                         Create account
-                      </button>
+                      </Button>
                       <Button variant="primary" type="submit">
                         Submit
                       </Button>
@@ -189,15 +189,15 @@ function SecondaryHeader(props) {
                       />
                     </Form.Group>
                     <div className="button-grp">
-                      <button
+                      <Button
                         onClick={() => {
                           setShouldShowLoginForm(!shouldShowLoginForm);
                         }}
-                        variant="primary"
+                        variant="outline-primary"
                         type="button"
                       >
                         Login
-                      </button>
+                      </Button>
                       <Button variant="primary" type="submit">
                         Submit
                       </Button>
