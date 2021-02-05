@@ -9,24 +9,18 @@ function ScreenBanner() {
         <div className="row">
           <div className="col-4">
             <div className="learn-more">
-              <a
-                href="https://www.jossandmain.com/fall-fashion~b141.html"
-                className="HomepageContentCTA"
-              >
-                <div className="HomepageContentCTA-title">
-                  <h2 className="pl-Heading pl-Heading--marketing-2" data-hb-id="pl-heading">
-                    Custom Workshop at your door step
-                  </h2>
-                </div>
-                <div className="HomepageContentCTA-subtitle">
-                  <p className="pl-Text" data-hb-id="pl-text">
-                    From menswear prints to vintage neutrals – here's what to bring into your home.
-                  </p>
-                </div>
-                <a href="asd" className="link">
-                  More
-                </a>
-              </a>
+              <div className="HomepageContentCTA-title">
+                <h2 className="pl-Heading pl-Heading--marketing-2" data-hb-id="pl-heading">
+                  Custom Furniture Workshop at your door step
+                </h2>
+              </div>
+              <div className="HomepageContentCTA-subtitle">
+                <p className="pl-Text" data-hb-id="pl-text">
+                  Bring your furniture needs to us. We provide custom workshop at your door step.
+                  You have any furniture requirment we got you covered. We bring you excelence and
+                  quality.
+                </p>
+              </div>
             </div>
           </div>
           <div className="col-8 poster">

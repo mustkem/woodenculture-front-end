@@ -1,4 +1,7 @@
+import { divide } from "ramda";
 import React from "react";
+import tvUnits from "../../../../Assets/Images/tv-unit.jpg";
+import tables from "../../../../Assets/Images/coffee-table.jpg";
 
 import SubcategoryItem from "./components/SubcategoryItem";
 
@@ -6,25 +9,46 @@ import "./style/index.scss";
 
 const data = [
   {
-    title: "Double Bed",
+    title: "Beds",
+    imgUrl: "https://www.woodenstreet.com/images/home-new/popular-bed.jpg",
+    value: "beds",
+  },
+  {
+    title: "Dining",
     imgUrl: "https://woodenculture.s3.us-east-2.amazonaws.com/images/sub-cate-1.jpg",
-    value: "double-bed",
+    value: "dining",
   },
   {
-    title: "Office Table",
-    imgUrl: "https://woodenculture.s3.us-east-2.amazonaws.com/images/sub-cate-2.jpg",
-    value: "almerah",
-  },
-  {
-    title: "Bathroom",
-    imgUrl: "https://woodenculture.s3.us-east-2.amazonaws.com/images/sub-cate-3.jpg",
+    title: "Tv Units",
+    imgUrl: "https://www.woodenstreet.com/images/home-new/shop-8.jpg",
     value: "bathroom",
   },
   {
-    title: "Mirrors",
-    imgUrl: "https://woodenculture.s3.us-east-2.amazonaws.com/images/sub-cate-1.jpg",
-    popular: true,
-    value: "mirror",
+    title: "Tables",
+    imgUrl: tables,
+    value: "tables",
+  },
+  {
+    title: "Shoe Racks",
+    imgUrl: "https://www.woodenstreet.com/images/home-new/popular-shoe-racks.jpg",
+    value: "shoe-racks",
+  },
+  {
+    title: "Seating",
+    imgUrl:
+      "https://ii1.pepperfry.com/media/catalog/product/m/a/568x625/marin-solid-wood-dining-chair-in-warm-walnut-finish-by-woodsworth-marin-solid-wood-dining-chair-in-w-wcj4mk.jpg",
+    value: "seating",
+  },
+  {
+    title: "Storage",
+    imgUrl:
+      "https://ii2.pepperfry.com/media/catalog/product/l/e/236x260/lewis-hutch-desk-with-3-storage-cabinet-in-walnut-finish-by-home-centre-lewis-hutch-desk-with-3-stor-b2dvfq.jpg",
+    value: "storage",
+  },
+  {
+    title: "Shop Counter",
+    imgUrl: "https://i.pinimg.com/736x/32/39/f8/3239f829270f84b5d10bfbdf91d15747.jpg",
+    value: "Shop Counter",
   },
 ];
 
@@ -35,10 +59,10 @@ function Subcategories(props) {
       <div className="container">
         <div className="row">
           <div className="col-12 center">
-            <span className="head-a ">Popular</span>
-          </div>
-          <div className="col-12 center">
-            <span className="desc-a">Our most-liked looks this month, all in one place.</span>
+            <div className="head-a ">
+              <span className="content">EXPLORE FURNITURE BY CATEGORIES</span>
+              <div className="border-item"></div>
+            </div>
           </div>
         </div>
         <div className="row">

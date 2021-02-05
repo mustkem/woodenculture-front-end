@@ -1,5 +1,8 @@
+@import "../../../../Assets/Style/variables.scss";
+
 .workshop-strip {
   margin-bottom: 120px;
+  margin-top: 120px;
 
   .HomepageContentCTA {
     padding: 16px 24%;
@@ -32,9 +35,15 @@
   p {
     color: inherit;
     font-size: 16px;
+    font-size: 18px;
+    padding: 61px;
+    line-height: 32px;
   }
   h2 {
     margin-bottom: 30px;
+    padding-top: 50px;
+    padding-left: 24px;
+    color: $gray-secondary;
   }
 
   .poster {
@@ -50,6 +59,7 @@
   .learn-more {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     height: 100%;
   }
 }

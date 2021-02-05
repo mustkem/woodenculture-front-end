@@ -78,19 +78,11 @@ function SecondaryHeader(props) {
           <p>Wooden Art that speaks for you</p>
           <ul>
             <li>
-              <a href="tel:+91-9314444747" className="contact-us ">
+              <a target="_blank" href="track-order-by-email">
                 <i className="call">
                   <IoIosCall />
                 </i>
-                +91-7777777777
-              </a>
-            </li>
-            <li>
-              <a target="_blank" href="track-order-by-email">
-                <i className="pin">
-                  <VscCallOutgoing />
-                </i>
-                Request a Callback
+                Get a Callback
               </a>
             </li>
             <li>
