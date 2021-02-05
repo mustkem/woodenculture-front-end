@@ -193,9 +193,12 @@ a {
   color: $success-color;
 }
 
-.primary-header li {
-  float: left;
+.nav-section {
+  .navigation-bar {
+    display: flex;
+  }
 }
+
 .primary {
   color: $primary-theme-color;
 }
@@ -209,8 +212,6 @@ a {
 
 .primary-header .nav-item {
   position: relative;
-  float: left;
-  z-index: 100;
 }
 
 .primary-header .nav-item > a {
@@ -276,9 +277,9 @@ a {
   .inner-dropdown {
     display: none;
   }
-  &:hover .inner-dropdown {
-    display: block;
-  }
+  // &:hover .inner-dropdown {
+  //   display: block;
+  // }
   .nav-link-inner {
     text-align: left;
   }
@@ -297,26 +298,11 @@ a {
   }
 }
 
-.nav-section {
-  float: left;
-}
-.logo {
-  float: left;
-}
-.clearfix:after {
-  content: "";
-  clear: both;
-}
 .right-pannel {
   margin-left: auto;
 }
 .right-pannel .track-shipment {
   text-decoration: none;
-}
-
-.right-pannel .track-shipment,
-.right-pannel .user-sec {
-  float: left;
 }
 
 // .button {
@@ -356,6 +342,7 @@ a {
 .App .header-wrap {
   background-color: #fff;
   color: #333;
+  box-shadow: 0px 1px 6px 0px #d9d8d87a;
 }
 
 .header-wrap {

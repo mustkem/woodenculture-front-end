@@ -35,7 +35,7 @@ function App() {
             <div className="router">
               <Layout>
                 <Switch>
-                  <Route exact path="/:category">
+                  <Route exact path="/category/:category">
                     <ProductList />
                   </Route>
                   {/* <Route exact path="/:category">

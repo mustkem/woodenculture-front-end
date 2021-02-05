@@ -6,26 +6,44 @@ import axios from "axios";
 import { API_URL } from "../../../config";
 
 const PrimaryHeader = () => {
-  const [menuData, setMenuData] = useState([]);
+  // useEffect(() => {
+  //   axios({
+  //     method: "get",
+  //     url: API_URL + "/common/main-menu",
+  //     headers: {
+  //       Authorization: "Bearer " + localStorage.getItem("woodenculture-token"),
+  //     },
+  //   })
+  //     .then(function (response) {
+  //       setMenuData(response.data.mainMenu);
+  //       return response.data;
+  //     })
+  //     .catch(function (error) {
+  //       console.log(error);
+  //     });
+  // }, []);
 
-  useEffect(() => {
-    axios({
-      method: "get",
-      url: API_URL + "/common/main-menu",
-      headers: {
-        Authorization: "Bearer " + localStorage.getItem("woodenculture-token"),
-      },
-    })
-      .then(function (response) {
-        setMenuData(response.data.mainMenu);
-        return response.data;
-      })
-      .catch(function (error) {
-        console.log(error);
+  const handleMouseEnter = (e) => {
+    const node = e.target;
+    const liNode = node.parentNode;
+
+    if (node instanceof HTMLElement) {
+      const child = liNode.querySelectorAll(".inner-dropdown")[0];
+      if (child) {
+        child.style.display = "block";
+      }
+    }
+  };
+
+  const handleMouseLeave = (e) => {
+    const node = e.target;
+    if (node instanceof HTMLElement) {
+      document.querySelectorAll(".inner-dropdown").forEach((node) => {
+        node.style.display = "none";
       });
-  }, []);
+    }
+  };
 
-  console.log("menuData", menuData);
   return (
     <Container>
       <div>
@@ -34,19 +52,39 @@ const PrimaryHeader = () => {
             <NavLink to="">WoodenCulture</NavLink>
           </div>
           <div className="nav-section">
-            <ul className="clearfix">
+            <ul className="navigation-bar">
               {menu.map((item) => {
                 return (
-                  <li className="nav-item inner-dropdown-parent">
-                    <NavLink class="nav-link" to={`${item.cate}`}>
+                  <li
+                    onMouseEnter={(e) => {
+                      handleMouseEnter(e);
+                    }}
+                    onMouseLeave={(e) => {
+                      handleMouseLeave(e);
+                    }}
+                    onClick={() => {
+                      document.querySelectorAll(".inner-dropdown").forEach((node) => {
+                        node.style.display = "none";
+                      });
+                    }}
+                    className="nav-item inner-dropdown-parent"
+                  >
+                    <NavLink class="nav-link" to={`/category/${item.cate}`}>
                       {item.title}
                     </NavLink>
                     <ul className="inner-dropdown">
                       {item.categories.map((item) => {
-                        console.log("item", item);
                         return (
                           <li className="nav-item">
-                            <NavLink class="nav-link-inner" to={`${item.cate}`}>
+                            <NavLink
+                              onClick={() => {
+                                document.querySelectorAll(".inner-dropdown").forEach((node) => {
+                                  node.style.display = "none";
+                                });
+                              }}
+                              class="nav-link-inner"
+                              to={`/category/${item.cate}`}
+                            >
                               {item.title}
                             </NavLink>
                           </li>
@@ -60,15 +98,30 @@ const PrimaryHeader = () => {
           </div>
 
           <div className="right-pannel">
-            <ul className="clearfix user-sec">
-              <li className="inner-dropdown-parent">
-                <NavLink to="/login">Company</NavLink>
-                <ul className="user-sec inner-dropdown">
-                  <li className="login-btn">
-                    <NavLink to="/login">Contact Us</NavLink>
+            <ul className="navigation-bar">
+              <li
+                onMouseEnter={(e) => {
+                  handleMouseEnter(e);
+                }}
+                onMouseLeave={(e) => {
+                  handleMouseLeave(e);
+                }}
+                onClick={() => {
+                  document.querySelectorAll(".inner-dropdown").forEach((node) => {
+                    node.style.display = "none";
+                  });
+                }}
+                className="nav-item inner-dropdown-parent"
+              >
+                <NavLink className="nav-link" to="/">
+                  Company
+                </NavLink>
+                <ul className="inner-dropdown">
+                  <li className="nav-item">
+                    <NavLink to="/contact-us">Contact Us</NavLink>
                   </li>
-                  <li className="login-btn">
-                    <NavLink to="/login">About Us</NavLink>
+                  <li className="nav-item">
+                    <NavLink to="/about-us">About Us</NavLink>
                   </li>
                 </ul>
               </li>
