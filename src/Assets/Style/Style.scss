@@ -226,7 +226,6 @@ a {
 }
 .header.primary-header .logo a:hover {
   text-decoration: none;
-  border: 0px;
 }
 
 .right-pannel .inner-dropdown-parent {
@@ -366,6 +365,8 @@ a {
   color: $primary-theme-color;
   // font-weight: bold;
   padding: 10px 50px 10px 00px;
+  display: flex;
+  align-items: center;
 }
 .logo a {
   color: $primary-theme-color;
@@ -376,6 +377,47 @@ a {
 
 .header .logo a {
   color: $primary-theme-color;
+  font-family: "Varela Round", sans-serif;
+  font-size: 21px;
+}
+
+.header .logo .logo-icon {
+  font-family: "Varela Round", sans-serif;
+  border: 2px solid $primary-theme-color;
+  color: $primary-theme-color;
+  border-color: linear-gradient(
+    to right bottom,
+    #d53425,
+    #de4737,
+    #e75949,
+    #ef695a,
+    #f6796c,
+    #f6796c,
+    #f6796c,
+    #f6796c,
+    #ef695a,
+    #e75949,
+    #de4737,
+    #d53425
+  );
+  border-radius: 6px;
+  margin-right: 10px;
+  display: inline-block;
+  line-height: 1;
+  .logo-icon-2 {
+    padding: 3px 8px;
+    display: inline-block;
+    line-height: 22px;
+    display: flex;
+    justify-content: 22px;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 0px;
+    padding-top: 4px;
+    color: $primary-theme-color;
+  }
 }
 .header .navbar {
   padding-bottom: 0;

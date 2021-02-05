@@ -49,7 +49,12 @@ const PrimaryHeader = () => {
       <div>
         <header className="header primary-header clearfix">
           <div className="logo">
-            <NavLink to="">WoodenCulture</NavLink>
+            <NavLink to="">
+              <span className="logo-icon">
+                <span className="logo-icon-2">W</span>
+              </span>
+              Wooden Culture
+            </NavLink>
           </div>
           <div className="nav-section">
             <ul className="navigation-bar">
