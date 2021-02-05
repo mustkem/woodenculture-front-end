@@ -37,10 +37,22 @@ const PrimaryHeader = () => {
             <ul className="clearfix">
               {menu.map((item) => {
                 return (
-                  <li className="nav-item">
-                    <NavLink class="active" to={`${item.cate}`}>
+                  <li className="nav-item inner-dropdown-parent">
+                    <NavLink class="nav-link" to={`${item.cate}`}>
                       {item.title}
                     </NavLink>
+                    <ul className="inner-dropdown">
+                      {item.categories.map((item) => {
+                        console.log("item", item);
+                        return (
+                          <li className="nav-item">
+                            <NavLink class="nav-link-inner" to={`${item.cate}`}>
+                              {item.title}
+                            </NavLink>
+                          </li>
+                        );
+                      })}
+                    </ul>
                   </li>
                 );
               })}
@@ -105,7 +117,7 @@ const menu = [
     categories: [
       {
         title: "Dining Tables",
-        cate: "Dining-tables",
+        cate: "dining-tables",
       },
       {
         title: "Dining Storage",
