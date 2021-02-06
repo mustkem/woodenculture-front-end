@@ -157,3 +157,26 @@
 .mb-100 {
   margin-bottom: 100px;
 }
+
+.btn-primary {
+  border: 0px solid transparent;
+  outline: 0px solid transparent;
+  color: #fff;
+  background-color: $primary-theme-color;
+  font-weight: bold;
+}
+
+.btn-round {
+  border-radius: 50%;
+}
+
+.btn-contact-us {
+  justify-content: center;
+  max-width: 150px;
+  align-items: center;
+  color: #fff;
+  border-radius: 50vw;
+  height: 50px;
+  text-decoration: none;
+  padding: 0 24px;
+}

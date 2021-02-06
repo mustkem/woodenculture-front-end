@@ -5,9 +5,9 @@ import "./style/index.scss";
 function ScreenBanner() {
   return (
     <div className="workshop-strip">
-      <div className="container">
-        <div className="row">
-          <div className="col-4">
+      <div className="">
+        <div className="content">
+          <div className="sec-1">
             <div className="learn-more">
               <div className="HomepageContentCTA-title">
                 <h2 className="pl-Heading pl-Heading--marketing-2" data-hb-id="pl-heading">
@@ -16,16 +16,18 @@ function ScreenBanner() {
               </div>
               <div className="HomepageContentCTA-subtitle">
                 <p className="pl-Text" data-hb-id="pl-text">
-                  Bring your furniture needs to us. We provide custom workshop at your door step.
-                  You have any furniture requirment we got you covered. We bring you excelence and
-                  quality.
+                  Furniture made easy at the comfort of your doorstep. Get in touch with us to
+                  discus your needs. We bring you excelence and quality.
                 </p>
+              </div>
+              <div>
+                <button className="btn-primary btn-contact-us">Get in touch</button>
               </div>
             </div>
           </div>
-          <div className="col-8 poster">
+          <div className="poster sec-2">
             <img
-              src="https://secure.img1-fg.wfcdn.com/im/52616384/resize-h1080-w1440%5Ecompr-r85/1287/128725774/Inspired+by%253A+Fall+Fashion.jpg"
+              src="https://cdn.shopify.com/s/files/1/1038/3444/collections/Furniture_manu_2048x.jpg?v=1521410094"
               alt=""
             />
           </div>

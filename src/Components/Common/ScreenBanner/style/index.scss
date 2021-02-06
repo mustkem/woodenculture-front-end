@@ -4,10 +4,21 @@
   margin-bottom: 120px;
   margin-top: 120px;
 
+  .content {
+    display: flex;
+  }
+
+  background-color: #f2f1f2;
+  color: rgb(33, 30, 34);
+  .sec-1 {
+    width: 50%;
+  }
+  .sec-2 {
+    width: 50%;
+  }
+
   .HomepageContentCTA {
     padding: 16px 24%;
-    display: -ms-flexbox;
-    display: flex;
     -ms-flex-direction: column;
     flex-direction: column;
     -ms-flex-pack: center;
@@ -19,35 +30,32 @@
     color: #211e22;
   }
   .HomepageContentCTA-title {
-    margin-bottom: 40px;
-    width: 100%;
-    max-width: 380px;
+    margin-bottom: 0px;
     text-align: center;
     margin-top: 4px;
+    padding: 0 88px;
   }
   .HomepageContentCTA-subtitle {
-    width: 100%;
-    max-width: 380px;
     text-align: center;
-    margin-top: 4px;
-    margin-bottom: 25px;
+    padding: 0 10%;
   }
   p {
     color: inherit;
     font-size: 16px;
-    font-size: 18px;
-    padding: 61px;
+    font-size: 15px;
+    padding: 10px 12%;
     line-height: 32px;
+    font-weight: bold;
   }
   h2 {
-    margin-bottom: 30px;
-    padding-top: 50px;
+    margin-bottom: 10px;
     padding-left: 24px;
     color: $gray-secondary;
+    font-size: 27px;
   }
 
   .poster {
-    height: 600px;
+    height: 500px;
     img {
       height: 100%;
       width: 100%;
@@ -57,9 +65,11 @@
   }
 
   .learn-more {
+    text-align: center;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    flex-wrap: wrap;
+    justify-content: space-evenly;
     height: 100%;
   }
 }
