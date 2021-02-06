@@ -88,11 +88,7 @@ function Products(props) {
                           return (
                             <div className="thumb-item">
                               <div className="thumb-content">
-                                <img
-                                  className="image"
-                                  src="https://woodenculture.s3.us-east-2.amazonaws.com/images/sub-cate-1.jpg"
-                                  alt=""
-                                />
+                                <img className="image" src={item.url} alt="" />
                               </div>
                             </div>
                           );
