@@ -10,8 +10,17 @@ import { path } from "ramda";
 import { Button } from "react-bootstrap";
 import { BsTagFill } from "react-icons/bs";
 import ReactImageMagnify from "react-image-magnify";
+import Slider from "react-slick";
 
 function Products(props) {
+  var settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 6,
+    slidesToScroll: 1,
+  };
+
   const [products, setProducts] = useState([]);
 
   const params = useParams();
@@ -53,7 +62,7 @@ function Products(props) {
                 <div className="row product-item">
                   <div className="col-6 sec-1">
                     <div className="poster">
-                      <img className="image" src={path(["images", 0, "url"], item)} alt="" />;
+                      <img className="image" src={path(["images", 0, "url"], item)} alt="" />
                       {/* <ReactImageMagnify
                         {...{
                           smallImage: {
@@ -70,13 +79,25 @@ function Products(props) {
                         }}
                       /> */}
                     </div>
-                    <div className="actions-product">
-                      <Button className="left" variant="outline-primary">
-                        Enquiry
-                      </Button>
-                      <Button className="right" variant="outline-primary">
-                        Get a call
-                      </Button>
+                    <div className="product-thumbs">
+                      <Slider
+                        {...settings}
+                        slidesToShow={item.images.length < 6 ? item.images.length : 6}
+                      >
+                        {[...item.images, ...item.images].map((item) => {
+                          return (
+                            <div className="thumb-item">
+                              <div className="thumb-content">
+                                <img
+                                  className="image"
+                                  src="https://woodenculture.s3.us-east-2.amazonaws.com/images/sub-cate-1.jpg"
+                                  alt=""
+                                />
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </Slider>
                     </div>
                   </div>
                   <div className="col-6">
@@ -84,6 +105,10 @@ function Products(props) {
                       <div className="title">{item.title}</div>
                     </div>
                     <p className="description">{item.description}</p>
+                    <div className="actions-product">
+                      <button className="bt-main left">Add to wishlist</button>
+                      <button className="bt-main right">Book now</button>
+                    </div>
                     <div className="features">
                       <div className="title-small">Features</div>
                       <div className="details">
@@ -106,7 +131,7 @@ function Products(props) {
         </div>
       </div>
       <ScreenBanner />
-      <ContactBar />
+      {/* <ContactBar /> */}
     </div>
   );
 }
