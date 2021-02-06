@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
+
 import Container from "react-bootstrap/Container";
 import { Modal, Button, Form } from "react-bootstrap";
 import { connect } from "react-redux";
+import { NavLink, useHistory } from "react-router-dom";
 
 import { commonActions } from "../../../../store/common";
 import { CgProfile } from "react-icons/cg";
@@ -12,6 +14,8 @@ import { IoIosCall } from "react-icons/io";
 import { VscCallOutgoing } from "react-icons/vsc";
 
 function SecondaryHeader(props) {
+  const history = useHistory();
+  const myProfileRef = useRef(null);
   const [show, setShow] = useState(false);
   const [isUserLogedin, showIsUserLogedin] = useState(false);
 
@@ -21,7 +25,12 @@ function SecondaryHeader(props) {
   const [signUpFormData, setSignUpFormData] = useState({ phone_num: "", password: "", name: "" });
 
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleShow = () => {
+    setShow(true);
+    document.querySelectorAll(".sub-dropdown").forEach((node) => {
+      node.style.display = "none";
+    });
+  };
 
   const handleChangeLogin = (key, e) => {
     const updatedFormData = { ...formDataLogin };
@@ -71,6 +80,21 @@ function SecondaryHeader(props) {
     }
   }, [props.userData.data?.userId]);
 
+  const handleClickOutside = (event) => {
+    if (myProfileRef.current && !myProfileRef.current.contains(event.target)) {
+      document.querySelectorAll(".sub-dropdown").forEach((node) => {
+        node.style.display = "none";
+      });
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("click", handleClickOutside, true);
+    return () => {
+      document.removeEventListener("click", handleClickOutside, true);
+    };
+  }, []);
+
   return (
     <div className="secondary-strip">
       <Container>
@@ -86,13 +110,56 @@ function SecondaryHeader(props) {
               </a>
             </li>
             <li>
-              {isUserLogedin ? (
-                <CgProfile />
-              ) : (
-                <button onClick={handleShow} className="bt-primary">
-                  Login
-                </button>
-              )}
+              <div ref={myProfileRef} className="profile-icon-sec">
+                {isUserLogedin ? (
+                  <CgProfile
+                    onClick={() => {
+                      document.querySelectorAll(".sub-dropdown").forEach((node) => {
+                        if (!node.style.display || node.style.display === "none") {
+                          node.style.display = "block";
+                        } else {
+                          node.style.display = "none";
+                        }
+                      });
+                    }}
+                    className="nav-item sub-dropdown-parent profile-icon"
+                  />
+                ) : (
+                  <button onClick={handleShow} className="bt-primary">
+                    Login
+                  </button>
+                )}
+                <ul className="sub-dropdown">
+                  {isUserLogedin && (
+                    <li className="nav-item">
+                      <NavLink
+                        onClick={() => {
+                          document.querySelectorAll(".sub-dropdown").forEach((node) => {
+                            node.style.display = "none";
+                          });
+                        }}
+                        class="nav-link-sub"
+                        to={`/`}
+                      >
+                        My Profile
+                      </NavLink>
+                    </li>
+                  )}
+                  <li className="nav-item">
+                    {isUserLogedin && (
+                      <button
+                        onClick={() => {
+                          localStorage.removeItem("woodenculture-token");
+                          history.go(0);
+                        }}
+                        className="bt-primary"
+                      >
+                        Logout
+                      </button>
+                    )}
+                  </li>
+                </ul>
+              </div>
             </li>
           </ul>
         </div>
