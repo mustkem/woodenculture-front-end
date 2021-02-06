@@ -425,7 +425,7 @@ a {
 }
 
 .footer {
-  padding-top: 50px;
+  padding-top: 100px;
 }
 
 .inner-banner {
@@ -521,13 +521,13 @@ h1 {
   padding: 30px;
 }
 
-.button.sol {
-  padding: 24px 30px;
-  font-size: 15px;
-  color: #fff;
-  background-color: $primary-theme-color;
-  border-radius: 10px;
-}
+// .button.sol {
+//   padding: 24px 30px;
+//   font-size: 15px;
+//   color: #fff;
+//   background-color: $primary-theme-color;
+//   border-radius: 10px;
+// }
 .solutions-wrp {
   margin-bottom: 56px;
 }
@@ -598,6 +598,13 @@ h1 {
 .footer .sec.more li {
   margin: 2px 0px;
 }
+.footer {
+  .description {
+    line-height: 26px;
+    padding: 10px;
+    padding-left: 0;
+  }
+}
 .footer .sec.more a {
   text-decoration: none;
   display: inline-block;
@@ -622,19 +629,19 @@ h1 {
   padding: 20px;
 }
 
-.transport-sec {
-  .list .list-item {
-    margin-bottom: 15px;
-  }
-  .align-right {
-    position: absolute;
-    right: 45px;
-    bottom: 19px;
-    button {
-      margin-left: 15px;
-    }
-  }
-}
+// .transport-sec {
+//   .list .list-item {
+//     margin-bottom: 15px;
+//   }
+//   .align-right {
+//     position: absolute;
+//     right: 45px;
+//     bottom: 19px;
+//     button {
+//       margin-left: 15px;
+//     }
+//   }
+// }
 
 .add-more {
   margin-right: 17px;
@@ -1168,4 +1175,57 @@ Input
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.social-reach {
+  padding-bottom: 50px;
+  .title {
+    font-size: 30px;
+    padding: 10px;
+    text-align: center;
+    font-weight: 400;
+  }
+  .card-item {
+    color: rgb(66, 66, 66);
+    padding: 10px;
+    background-color: transparent;
+    .name {
+      margin-bottom: 1px;
+      font-size: 13px;
+      text-align: left;
+      padding: 0 10px;
+    }
+    .figure {
+      width: 70px;
+    }
+    .card-content {
+      border: 1px solid #fbfbfb;
+      box-shadow: 0 5px 10px rgba(0, 9, 128, 0.035), 0 7px 18px rgba(0, 9, 128, 0.05);
+      border-radius: 7px;
+      padding: 20px 15px;
+      padding-top: 20px;
+      padding-bottom: 40px;
+      background: #fff;
+    }
+    text-align: center;
+
+    img {
+      height: 50px;
+      width: auto;
+      margin-bottom: 15px;
+      padding: 0 8px;
+      object-fit: contain;
+    }
+
+    p {
+      line-height: 21px;
+      text-align: left;
+      font-size: 14px;
+    }
+  }
+  .subtitle {
+    padding-bottom: 25px;
+    font-size: 18px;
+    text-align: center;
+  }
 }

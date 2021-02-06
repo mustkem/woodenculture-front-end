@@ -89,9 +89,9 @@ function SecondaryHeader(props) {
               {isUserLogedin ? (
                 <CgProfile />
               ) : (
-                <Button size="sm" variant="outline-dark" onClick={handleShow} className="button">
+                <button onClick={handleShow} className="bt-primary">
                   Login
-                </Button>
+                </button>
               )}
             </li>
           </ul>

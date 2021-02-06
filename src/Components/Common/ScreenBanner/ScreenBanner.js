@@ -21,7 +21,7 @@ function ScreenBanner() {
                 </p>
               </div>
               <div>
-                <button className="btn-primary btn-contact-us">Get in touch</button>
+                <button className="bt-primary bt-contact-us">Get in touch</button>
               </div>
             </div>
           </div>

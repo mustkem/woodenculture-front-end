@@ -158,19 +158,23 @@
   margin-bottom: 100px;
 }
 
-.btn-primary {
-  border: 0px solid transparent;
+.bt-primary {
+  border: 1px solid transparent;
   outline: 0px solid transparent;
-  color: #fff;
-  background-color: $primary-theme-color;
-  font-weight: bold;
+  padding: 7px 10px;
+  border-radius: 4px;
+  background-color: transparent;
 }
 
-.btn-round {
+.bt-primary:hover {
+  color: $primary-theme-color;
+}
+
+.bt-round {
   border-radius: 50%;
 }
 
-.btn-contact-us {
+.bt-contact-us {
   justify-content: center;
   max-width: 150px;
   align-items: center;
@@ -179,4 +183,5 @@
   height: 50px;
   text-decoration: none;
   padding: 0 24px;
+  background-color: $primary-theme-color;
 }

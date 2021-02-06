@@ -11,9 +11,9 @@ function Footer() {
         <div className="footer-wrp">
           <div className="sec about-us">
             <div className="logo">
-              <a href="">WoodenCulture</a>
+              <a href="">Wooden Culture</a>
             </div>
-            <ul className="">
+            <ul className="description">
               <li>
                 <p>
                   We are pioneer in furniture manufacturing and designing, working in this field

@@ -9,6 +9,8 @@ import Banner from "./components/Banner";
 import Subcategories from "./components/Subcategories";
 import ScreenBanner from "../Common/ScreenBanner";
 
+import FeedBacks from "./components/OurCustomers";
+
 function Home(props) {
   const { fetchSubCategories, subCategories } = props;
 
@@ -28,7 +30,8 @@ function Home(props) {
       <Banner />
       <Subcategories subCategoriesDetails={subCategoriesDetails} />
       <ScreenBanner />
-      <div className="social-reach">
+      <FeedBacks />
+      {/* <div className="social-reach">
         <Container>
           <h2>What do people say about us</h2>
           <ul className="social-feedback">
@@ -43,7 +46,7 @@ function Home(props) {
             </li>
           </ul>
         </Container>
-      </div>
+      </div> */}
     </div>
   );
 }
