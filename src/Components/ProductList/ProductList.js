@@ -4,23 +4,11 @@ import { useParams } from "react-router-dom";
 
 import "./style/index.scss";
 import ScreenBanner from "../Common/ScreenBanner";
-import ContactBar from "../Common/ContactBar";
 import { API_URL } from "../../config";
-import { path } from "ramda";
-import { Button } from "react-bootstrap";
-import { BsTagFill } from "react-icons/bs";
-import ReactImageMagnify from "react-image-magnify";
-import Slider from "react-slick";
+
+import ProductItem from "./components/ProductItem";
 
 function Products(props) {
-  var settings = {
-    dots: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 6,
-    slidesToScroll: 1,
-  };
-
   const [products, setProducts] = useState([]);
 
   const params = useParams();
@@ -58,76 +46,12 @@ function Products(props) {
         <div className="container">
           <div className="product-list">
             {products.map((item) => {
-              return (
-                <div className="row product-item">
-                  <div className="col-6 sec-1">
-                    <div className="poster">
-                      <img className="image" src={path(["images", 0, "url"], item)} alt="" />
-                      {/* <ReactImageMagnify
-                        {...{
-                          smallImage: {
-                            alt: item.title,
-                            isFluidWidth: true,
-                            src: path(["images", 0, "url"], item),
-                            height: 400,
-                          },
-                          largeImage: {
-                            src: path(["images", 0, "url"], item),
-                            height: 800,
-                            width: 700,
-                          },
-                        }}
-                      /> */}
-                    </div>
-                    <div className="product-thumbs">
-                      <Slider
-                        {...settings}
-                        slidesToShow={item.images.length < 6 ? item.images.length : 6}
-                      >
-                        {[...item.images, ...item.images].map((item) => {
-                          return (
-                            <div className="thumb-item">
-                              <div className="thumb-content">
-                                <img className="image" src={item.url} alt="" />
-                              </div>
-                            </div>
-                          );
-                        })}
-                      </Slider>
-                    </div>
-                  </div>
-                  <div className="col-6">
-                    <div className="head-sec">
-                      <div className="title">{item.title}</div>
-                    </div>
-                    <p className="description">{item.description}</p>
-                    <div className="actions-product">
-                      <button className="bt-main left">Add to wishlist</button>
-                      <button className="bt-main right">Book now</button>
-                    </div>
-                    <div className="features">
-                      <div className="title-small">Features</div>
-                      <div className="details">
-                        {item.features.map((item) => {
-                          return (
-                            <div className="features-row">
-                              <BsTagFill className="icon" />
-                              <strong>{item.title}</strong>
-                              <span>{item.desc}</span>
-                            </div>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              );
+              return <ProductItem item={item} key={item._id} />;
             })}
           </div>
         </div>
       </div>
       <ScreenBanner />
-      {/* <ContactBar /> */}
     </div>
   );
 }
