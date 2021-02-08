@@ -386,21 +386,7 @@ a {
   font-family: "Varela Round", sans-serif;
   border: 2px solid $primary-theme-color;
   color: $primary-theme-color;
-  border-color: linear-gradient(
-    to right bottom,
-    #d53425,
-    #de4737,
-    #e75949,
-    #ef695a,
-    #f6796c,
-    #f6796c,
-    #f6796c,
-    #f6796c,
-    #ef695a,
-    #e75949,
-    #de4737,
-    #d53425
-  );
+  border-color: $primary-theme-color;
   border-radius: 6px;
   margin-right: 10px;
   display: inline-block;
