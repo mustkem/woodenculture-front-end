@@ -203,14 +203,19 @@ const menu = [
       },
     ],
   },
+  // {
+  //   title: "Floor",
+  //   cate: "floor",
+  //   categories: [
+  //     {
+  //       title: "Mapple Flooring",
+  //       cate: "mapple-flooring",
+  //     },
+  //   ],
+  // },
   {
-    title: "Floor",
-    cate: "floor",
-    categories: [
-      {
-        title: "Mapple Flooring",
-        cate: "mapple-flooring",
-      },
-    ],
+    title: "Modular Kitchen",
+    cate: "modular-kitchen",
+    categories: [],
   },
 ];

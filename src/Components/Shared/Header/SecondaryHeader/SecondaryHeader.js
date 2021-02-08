@@ -110,8 +110,8 @@ function SecondaryHeader(props) {
               </a>
             </li>
             <li>
-              <div ref={myProfileRef} className="profile-icon-sec">
-                {isUserLogedin ? (
+              {isUserLogedin ? (
+                <div ref={myProfileRef} className="profile-icon-sec">
                   <CgProfile
                     onClick={() => {
                       document.querySelectorAll(".sub-dropdown").forEach((node) => {
@@ -124,42 +124,43 @@ function SecondaryHeader(props) {
                     }}
                     className="nav-item sub-dropdown-parent profile-icon"
                   />
-                ) : (
-                  <button onClick={handleShow} className="bt-primary">
-                    Login
-                  </button>
-                )}
-                <ul className="sub-dropdown">
-                  {isUserLogedin && (
-                    <li className="nav-item">
-                      <NavLink
-                        onClick={() => {
-                          document.querySelectorAll(".sub-dropdown").forEach((node) => {
-                            node.style.display = "none";
-                          });
-                        }}
-                        class="nav-link-sub"
-                        to={`/`}
-                      >
-                        My Profile
-                      </NavLink>
-                    </li>
-                  )}
-                  <li className="nav-item">
+
+                  <ul className="sub-dropdown">
                     {isUserLogedin && (
-                      <button
-                        onClick={() => {
-                          localStorage.removeItem("woodenculture-token");
-                          history.go(0);
-                        }}
-                        className="bt-primary"
-                      >
-                        Logout
-                      </button>
+                      <li className="nav-item">
+                        <NavLink
+                          onClick={() => {
+                            document.querySelectorAll(".sub-dropdown").forEach((node) => {
+                              node.style.display = "none";
+                            });
+                          }}
+                          class="nav-link-sub"
+                          to={`/`}
+                        >
+                          My Profile
+                        </NavLink>
+                      </li>
                     )}
-                  </li>
-                </ul>
-              </div>
+                    <li className="nav-item">
+                      {isUserLogedin && (
+                        <button
+                          onClick={() => {
+                            localStorage.removeItem("woodenculture-token");
+                            history.go(0);
+                          }}
+                          className="bt-primary"
+                        >
+                          Logout
+                        </button>
+                      )}
+                    </li>
+                  </ul>
+                </div>
+              ) : (
+                <button onClick={handleShow} className="bt-primary">
+                  Login
+                </button>
+              )}
             </li>
           </ul>
         </div>
