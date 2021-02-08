@@ -72,8 +72,8 @@ function ProductItem(props) {
 
   const isAddedToWishlist = (productId) => {
     let flag = false;
-    user.user.wishlist &&
-      wishlist.forEach((item) => {
+    user.wishlist &&
+      user.wishlist.forEach((item) => {
         if (item.productId === productId && item.status) {
           flag = true;
         }
