@@ -31,7 +31,6 @@ function ProductItem(props) {
   const dispatch = useDispatch();
 
   const { item, user, getProducts } = props;
-  console.log("user", user.wishlist);
   const [nav1, setNav1] = React.useState(null);
   const [nav2, setNav2] = React.useState(null);
 
@@ -73,11 +72,12 @@ function ProductItem(props) {
 
   const isAddedToWishlist = (productId) => {
     let flag = false;
-    user.wishlist.forEach((item) => {
-      if (item.productId === productId && item.status) {
-        flag = true;
-      }
-    });
+    user.user.wishlist &&
+      wishlist.forEach((item) => {
+        if (item.productId === productId && item.status) {
+          flag = true;
+        }
+      });
     return flag;
   };
 
