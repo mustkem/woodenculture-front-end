@@ -1,7 +1,7 @@
 import { call, put, takeLatest } from "redux-saga/effects";
 
 import * as types from "./types";
-import { login as loginApi, signup as signupApi } from "./api";
+import { login as loginApi, signup as signupApi, getUserStatus as getUserStatusApi } from "./api";
 
 // worker Saga: will be fired on USER_FETCH_REQUESTED actions
 function* login(action) {
@@ -36,6 +36,22 @@ function* signup(action) {
   }
 }
 
+function* getUserStatus(action) {
+  try {
+    // do api call
+    const response = yield call(getUserStatusApi, action.payload);
+    yield put({
+      type: types.GET_USER_STATUS_SUCCESS,
+      payload: response,
+    });
+  } catch (error) {
+    yield put({
+      type: types.GET_USER_STATUS_FAILED,
+      error: error && error.message,
+    });
+  }
+}
+
 /*
   Alternatively you may use takeLatest.
 
@@ -46,4 +62,5 @@ function* signup(action) {
 export default function* commonSagas() {
   yield takeLatest(types.LOGIN, login);
   yield takeLatest(types.SIGNUP, signup);
+  yield takeLatest(types.GET_USER_STATUS, getUserStatus);
 }

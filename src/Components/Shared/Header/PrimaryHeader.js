@@ -2,26 +2,17 @@ import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { commonActions } from "../../../store/common";
 
 import { API_URL } from "../../../config";
 
 const PrimaryHeader = () => {
-  // useEffect(() => {
-  //   axios({
-  //     method: "get",
-  //     url: API_URL + "/common/main-menu",
-  //     headers: {
-  //       Authorization: "Bearer " + localStorage.getItem("woodenculture-token"),
-  //     },
-  //   })
-  //     .then(function (response) {
-  //       setMenuData(response.data.mainMenu);
-  //       return response.data;
-  //     })
-  //     .catch(function (error) {
-  //       console.log(error);
-  //     });
-  // }, []);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(commonActions.getUserStatus());
+  }, []);
 
   const handleMouseEnter = (e) => {
     const node = e.target;

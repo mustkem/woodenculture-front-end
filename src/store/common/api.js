@@ -31,3 +31,19 @@ export const signup = async (payload) => {
       return { status: false };
     });
 };
+
+export const getUserStatus = async (payload) => {
+  return axios({
+    method: "get",
+    url: API_URL + "/auth/status",
+    headers: {
+      Authorization: "Bearer " + localStorage.getItem("woodenculture-token"),
+    },
+  })
+    .then(function (response) {
+      return { user: response.data?.user };
+    })
+    .catch(function (error) {
+      return { status: false };
+    });
+};

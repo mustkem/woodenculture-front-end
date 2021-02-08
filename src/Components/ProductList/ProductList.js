@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 
 import "./style/index.scss";
 import ScreenBanner from "../Common/ScreenBanner";
@@ -11,10 +12,19 @@ import ProductItem from "./components/ProductItem";
 function Products(props) {
   const [products, setProducts] = useState([]);
 
+  const user = useSelector((state) => {
+    console.log("state", state);
+    return state.common?.user?.data?.user;
+  });
+
   const params = useParams();
   const cate = params.category;
 
   React.useEffect(() => {
+    getProducts();
+  }, [cate]);
+
+  const getProducts = () => {
     axios({
       method: "get",
       url: API_URL + "/common/category/" + cate,
@@ -29,7 +39,7 @@ function Products(props) {
       .catch(function (error) {
         console.log(error);
       });
-  }, [cate]);
+  };
 
   return (
     <div>
@@ -46,7 +56,9 @@ function Products(props) {
         <div className="container">
           <div className="product-list">
             {products.map((item) => {
-              return <ProductItem item={item} key={item._id} />;
+              return (
+                <ProductItem getProducts={getProducts} user={user} item={item} key={item._id} />
+              );
             })}
           </div>
         </div>

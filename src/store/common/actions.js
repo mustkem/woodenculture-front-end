@@ -14,3 +14,10 @@ export const signup = (payload) => {
     payload,
   };
 };
+
+export const getUserStatus = (payload) => {
+  return {
+    type: types.GET_USER_STATUS,
+    payload,
+  };
+};

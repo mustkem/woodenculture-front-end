@@ -67,6 +67,13 @@ const user = (state = initialState.user, action) => {
         error: action.error,
       };
     }
+    case types.GET_USER_STATUS_SUCCESS: {
+      state.data = action.payload;
+      return {
+        ...state,
+        loading: false,
+      };
+    }
     default:
       return state;
   }
