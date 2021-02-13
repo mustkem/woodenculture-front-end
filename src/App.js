@@ -22,7 +22,7 @@ import appStore from "./store/store";
 import Layout from "./Components/Layout";
 
 import Home from "./Components/Home";
-import SubCategories from "./Components/SubCategories";
+import Wishlist from "./Components/Wishlist";
 import ProductList from "./Components/ProductList";
 
 function App() {
@@ -37,6 +37,9 @@ function App() {
                 <Switch>
                   <Route exact path="/category/:category">
                     <ProductList />
+                  </Route>
+                  <Route exact path="/wishlist">
+                    <Wishlist />
                   </Route>
                   {/* <Route exact path="/:category">
                     <SubCategories />

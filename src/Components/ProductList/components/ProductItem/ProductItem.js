@@ -72,7 +72,8 @@ function ProductItem(props) {
 
   const isAddedToWishlist = (productId) => {
     let flag = false;
-    user.wishlist &&
+    user &&
+      user.wishlist &&
       user.wishlist.forEach((item) => {
         if (item.productId === productId && item.status) {
           flag = true;
@@ -85,15 +86,16 @@ function ProductItem(props) {
     <div className="row product-item">
       <div className="col-6 sec-1">
         <Slider {...settingProduct} asNavFor={nav2} ref={(slider) => (slider1 = slider)}>
-          {item.images.map((item) => {
-            return (
-              <div>
-                <div className="poster">
-                  <img className="image" src={item.url} alt="" />
+          {item.images &&
+            item.images.map((item) => {
+              return (
+                <div>
+                  <div className="poster">
+                    <img className="image" src={item.url} alt="" />
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
         </Slider>
         <div className="product-thumbs">
           <Slider
@@ -121,24 +123,37 @@ function ProductItem(props) {
         </div>
         <p className="description">{item?.description}</p>
         <div className="actions-product">
-          {isAddedToWishlist(item._id) ? (
+          {props.wishlistPage ? (
             <button
               onClick={() => {
-                handleAddWishlist(item._id, false);
+                props.removeFromWishlist(item._id);
               }}
               className="bt-main left"
             >
-              Added to wishlist
+              Remove from wishlist
             </button>
           ) : (
-            <button
-              onClick={() => {
-                handleAddWishlist(item._id, true);
-              }}
-              className="bt-main left"
-            >
-              Add to wishlist
-            </button>
+            <>
+              {isAddedToWishlist(item._id) ? (
+                <button
+                  onClick={() => {
+                    handleAddWishlist(item._id, false);
+                  }}
+                  className="bt-main left"
+                >
+                  Added to wishlist
+                </button>
+              ) : (
+                <button
+                  onClick={() => {
+                    handleAddWishlist(item._id, true);
+                  }}
+                  className="bt-main left"
+                >
+                  Add to wishlist
+                </button>
+              )}
+            </>
           )}
 
           <button className="bt-main right">Book now</button>

@@ -21,3 +21,10 @@ export const getUserStatus = (payload) => {
     payload,
   };
 };
+
+export const setLoginModel = (payload) => {
+  return {
+    type: types.SET_LOGIN_MODEL,
+    payload,
+  };
+};

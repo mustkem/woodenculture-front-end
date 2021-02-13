@@ -13,3 +13,5 @@ export const SIGNUP_CLEAR = `${moduleName}/SIGNUP_CLEAR`;
 export const GET_USER_STATUS = `${moduleName}/GET_USER_STATUS`;
 export const GET_USER_STATUS_SUCCESS = `${moduleName}/GET_USER_STATUS_SUCCESS`;
 export const GET_USER_STATUS_FAILED = `${moduleName}/GET_USER_STATUS_FAILED`;
+
+export const SET_LOGIN_MODEL = `${moduleName}/SET_LOGIN_MODEL`;

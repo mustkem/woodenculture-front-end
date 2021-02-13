@@ -42,16 +42,16 @@ function Products(props) {
   };
 
   return (
-    <div>
-      <div className="header-strip-product-list">
+    <div className="product-list-page">
+      {/* <div className="header-strip-product-list">
         <div className="container">
-          {/* <div className="row">
+          <div className="row">
             <div className="col">
               <span>Bedroom</span>
             </div>
-          </div> */}
+          </div>
         </div>
-      </div>
+      </div> */}
       <div className="product-list-strip">
         <div className="container">
           <div className="product-list">
@@ -69,38 +69,3 @@ function Products(props) {
 }
 
 export default Products;
-
-const metaData = {
-  "living-room": {
-    title: "Living Room",
-    desc: "Living Rooms",
-  },
-  bedroom: {
-    title: "Bedroom",
-    desc: "Fine Bedrooms",
-  },
-  "double-bed": {
-    title: "Double Bed",
-    desc: "Fine Bedrooms",
-  },
-  dining: {
-    title: "Dining",
-    desc: "Living Rooms",
-  },
-  office: {
-    title: "Office",
-    desc: "Living Rooms",
-  },
-  kids: {
-    title: "Kids",
-    desc: "Living Rooms",
-  },
-  decor: {
-    title: "Decor",
-    desc: "Living Rooms",
-  },
-  bar: {
-    title: "Bar",
-    desc: "Living Rooms",
-  },
-};

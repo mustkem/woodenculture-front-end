@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Container from "react-bootstrap/Container";
 import { Modal, Button, Form } from "react-bootstrap";
 import { connect } from "react-redux";
-import { NavLink, useHistory } from "react-router-dom";
+import { NavLink, useHistory, Link } from "react-router-dom";
 
 import { commonActions } from "../../../../store/common";
 import { CgProfile } from "react-icons/cg";
@@ -11,7 +11,7 @@ import { CgProfile } from "react-icons/cg";
 import "./style/index.scss";
 
 import { IoIosCall } from "react-icons/io";
-import { VscCallOutgoing } from "react-icons/vsc";
+import Login from "../../../Login";
 
 function SecondaryHeader(props) {
   const history = useHistory();
@@ -26,7 +26,7 @@ function SecondaryHeader(props) {
 
   const handleClose = () => setShow(false);
   const handleShow = () => {
-    setShow(true);
+    props.setLoginModel(true);
     document.querySelectorAll(".sub-dropdown").forEach((node) => {
       node.style.display = "none";
     });
@@ -126,33 +126,34 @@ function SecondaryHeader(props) {
                   />
 
                   <ul className="sub-dropdown">
-                    {isUserLogedin && (
-                      <li className="nav-item">
-                        <NavLink
-                          onClick={() => {
-                            document.querySelectorAll(".sub-dropdown").forEach((node) => {
-                              node.style.display = "none";
-                            });
-                          }}
-                          class="nav-link-sub"
-                          to={`/`}
-                        >
-                          My Profile
-                        </NavLink>
-                      </li>
-                    )}
                     <li className="nav-item">
-                      {isUserLogedin && (
-                        <button
-                          onClick={() => {
-                            localStorage.removeItem("woodenculture-token");
-                            history.go(0);
-                          }}
-                          className="bt-primary"
-                        >
-                          Logout
-                        </button>
-                      )}
+                      <NavLink
+                        onClick={() => {
+                          document.querySelectorAll(".sub-dropdown").forEach((node) => {
+                            node.style.display = "none";
+                          });
+                        }}
+                        class="nav-link-sub"
+                        to={`/`}
+                      >
+                        My Profile
+                      </NavLink>
+                    </li>
+                    <li className="nav-item">
+                      <button className="bt-primary">
+                        <Link to="/wishlist">My Wishlist</Link>
+                      </button>
+                    </li>
+                    <li className="nav-item">
+                      <button
+                        onClick={() => {
+                          localStorage.removeItem("woodenculture-token");
+                          history.go(0);
+                        }}
+                        className="bt-primary"
+                      >
+                        Logout
+                      </button>
                     </li>
                   </ul>
                 </div>
@@ -165,110 +166,8 @@ function SecondaryHeader(props) {
           </ul>
         </div>
       </Container>
-      <Modal show={show} onHide={handleClose} className="login-modal">
-        <Modal.Body>
-          <div className="login-wrapper">
-            <div className="sec-1">
-              <h2>Login</h2>
-              <p>Get access to your Wishlist and Recommendations and Orders</p>
-            </div>
-            <div className="sec-2">
-              <div className="form-body">
-                {shouldShowLoginForm ? (
-                  <Form onSubmit={handleSubmitLogin}>
-                    <Form.Group controlId="formBasicEmail">
-                      <Form.Label>Mobile Number</Form.Label>
-                      <Form.Control
-                        type="text"
-                        placeholder="Enter mobile number"
-                        onChange={(e) => {
-                          handleChangeLogin("phone_num", e);
-                        }}
-                        value={formDataLogin.phone_num}
-                      />
-                    </Form.Group>
-                    <Form.Group controlId="formBasicPassword">
-                      <Form.Label>Password</Form.Label>
-                      <Form.Control
-                        type="text"
-                        placeholder="Password"
-                        onChange={(e) => {
-                          handleChangeLogin("password", e);
-                        }}
-                        value={formDataLogin.password}
-                      />
-                    </Form.Group>
-                    <div className="button-grp">
-                      <Button
-                        onClick={() => {
-                          setShouldShowLoginForm(!shouldShowLoginForm);
-                        }}
-                        variant="outline-primary"
-                        type="button"
-                      >
-                        Create account
-                      </Button>
-                      <Button variant="primary" type="submit">
-                        Submit
-                      </Button>
-                    </div>
-                  </Form>
-                ) : (
-                  <Form onSubmit={handleSubmitSignup}>
-                    <Form.Group controlId="formBasicEmail">
-                      <Form.Label>Name</Form.Label>
-                      <Form.Control
-                        type="text"
-                        placeholder="Enter Name"
-                        onChange={(e) => {
-                          handleChangeSignup("name", e);
-                        }}
-                        value={signUpFormData.name}
-                      />
-                    </Form.Group>
-                    <Form.Group controlId="formBasicEmail">
-                      <Form.Label>Mobile Number</Form.Label>
-                      <Form.Control
-                        type="text"
-                        placeholder="Enter mobile number"
-                        onChange={(e) => {
-                          handleChangeSignup("phone_num", e);
-                        }}
-                        value={signUpFormData.phone_num}
-                      />
-                    </Form.Group>
-                    <Form.Group controlId="formBasicPassword">
-                      <Form.Label>Password</Form.Label>
-                      <Form.Control
-                        type="text"
-                        placeholder="Password"
-                        onChange={(e) => {
-                          handleChangeSignup("password", e);
-                        }}
-                        value={signUpFormData.password}
-                      />
-                    </Form.Group>
-                    <div className="button-grp">
-                      <Button
-                        onClick={() => {
-                          setShouldShowLoginForm(!shouldShowLoginForm);
-                        }}
-                        variant="outline-primary"
-                        type="button"
-                      >
-                        Login
-                      </Button>
-                      <Button variant="primary" type="submit">
-                        Submit
-                      </Button>
-                    </div>
-                  </Form>
-                )}
-              </div>
-            </div>
-          </div>
-        </Modal.Body>
-      </Modal>
+
+      <Login />
     </div>
   );
 }
@@ -281,10 +180,11 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-  const { login, signup } = commonActions;
+  const { login, signup, setLoginModel } = commonActions;
   return {
     login: (payload) => dispatch(login(payload)),
     signup: (payload) => dispatch(signup(payload)),
+    setLoginModel: (payload) => dispatch(setLoginModel(payload)),
   };
 };
 

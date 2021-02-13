@@ -9,6 +9,10 @@ const initialState = {
   },
 };
 
+const duckData = {
+  loginModel: false,
+};
+
 const signupData = {
   data: { status: false },
   loading: true,
@@ -74,6 +78,20 @@ const user = (state = initialState.user, action) => {
         loading: false,
       };
     }
+
+    default:
+      return state;
+  }
+};
+
+const duck = (state = duckData, action) => {
+  switch (action.type) {
+    case types.SET_LOGIN_MODEL: {
+      return {
+        ...state,
+        loginModel: action.payload,
+      };
+    }
     default:
       return state;
   }
@@ -82,4 +100,5 @@ const user = (state = initialState.user, action) => {
 export const commonReducer = combineReducers({
   user,
   signup,
+  duck,
 });

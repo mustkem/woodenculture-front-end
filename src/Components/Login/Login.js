@@ -1,114 +1,220 @@
-import React, { useRef, useEffect } from "react";
-import Button from "react-bootstrap/Button";
-import { Link } from "react-router-dom";
-import { Formik, Form, useField } from "formik";
-import * as Yup from "yup";
-import { useDispatch, useSelector } from "react-redux";
-import { path } from "ramda";
-import { login } from "../../store/actions";
-import { parse } from "query-string";
-import { useHistory, useParams, useLocation } from "react-router-dom";
+import React, { useState, useEffect, useRef } from "react";
 
-import Layout from "../Layout/Layout";
-import ButtonSpinner from "../Shared/ButtonSpinner";
+import { Modal, Button, Form } from "react-bootstrap";
+import { connect } from "react-redux";
+import { useHistory } from "react-router-dom";
 
-const MyTextInput = ({ label, ...props }) => {
-  // useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
-  // which we can spread on <input> and also replace ErrorMessage entirely.
-  const [field, meta] = useField(props);
+import { commonActions } from "../../store/common";
+
+function Login(props) {
+  const history = useHistory();
+  const myProfileRef = useRef(null);
+  const [show, setShow] = useState(false);
+  const [isUserLogedin, showIsUserLogedin] = useState(false);
+
+  const [shouldShowLoginForm, setShouldShowLoginForm] = useState(true);
+
+  const [formDataLogin, setFormData] = useState({ phone_num: "", password: "" });
+  const [signUpFormData, setSignUpFormData] = useState({ phone_num: "", password: "", name: "" });
+
+  const handleClose = () => {
+    props.setLoginModel(false);
+  };
+
+  const handleChangeLogin = (key, e) => {
+    const updatedFormData = { ...formDataLogin };
+
+    updatedFormData[key] = e.target.value;
+
+    setFormData(updatedFormData);
+  };
+
+  const handleChangeSignup = (key, e) => {
+    const updatedSignUpFormData = { ...signUpFormData };
+
+    updatedSignUpFormData[key] = e.target.value;
+
+    setSignUpFormData(updatedSignUpFormData);
+  };
+
+  const handleSubmitLogin = (e) => {
+    e.preventDefault();
+
+    props.login({
+      phone_num: formDataLogin.phone_num,
+      password: formDataLogin.password,
+    });
+  };
+
+  const handleSubmitSignup = (e) => {
+    e.preventDefault();
+
+    props.signup({
+      phone_num: signUpFormData.phone_num,
+      password: signUpFormData.password,
+      name: signUpFormData.name,
+    });
+  };
+
+  useEffect(() => {
+    if (props.signupData?.data?.status) {
+      setShouldShowLoginForm(true);
+    }
+  }, [props.signupData?.data?.status]);
+
+  useEffect(() => {
+    if (props.userData.data?.userId) {
+      showIsUserLogedin(true);
+      setShow(false);
+    }
+  }, [props.userData.data?.userId]);
+
+  useEffect(() => {
+    if (!props.userData.loading) {
+      handleClose();
+    }
+  }, [props.userData.loading]);
+
+  const handleClickOutside = (event) => {
+    if (myProfileRef.current && !myProfileRef.current.contains(event.target)) {
+      document.querySelectorAll(".sub-dropdown").forEach((node) => {
+        node.style.display = "none";
+      });
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("click", handleClickOutside, true);
+    return () => {
+      document.removeEventListener("click", handleClickOutside, true);
+    };
+  }, []);
+
   return (
-    <div className="ip-field-wrp">
-      <label htmlFor={props.id || props.name}>{label}</label>
-      <input className="text-input" {...field} {...props} />
-      {meta.touched && meta.error ? <div className="error">{meta.error}</div> : null}
-    </div>
-  );
-};
-
-function Login() {
-  const dispatch = useDispatch();
-  const loading = useSelector((state) => {
-    return path(["user", "user", "loading"], state);
-  });
-
-  const myFormRef = useRef(null);
-
-  let history = useHistory();
-  const location = useLocation();
-  const query = parse(location.search);
-
-  return (
-    <div className="login-page">
-      {
-        <Layout>
-          <div className="login-content">
-            <div class="log-form medium-size">
-              <div className="inner-wrp">
-                <h2>Login</h2>
-                <Formik
-                  initialValues={{
-                    password: "",
-                    email: "",
-                  }}
-                  validationSchema={Yup.object({
-                    password: Yup.string()
-                      .max(15, "Must be 15 characters or less")
-                      .required("Required"),
-                    email: Yup.string().email("Invali`d email address").required("Required"),
-                  })}
-                  onSubmit={(values, { setSubmitting }) => {
-                    setSubmitting(false);
-                    const formNode = myFormRef.current;
-                    formNode.querySelectorAll("input").forEach((item) => {
-                      item.blur();
-                    });
-
-                    dispatch(login(values)).then(() => {
-                      if (query["target-url"]) {
-                        history.push(query["target-url"]);
-                      } else {
-                        history.push("/dashboard/orders");
-                      }
-                    });
-                  }}
-                >
-                  <Form ref={myFormRef}>
-                    <MyTextInput
-                      autoFocus
-                      className="form-control"
-                      label="Email Address"
-                      name="email"
-                      type="email"
-                      placeholder="Email"
-                    />
-
-                    <MyTextInput
-                      className="form-control"
-                      type="text"
-                      placeholder="Password"
-                      label="Password"
-                      name="password"
-                    />
-                    <div className="btn-wrp">
-                      <Button className="align-right login-btn" type="submit">
-                        <span>Login</span>
-                        {loading && <ButtonSpinner />}
+    <div className="secondary-strip">
+      <Modal show={props.loginModel} onHide={handleClose} className="login-modal">
+        <Modal.Body>
+          <div className="login-wrapper">
+            <div className="sec-1">
+              <h2>Login</h2>
+              <p>Get access to your Wishlist and Recommendations and Orders</p>
+            </div>
+            <div className="sec-2">
+              <div className="form-body">
+                {shouldShowLoginForm ? (
+                  <Form onSubmit={handleSubmitLogin}>
+                    <Form.Group controlId="formBasicEmail">
+                      <Form.Label>Mobile Number</Form.Label>
+                      <Form.Control
+                        type="text"
+                        placeholder="Enter mobile number"
+                        onChange={(e) => {
+                          handleChangeLogin("phone_num", e);
+                        }}
+                        value={formDataLogin.phone_num}
+                      />
+                    </Form.Group>
+                    <Form.Group controlId="formBasicPassword">
+                      <Form.Label>Password</Form.Label>
+                      <Form.Control
+                        type="text"
+                        placeholder="Password"
+                        onChange={(e) => {
+                          handleChangeLogin("password", e);
+                        }}
+                        value={formDataLogin.password}
+                      />
+                    </Form.Group>
+                    <div className="button-grp">
+                      <Button
+                        onClick={() => {
+                          setShouldShowLoginForm(!shouldShowLoginForm);
+                        }}
+                        variant="outline-primary"
+                        type="button"
+                      >
+                        Create account
+                      </Button>
+                      <Button variant="primary" type="submit">
+                        Submit
                       </Button>
                     </div>
-                    <div className="btn-wrp">
-                      <span className="vertical-space inline-block">
-                        <Link to="/signup">Do not have account? Sign up</Link>
-                      </span>
+                  </Form>
+                ) : (
+                  <Form onSubmit={handleSubmitSignup}>
+                    <Form.Group controlId="formBasicEmail">
+                      <Form.Label>Name</Form.Label>
+                      <Form.Control
+                        type="text"
+                        placeholder="Enter Name"
+                        onChange={(e) => {
+                          handleChangeSignup("name", e);
+                        }}
+                        value={signUpFormData.name}
+                      />
+                    </Form.Group>
+                    <Form.Group controlId="formBasicEmail">
+                      <Form.Label>Mobile Number</Form.Label>
+                      <Form.Control
+                        type="text"
+                        placeholder="Enter mobile number"
+                        onChange={(e) => {
+                          handleChangeSignup("phone_num", e);
+                        }}
+                        value={signUpFormData.phone_num}
+                      />
+                    </Form.Group>
+                    <Form.Group controlId="formBasicPassword">
+                      <Form.Label>Password</Form.Label>
+                      <Form.Control
+                        type="text"
+                        placeholder="Password"
+                        onChange={(e) => {
+                          handleChangeSignup("password", e);
+                        }}
+                        value={signUpFormData.password}
+                      />
+                    </Form.Group>
+                    <div className="button-grp">
+                      <Button
+                        onClick={() => {
+                          setShouldShowLoginForm(!shouldShowLoginForm);
+                        }}
+                        variant="outline-primary"
+                        type="button"
+                      >
+                        Login
+                      </Button>
+                      <Button variant="primary" type="submit">
+                        Submit
+                      </Button>
                     </div>
                   </Form>
-                </Formik>
+                )}
               </div>
             </div>
           </div>
-        </Layout>
-      }
+        </Modal.Body>
+      </Modal>
     </div>
   );
 }
 
-export default Login;
+const mapStateToProps = (state) => {
+  return {
+    signupData: state.common.signup,
+    userData: state.common.user,
+    loginModel: state.common.duck.loginModel,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  const { login, signup, setLoginModel } = commonActions;
+  return {
+    login: (payload) => dispatch(login(payload)),
+    signup: (payload) => dispatch(signup(payload)),
+    setLoginModel: (payload) => dispatch(setLoginModel(payload)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
