@@ -1,5 +1,8 @@
 import React from "react";
 import axios from "axios";
+import { useSelector, useDispatch } from "react-redux";
+
+import { commonActions } from "../../store/common";
 
 import { API_URL } from "../../config";
 
@@ -7,6 +10,7 @@ import ProductItem from "../ProductList/components/ProductItem";
 
 function Wishlist() {
   const [wishlist, setWishlist] = React.useState(null);
+  const dispatch = useDispatch();
 
   React.useEffect(() => {
     getWishlist();
@@ -29,6 +33,7 @@ function Wishlist() {
           }
         });
         setWishlist(updatedData);
+        dispatch(commonActions.getUserStatus());
         return response.data;
       })
       .catch(function (error) {
@@ -37,7 +42,24 @@ function Wishlist() {
   };
 
   const removeFromWishlist = (productId) => {
-    //remove
+    axios({
+      method: "patch",
+      url: API_URL + "/auth/user/wishlist",
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("woodenculture-token"),
+      },
+      params: {
+        productId,
+        status: false,
+      },
+    })
+      .then(function (response) {
+        getWishlist();
+        return response.data;
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
 
   return (
