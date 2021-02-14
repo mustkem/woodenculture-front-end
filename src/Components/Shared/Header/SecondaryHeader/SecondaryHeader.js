@@ -14,10 +14,11 @@ import { IoIosCall } from "react-icons/io";
 import Login from "../../../Login";
 
 function SecondaryHeader(props) {
+  console.log("test5", props.isLogedIn);
+
   const history = useHistory();
   const myProfileRef = useRef(null);
   const [show, setShow] = useState(false);
-  const [isUserLogedin, showIsUserLogedin] = useState(false);
 
   const [shouldShowLoginForm, setShouldShowLoginForm] = useState(true);
 
@@ -73,13 +74,6 @@ function SecondaryHeader(props) {
     }
   }, [props.signupData?.data?.status]);
 
-  useEffect(() => {
-    if (props.userData.data?.userId) {
-      showIsUserLogedin(true);
-      setShow(false);
-    }
-  }, [props.userData.data?.userId]);
-
   const handleClickOutside = (event) => {
     if (myProfileRef.current && !myProfileRef.current.contains(event.target)) {
       document.querySelectorAll(".sub-dropdown").forEach((node) => {
@@ -110,7 +104,7 @@ function SecondaryHeader(props) {
               </a>
             </li>
             <li>
-              {isUserLogedin ? (
+              {props.isLogedIn ? (
                 <div ref={myProfileRef} className="profile-icon-sec">
                   <CgProfile
                     onClick={() => {
@@ -176,6 +170,7 @@ const mapStateToProps = (state) => {
   return {
     signupData: state.common.signup,
     userData: state.common.user,
+    isLogedIn: state.common.user.data?.isLogedin,
   };
 };
 

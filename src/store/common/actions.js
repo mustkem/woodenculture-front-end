@@ -1,7 +1,6 @@
 import * as types from "./types";
 
 export const login = (payload) => {
-  console.log("login");
   return {
     type: types.LOGIN,
     payload,

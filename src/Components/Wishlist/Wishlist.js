@@ -25,7 +25,6 @@ function Wishlist() {
       },
     })
       .then(function (response) {
-        console.log("test", response.data.products);
         const updatedData = [];
         response.data.products.forEach((item) => {
           if (item.status) {
@@ -33,7 +32,7 @@ function Wishlist() {
           }
         });
         setWishlist(updatedData);
-        dispatch(commonActions.getUserStatus());
+        dispatch(commonActions.getUserStatus()); //get updated user data
         return response.data;
       })
       .catch(function (error) {

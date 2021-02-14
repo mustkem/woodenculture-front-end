@@ -58,6 +58,7 @@ const user = (state = initialState.user, action) => {
       };
     }
     case types.LOGIN_SUCCESS: {
+      console.log("test1", action.payload);
       return {
         ...state,
         loading: false,
@@ -72,9 +73,11 @@ const user = (state = initialState.user, action) => {
       };
     }
     case types.GET_USER_STATUS_SUCCESS: {
-      state.data = action.payload;
+      console.log("test2", action.payload);
+
       return {
         ...state,
+        data: action.payload,
         loading: false,
       };
     }

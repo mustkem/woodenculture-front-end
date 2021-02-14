@@ -2,7 +2,6 @@ import { API_URL } from "../../config";
 import axios from "axios";
 
 export const login = async (payload) => {
-  console.log("payload", payload);
   return axios({
     method: "post",
     url: API_URL + "/auth/login",
@@ -10,11 +9,14 @@ export const login = async (payload) => {
   })
     .then(function (response) {
       localStorage.setItem("woodenculture-token", response.data.token);
+      const data = response.data;
+      data.isLogedin = true;
 
-      return response.data;
+      return data;
     })
     .catch(function (error) {
       console.log(error);
+      return { isLogedin: false };
     });
 };
 
@@ -41,9 +43,11 @@ export const getUserStatus = async (payload) => {
     },
   })
     .then(function (response) {
-      return { user: response.data?.user };
+      const data = response.data;
+      data.isLogedin = true;
+      return data;
     })
     .catch(function (error) {
-      return { status: false };
+      return { isLogedin: false };
     });
 };
