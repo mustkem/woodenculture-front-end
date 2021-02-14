@@ -29,12 +29,18 @@ var settingProduct = {
 
 function ProductItem(props) {
   const dispatch = useDispatch();
+  const isLogedIn = useSelector((state) => {
+    return state.common.user.data?.isLogedin;
+  });
+
+  console.log("qqqq", isLogedIn);
 
   const { item, user, getProducts } = props;
   const [nav1, setNav1] = React.useState(null);
   const [nav2, setNav2] = React.useState(null);
   const [bookNowModel, setBookNowModel] = React.useState(false);
   const [note, setNote] = React.useState("");
+  const [phoneNum, setPhoneNum] = React.useState("");
 
   const [show, setShow] = useState(false);
 
@@ -78,6 +84,7 @@ function ProductItem(props) {
     const data = {
       productId,
       note,
+      phoneNum,
     };
 
     axios({
@@ -164,6 +171,10 @@ function ProductItem(props) {
               {isAddedToWishlist(item._id) ? (
                 <button
                   onClick={() => {
+                    if (!isLogedIn) {
+                      dispatch(commonActions.setLoginModel(true));
+                      return false;
+                    }
                     handleAddWishlist(item._id, false);
                   }}
                   className="bt-main left"
@@ -173,6 +184,10 @@ function ProductItem(props) {
               ) : (
                 <button
                   onClick={() => {
+                    if (!isLogedIn) {
+                      dispatch(commonActions.setLoginModel(true));
+                      return false;
+                    }
                     handleAddWishlist(item._id, true);
                   }}
                   className="bt-main left"
@@ -234,6 +249,20 @@ function ProductItem(props) {
           <Modal.Body>
             <div style={{ margin: "5px auto 30px auto" }} className="book-now-wrapper">
               <Form onSubmit={(e) => handleSubmitQuery(e, item._id)}>
+                {!isLogedIn && (
+                  <Form.Group>
+                    <Form.Label>Phone</Form.Label>
+                    <Form.Control
+                      type="number"
+                      placeholder="Please enter phone number"
+                      value={phoneNum}
+                      onChange={(e) => {
+                        setPhoneNum(e.target.value);
+                      }}
+                    />
+                  </Form.Group>
+                )}
+
                 <Form.Group>
                   <Form.Label>Note for us</Form.Label>
                   <Form.Control

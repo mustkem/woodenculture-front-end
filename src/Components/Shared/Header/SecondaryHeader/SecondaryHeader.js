@@ -142,6 +142,7 @@ function SecondaryHeader(props) {
                       <button
                         onClick={() => {
                           localStorage.removeItem("woodenculture-token");
+                          history.replace("/");
                           history.go(0);
                         }}
                         className="bt-primary"
