@@ -12,6 +12,7 @@ import "./style/index.scss";
 
 import { IoIosCall } from "react-icons/io";
 import Login from "../../../Login";
+import QueryModel from "../../../Common/QueryModel";
 
 function SecondaryHeader(props) {
   console.log("test5", props.isLogedIn);
@@ -19,6 +20,7 @@ function SecondaryHeader(props) {
   const history = useHistory();
   const myProfileRef = useRef(null);
   const [show, setShow] = useState(false);
+  const [bookNowModel, setBookNowModel] = React.useState(false);
 
   const [shouldShowLoginForm, setShouldShowLoginForm] = useState(true);
 
@@ -94,14 +96,19 @@ function SecondaryHeader(props) {
       <Container>
         <div className="content">
           <p>Wooden Art that speaks for you</p>
-          <ul>
+          <ul className="navbar-secondary">
             <li>
-              <a target="_blank" href="track-order-by-email">
+              <button
+                onClick={() => {
+                  setBookNowModel(true);
+                }}
+                className="bt-primary"
+              >
                 <i className="call">
                   <IoIosCall />
                 </i>
                 Get a Callback
-              </a>
+              </button>
             </li>
             <li>
               {props.isLogedIn ? (
@@ -160,6 +167,7 @@ function SecondaryHeader(props) {
             </li>
           </ul>
         </div>
+        <QueryModel show={bookNowModel} setShow={setBookNowModel} type="Callback" />
       </Container>
 
       <Login />

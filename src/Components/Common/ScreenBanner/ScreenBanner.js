@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
+import QueryModel from "../../Common/QueryModel";
 
 import "./style/index.scss";
 
 function ScreenBanner() {
+  const [bookNowModel, setBookNowModel] = useState(false);
+
   return (
     <div className="workshop-strip">
       <div className="">
@@ -21,7 +24,14 @@ function ScreenBanner() {
                 </p>
               </div>
               <div>
-                <button className="bt-primary bt-contact-us">Get in touch</button>
+                <button
+                  onClick={() => {
+                    setBookNowModel(true);
+                  }}
+                  className="bt-primary bt-contact-us"
+                >
+                  Get in touch
+                </button>
               </div>
             </div>
           </div>
@@ -33,6 +43,7 @@ function ScreenBanner() {
           </div>
         </div>
       </div>
+      <QueryModel show={bookNowModel} setShow={setBookNowModel} type="General query" />
     </div>
   );
 }

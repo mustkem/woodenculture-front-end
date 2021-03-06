@@ -197,4 +197,7 @@
   text-decoration: none;
   padding: 0 24px;
   background-color: $primary-theme-color;
+  &:hover {
+    color: #fff;
+  }
 }
