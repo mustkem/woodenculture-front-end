@@ -1227,3 +1227,11 @@ Input
 .book-now-modal .modal-dialog {
   max-width: 600px;
 }
+.book-now-modal {
+  .modal-header {
+    border-bottom: 0px;
+  }
+  .modal-title {
+    padding: 0 45px;
+  }
+}

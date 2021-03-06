@@ -97,7 +97,7 @@ function Login(props) {
           <div className="login-wrapper">
             <div className="sec-1">
               <h2>Login</h2>
-              <p>Get access to your Wishlist and Recommendations and Orders</p>
+              <p>Get access to your Wishlist, Recommendations and Orders</p>
             </div>
             <div className="sec-2">
               <div className="form-body">

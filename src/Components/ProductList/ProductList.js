@@ -27,7 +27,10 @@ function Products(props) {
   const getProducts = () => {
     axios({
       method: "get",
-      url: API_URL + "/common/category/" + cate,
+      url: API_URL + "/feed/products",
+      params: {
+        category_slug: cate,
+      },
       headers: {
         Authorization: "Bearer " + localStorage.getItem("woodenculture-token"),
       },

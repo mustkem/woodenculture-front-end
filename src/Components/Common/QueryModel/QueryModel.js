@@ -50,7 +50,10 @@ function QueryModel(props) {
             <Modal.Title>{item?.title}</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <div style={{ margin: "5px auto 30px auto" }} className="book-now-wrapper">
+            <div
+              style={{ margin: "5px auto 30px auto", padding: "0 45px" }}
+              className="book-now-wrapper"
+            >
               <Form onSubmit={(e) => handleSubmitQuery(e, item?._id)}>
                 {!isLogedIn && (
                   <Form.Group>
