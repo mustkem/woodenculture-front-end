@@ -97,7 +97,11 @@ function ProductItem(props) {
               return (
                 <div>
                   <div className="poster">
-                    <img className="image" src={item.url} alt="" />
+                    <img
+                      className="image"
+                      src={"https://woodenculture-backend.herokuapp.com/" + item.url}
+                      alt=""
+                    />
                   </div>
                 </div>
               );
@@ -115,7 +119,11 @@ function ProductItem(props) {
               return (
                 <div className="thumb-item">
                   <div className="thumb-content">
-                    <img className="image" src={item.url} alt="" />
+                    <img
+                      className="image"
+                      src={"https://woodenculture-backend.herokuapp.com/" + item.url}
+                      alt=""
+                    />
                   </div>
                 </div>
               );
