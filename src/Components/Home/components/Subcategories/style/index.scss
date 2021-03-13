@@ -17,11 +17,13 @@
         filter: brightness(1.02);
       }
     }
-    margin-bottom: 15px;
   }
   .label {
     font-size: 18px;
     text-align: center;
+    padding: 25px 0;
+    // border: 1px solid lightgray;
+    // border-top: 0;
   }
   .desc {
     margin-bottom: 25px;
