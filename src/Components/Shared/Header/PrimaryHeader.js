@@ -44,7 +44,7 @@ const PrimaryHeader = () => {
               <span className="logo-icon">
                 <span className="logo-icon-2">W</span>
               </span>
-              Wooden Culture
+              Luxury Wooden
             </NavLink>
           </div>
           <div className="nav-section">

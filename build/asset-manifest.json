@@ -1,0 +1,33 @@
+{
+  "files": {
+    "main.css": "/static/css/main.9b9d93e0.chunk.css",
+    "main.js": "/static/js/main.3957bc86.chunk.js",
+    "main.js.map": "/static/js/main.3957bc86.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.83c3e0c4.js",
+    "runtime-main.js.map": "/static/js/runtime-main.83c3e0c4.js.map",
+    "static/css/2.1374f6a7.chunk.css": "/static/css/2.1374f6a7.chunk.css",
+    "static/js/2.07585a28.chunk.js": "/static/js/2.07585a28.chunk.js",
+    "static/js/2.07585a28.chunk.js.map": "/static/js/2.07585a28.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.5a64ae2f3d4b000f9a6ada30836e143f.js": "/precache-manifest.5a64ae2f3d4b000f9a6ada30836e143f.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.1374f6a7.chunk.css.map": "/static/css/2.1374f6a7.chunk.css.map",
+    "static/css/main.9b9d93e0.chunk.css.map": "/static/css/main.9b9d93e0.chunk.css.map",
+    "static/js/2.07585a28.chunk.js.LICENSE.txt": "/static/js/2.07585a28.chunk.js.LICENSE.txt",
+    "static/media/astrologer2.jpeg": "/static/media/astrologer2.169c223e.jpeg",
+    "static/media/Style.scss": "/static/media/be9dec42c9059f051c86364ec6dd278c.18535a23.jpg",
+    "static/media/coffee-table.jpg": "/static/media/coffee-table.1f12d3fc.jpg",
+    "static/media/fran-hogan-BDRzsymkZho-unsplash.jpg": "/static/media/fran-hogan-BDRzsymkZho-unsplash.900c094e.jpg",
+    "static/media/pexels-karl-solano-2883049.jpg": "/static/media/pexels-karl-solano-2883049.d55bf9a3.jpg",
+    "static/media/pexels-pixabay-210265.jpg": "/static/media/pexels-pixabay-210265.6edd1476.jpg",
+    "static/media/slick-theme.css": "/static/media/slick.f97e3bbf.svg",
+    "static/media/tv-unit.jpg": "/static/media/tv-unit.046f738a.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.83c3e0c4.js",
+    "static/css/2.1374f6a7.chunk.css",
+    "static/js/2.07585a28.chunk.js",
+    "static/css/main.9b9d93e0.chunk.css",
+    "static/js/main.3957bc86.chunk.js"
+  ]
+}

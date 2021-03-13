@@ -11,7 +11,7 @@ function Footer() {
         <div className="footer-wrp">
           <div className="sec about-us">
             <div className="logo">
-              <a href="">Wooden Culture</a>
+              <a href="">Luxury Wooden</a>
             </div>
             <ul className="description">
               <li>
@@ -60,12 +60,12 @@ function Footer() {
               <li>
                 <IoIosMail className="connect-icon" />
 
-                <a href="">contact@woodenculture.com</a>
+                <a href="">contact@luxwooden.com</a>
               </li>
               <li>
                 <FaPhoneVolume className="connect-icon" />
 
-                <a href="">+1 1201256</a>
+                <a href="">+1 400125602</a>
               </li>
               <li>
                 <FiMapPin className="connect-icon" />
@@ -73,7 +73,7 @@ function Footer() {
               </li>
             </ul>
           </div>
-          <div className="copyright">Copyright Ⓒ 2019 WoodenCulture. All Rights Reserved.</div>
+          <div className="copyright">Copyright Ⓒ 2021 Luxury Wooden. All Rights Reserved.</div>
         </div>
       </Container>
     </footer>
