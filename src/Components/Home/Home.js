@@ -22,8 +22,8 @@ function Home(props) {
     <div>
       <Banner />
       <Subcategories subCategoriesDetails={subCategoriesDetails} />
-      <ScreenBanner />
       <SubcategoriesInteriors />
+      <ScreenBanner />
       <FeedBacks />
     </div>
   );
