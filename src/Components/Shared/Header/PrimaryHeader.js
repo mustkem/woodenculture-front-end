@@ -42,9 +42,9 @@ const PrimaryHeader = () => {
           <div className="logo">
             <NavLink to="">
               <span className="logo-icon">
-                <span className="logo-icon-2">L</span>
+                <span className="logo-icon-2">R</span>
               </span>
-              Luxury Wooden
+              Rise Decor
             </NavLink>
           </div>
           <div className="nav-section">

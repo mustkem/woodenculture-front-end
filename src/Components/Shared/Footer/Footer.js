@@ -11,7 +11,7 @@ function Footer() {
         <div className="footer-wrp">
           <div className="sec about-us">
             <div className="logo">
-              <a href="">Luxury Wooden</a>
+              <a href="">Rise Decor</a>
             </div>
             <ul className="description">
               <li>
@@ -73,7 +73,7 @@ function Footer() {
               </li>
             </ul>
           </div>
-          <div className="copyright">Copyright Ⓒ 2021 Luxury Wooden. All Rights Reserved.</div>
+          <div className="copyright">Copyright Ⓒ 2021 Rise Decor. All Rights Reserved.</div>
         </div>
       </Container>
     </footer>

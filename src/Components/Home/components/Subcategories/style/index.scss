@@ -65,7 +65,14 @@
   font-size: 18px;
 }
 
-.subcat-strip2 .poster {
+.subcat-strip-2{ 
+
+  a{
+    display: block;
+    box-shadow: 0 0px 8px 0 #e8e8e8;
+  }
+
+.poster {
   position: relative;
   height: 180px;
   display: flex;
@@ -73,6 +80,20 @@
   align-items: center;
   img {
     height: auto;
-    width: 70%;
+    width: 50%;
+  }
+  
+ 
+}
+.label{
+  padding-bottom: 44px;
+}
+.card-item{
+  .content{
+    padding:15px 0;
   }
 }
+
+}
+
+

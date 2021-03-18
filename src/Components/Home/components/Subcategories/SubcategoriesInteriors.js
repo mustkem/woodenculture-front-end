@@ -19,7 +19,7 @@ import "./style/index.scss";
 function Subcategories(props) {
   const {} = props;
   return (
-    <div className="subcat-strip subcat-strip2">
+    <div className="subcat-strip subcat-strip-2">
       <div className="container">
         <div className="interior-sec">
           <div className="row">
@@ -33,13 +33,15 @@ function Subcategories(props) {
           <div className="row">
             {data2.map((item, index) => {
               return (
-                <div key={item.key} className="col-4 item">
+                <div key={item.key} className="col-4 item card-item">
                   <Link to={`/category/${item.value}`}>
+                    <div className="content">
                     <div className="poster">
                       <img src={item.imgUrl} alt="" />
                     </div>
                     <div className="head">
                       <div className="label">{item.title}</div>
+                    </div>
                     </div>
                   </Link>
                 </div>
