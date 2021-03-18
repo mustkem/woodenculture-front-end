@@ -5,6 +5,10 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 import { commonActions } from "../../../store/common";
 
+import { RiArrowDropDownLine } from 'react-icons/ri'
+import { MdKeyboardArrowDown } from 'react-icons/md'
+
+
 import { API_URL } from "../../../config";
 
 const PrimaryHeader = () => {
@@ -66,7 +70,11 @@ const PrimaryHeader = () => {
                     className="nav-item inner-dropdown-parent"
                   >
                     <NavLink class="nav-link" to={`/category/${item.cate}`}>
-                      {item.title}
+                      <span>{item.title}</span>
+                      {
+                        item.categories.length>0 &&
+                      <MdKeyboardArrowDown className="arrow-dropdown" style={{marginLeft:3}} />
+                      }
                     </NavLink>
                     <ul className="inner-dropdown">
                       {item.categories.map((item) => {
@@ -110,7 +118,8 @@ const PrimaryHeader = () => {
                 className="nav-item inner-dropdown-parent"
               >
                 <NavLink className="nav-link" to="/">
-                  Company
+                 <span> Company </span>
+                      <MdKeyboardArrowDown className="arrow-dropdown" style={{marginLeft:3}} />
                 </NavLink>
                 <ul className="inner-dropdown">
                   <li className="nav-item">
@@ -136,13 +145,14 @@ const menu = [
     title: "Bedroom",
     cate: "bedroom",
     categories: [
-      {
-        title: "Almerah",
-        cate: "almerah",
-      },
+     
       {
         title: "Double Bed",
         cate: "double-bed",
+      },
+      {
+        title: "Single Bed",
+        cate: "single-bed",
       },
     ],
   },
@@ -158,12 +168,6 @@ const menu = [
         title: "Tv Tables",
         cate: "tv-tables",
       },
-    ],
-  },
-  {
-    title: "Dining",
-    cate: "dining",
-    categories: [
       {
         title: "Dining Tables",
         cate: "dining-tables",
@@ -179,18 +183,12 @@ const menu = [
     cate: "office",
     categories: [
       {
-        title: "File Cabinates",
-        cate: "file-cabinates",
+        title: "Office Interior",
+        cate: "office-interior",
       },
-    ],
-  },
-  {
-    title: "Decore",
-    cate: "decore",
-    categories: [
       {
-        title: "Scereens and wall Deviders",
-        cate: "screen-and-deviders",
+        title: "Office Furniture",
+        cate: "office-furniture",
       },
     ],
   },
@@ -204,6 +202,51 @@ const menu = [
   //     },
   //   ],
   // },
+  {
+    title: "Gate",
+    cate: "gate",
+    categories: [
+      {
+        title: "Doors",
+        cate: "Doors",
+      },
+      {
+        title: "Door Frames",
+        cate: "door-frames",
+      },
+      {
+        title: "Window Frames",
+        cate: "window-frames",
+      },
+      {
+        title: "Door Frames",
+        cate: "door-frames",
+      },
+    
+    ],
+  },
+  {
+    title: "Interior",
+    cate: "interior",
+    categories: [
+      {
+        title: "Home Interior",
+        cate: "home-nterior",
+      },
+      {
+        title: "Appartment Interior",
+        cate: "appartment-interior",
+      },
+      {
+        title: "Kitchen Interior",
+        cate: "kitchen-interior",
+      },
+      {
+        title: "Commercial Interior",
+        cate: "commercial-interior",
+      },
+    ],
+  },
   {
     title: "Modular Kitchen",
     cate: "modular-kitchen",

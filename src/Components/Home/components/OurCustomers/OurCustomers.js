@@ -16,24 +16,25 @@ function OurCustomers() {
       <Container>
         <h2>What do people say about us</h2>
         <Slider {...settings}>
-          {[0, 0, 0, 0, 0, 0, 0, 0, 0].map((item) => {
+          {feedback.map((item) => {
             return (
               <div className="card-item">
                 <div className="card-content">
-                  <div className="flex items-center">
-                    <div className="figure">
+                  <div className="">
+                    {/* <div className="figure">
                       <img src={img} />
-                    </div>
+                    </div> */}
                     <div className="name">
-                      <span className=" block">Rajnikant Surya</span>
-                      <span className="block ">India</span>
+                      <span className=" block">{item.name}</span>
+                    </div>
+                    <div className="location">
+{                    item.location}
+
                     </div>
                   </div>
 
                   <p>
-                    There is no comparison of AstroTalk when it comes to getting a free horoscope
-                    and checking horoscope online in the Astrology industry. They have
-                    revolutionized.
+                    {item.comment}
                   </p>
                 </div>
               </div>
@@ -46,3 +47,27 @@ function OurCustomers() {
 }
 
 export default OurCustomers;
+
+const feedback = [
+  {
+    name:"Rahul Kumar",
+    location:"Delhi",
+    comment:"Excellent service loved the values they bought to us."
+  },
+  {
+    name:"Divya Goyal",
+    location:"Gurgaon",
+    comment:"Thank you so much for making our home beautiful."
+  },
+  {
+    name:"Jatin Malik",
+    location:"Gurgaon",
+    comment:"I am more than happy with the service I have received and I would have no hesitation in recommending Rise Decor."
+  },
+  {
+    name:"Kishore Yerra",
+    location:"Noida",
+    comment:"I am impressed by their expertise, commitment and knowledge in furnitures."
+  },
+ 
+]

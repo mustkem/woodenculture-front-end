@@ -17,8 +17,8 @@ function Footer() {
               <li>
                 <p>
                   We are pioneer in furniture manufacturing and designing, working in this field
-                  since 2 decades. We believe in quality and excellency. Furniture made easy at the
-                  comfort of your doorstep.
+                  since last two decades. We believe in quality and excellency. Furniture made easy at the
+                  comfort of your door step.
                 </p>
               </li>
             </ul>
@@ -60,7 +60,7 @@ function Footer() {
               <li>
                 <IoIosMail className="connect-icon" />
 
-                <a href="">contact@luxwooden.com</a>
+                <a href="">contact@risedecor.com</a>
               </li>
               <li>
                 <FaPhoneVolume className="connect-icon" />

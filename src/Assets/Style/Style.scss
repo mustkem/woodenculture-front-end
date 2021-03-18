@@ -224,6 +224,9 @@ a {
 .header.primary-header a:hover {
   color: $primary-theme-color;
   text-decoration: none;
+  .arrow-dropdown{
+  transform: rotate(180deg);
+  }
 }
 .header.primary-header .logo a:hover {
   text-decoration: none;
@@ -540,6 +543,10 @@ h1 {
   flex-wrap: nowrap;
 }
 .social-reach .social-feedback li {
+  padding: 25px;
+}
+
+.social-reach .name {
   padding: 25px;
 }
 
@@ -1176,10 +1183,15 @@ Input
     padding: 10px;
     background-color: transparent;
     .name {
-      margin-bottom: 1px;
-      font-size: 13px;
+      margin-bottom: 8px;
+      font-size: 17px;
+      color:#000;
       text-align: left;
-      padding: 0 10px;
+      padding: 0;
+    }
+    .location{
+      text-align: left;
+      margin-bottom: 7px;
     }
     .figure {
       width: 70px;
@@ -1188,8 +1200,8 @@ Input
       border: 1px solid #fbfbfb;
       box-shadow: 0 5px 10px rgba(0, 9, 128, 0.035), 0 7px 18px rgba(0, 9, 128, 0.05);
       border-radius: 7px;
-      padding: 20px 15px;
-      padding-top: 20px;
+      padding: 25px 25px;
+      padding-top: 30px;
       padding-bottom: 40px;
       background: #fff;
     }
@@ -1206,6 +1218,7 @@ Input
     p {
       line-height: 21px;
       text-align: left;
+      color:#313131;
       font-size: 14px;
     }
   }
@@ -1234,4 +1247,12 @@ Input
   .modal-title {
     padding: 0 45px;
   }
+}
+
+
+.arrow-dropdown{
+  margin-left: 3px;
+  margin-bottom: 1px;
+  transform-origin: center;
+  // transition-duration: 100ms;
 }
