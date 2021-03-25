@@ -42,7 +42,7 @@ const PrimaryHeader = () => {
   return (
     <Container>
       <div>
-        <header className="header primary-header clearfix">
+        <header className="header primary-header ">
           <div className="logo">
             <NavLink to="">
               <span className="logo-icon">

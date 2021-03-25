@@ -193,7 +193,10 @@ a {
 .success {
   color: $success-color;
 }
-
+.nav-wrap{
+  display: flex;
+    justify-content: space-between;
+}
 .nav-section {
   .navigation-bar {
     display: flex;
@@ -230,6 +233,9 @@ a {
 }
 .header.primary-header .logo a:hover {
   text-decoration: none;
+}
+.hamburger{
+  display: none;
 }
 
 .right-pannel .inner-dropdown-parent {
