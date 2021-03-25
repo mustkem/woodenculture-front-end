@@ -51,6 +51,7 @@ const PrimaryHeader = () => {
               Rise Decor
             </NavLink>
           </div>
+          <div className="nav-wrap">
           <div className="nav-section">
             <ul className="navigation-bar">
               {menu.map((item) => {
@@ -132,6 +133,12 @@ const PrimaryHeader = () => {
               </li>
             </ul>
           </div>
+          </div>
+          <span className="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
         </header>
       </div>
     </Container>
