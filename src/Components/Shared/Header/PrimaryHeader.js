@@ -14,6 +14,8 @@ import { API_URL } from "../../../config";
 const PrimaryHeader = () => {
   const dispatch = useDispatch();
 
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   useEffect(() => {
     dispatch(commonActions.getUserStatus());
   }, []);
@@ -51,9 +53,9 @@ const PrimaryHeader = () => {
               Rise Decor
             </NavLink>
           </div>
-          <div className="nav-wrap">
-          <div className="nav-section">
-            <ul className="navigation-bar">
+          <div className={`nav-wrap ${isMobileMenuOpen ? "open": "" }`}>
+          <div className={`nav-section  `}>
+            <ul className={`navigation-bar`}>
               {menu.map((item) => {
                 return (
                   <li
@@ -134,7 +136,10 @@ const PrimaryHeader = () => {
             </ul>
           </div>
           </div>
-          <span className="hamburger">
+          <span  onClick={() => {
+                  setIsMobileMenuOpen(!isMobileMenuOpen)
+                }} 
+                className={`hamburger ${isMobileMenuOpen ? "open": ""}`}>
             <span></span>
             <span></span>
             <span></span>

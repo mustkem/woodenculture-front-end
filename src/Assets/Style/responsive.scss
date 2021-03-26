@@ -70,13 +70,17 @@
         }
     }
     .nav-wrap{
-        // display: none;
         position: absolute;
-        right: 0;
+        right: -100%;
         top:calc(100% - 1px);
         display: block;
         background-color: #fff;
         width: 80vw;
+        left: auto;
+        transition-duration: 0.5s;
+    }
+    .nav-wrap.open{
+        right: 0%;
     }
     .nav-section .navigation-bar{
         display: block;
@@ -102,4 +106,5 @@
             font-size:20px;
         }
     }
+ 
 }
