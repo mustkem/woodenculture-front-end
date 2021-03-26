@@ -73,7 +73,7 @@
         position: absolute;
         right: -100%;
         top:calc(100% - 1px);
-        display: block;
+        display: none;
         background-color: #fff;
         width: 80vw;
         left: auto;
@@ -81,6 +81,7 @@
     }
     .nav-wrap.open{
         right: 0%;
+        display: block;
     }
     .nav-section .navigation-bar{
         display: block;
