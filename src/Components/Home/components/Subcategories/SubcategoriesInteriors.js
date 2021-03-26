@@ -33,7 +33,7 @@ function Subcategories(props) {
           <div className="row">
             {data2.map((item, index) => {
               return (
-                <div key={item.key} className="col-4 item card-item">
+                <div key={item.key} className="col-sm-4 col-12 item card-item">
                   <Link to={`/category/${item.value}`}>
                     <div className="content">
                     <div className="poster">
