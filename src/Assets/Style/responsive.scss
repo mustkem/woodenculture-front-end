@@ -43,12 +43,16 @@
     }
 }
 @media all and (max-width:767px){
-    .workshop-strip .sec-1 {
-        width: 100%;
+    .workshop-strip{ 
+        .sec-1 {
+        width: 100%!important;
     }
-    .workshop-strip .sec-2 {
-        width: 0;
+}
+    .workshop-strip{
+        .sec-2 {
+        width: 0!important;
     }
+}
     body{
         overflow-x: hidden;
     }
