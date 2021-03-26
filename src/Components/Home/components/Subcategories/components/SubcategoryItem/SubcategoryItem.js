@@ -6,7 +6,7 @@ function SubcategoryItem(props) {
   const params = useParams();
   console.log(params.category);
   return (
-    <div key={item.key} className="col-3 item">
+    <div key={item.key} className="col-sm-3 col-12 item">
       <Link to={`/category/${item.value}`}>
         <div className="poster">
           <img src={item.imgUrl} alt="" />
