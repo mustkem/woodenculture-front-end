@@ -17,3 +17,12 @@
     z-index: 1;
   }
 }
+@media all and (max-width:767px){
+  .slick-next {
+    right: -12px;
+  }
+  .slick-prev {
+    left: -12px;
+    
+  }
+}

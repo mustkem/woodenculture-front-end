@@ -18,7 +18,7 @@ function OurCustomers() {
     const windowWidth = window.innerWidth;
 
     console.log("testtt",windowWidth)
-    const slidesToShow = windowWidth> 767 ? 4 : 1.5;
+    const slidesToShow = windowWidth> 767 ? 4 : 1;
     const updatedSettings ={...sliderSetting};
     updatedSettings.slidesToShow = slidesToShow;
     console.log("testttt", updatedSettings)
