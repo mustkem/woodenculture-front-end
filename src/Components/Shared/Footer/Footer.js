@@ -39,7 +39,7 @@ function Footer() {
             <div className="">
               <h5>Company</h5>
             </div>
-            <ul className="">
+            <ul className="describe">
               <li>
                 <a href="">About Us</a>
               </li>

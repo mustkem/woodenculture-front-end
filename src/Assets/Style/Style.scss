@@ -1262,3 +1262,23 @@ Input
   transform-origin: center;
   // transition-duration: 100ms;
 }
+@media all and (max-width:767px){
+.footer-wrp .sec {
+  padding: 10px 30px;
+   width: 100%; 
+}
+.footer-wrp {
+  display: block;
+  
+}
+.footer{
+  .sec.more li{
+    margin-right: 15px;
+
+  }
+.describe{
+  display:flex;
+  
+}
+}
+}
