@@ -141,16 +141,19 @@
   }
   .nav-wrap{
       position: absolute;
-      right: -100%;
+      right: 0%;
       top:calc(100% - 1px);
       display: block;
       background-color: #fff;
-      width: 80vw;
+      
       left: auto;
       transition-duration: 0.5s;
+      width:0;
+      overflow: hidden;
   }
   .nav-wrap.open{
       right: 0%;
+      width: 80vw;
       display: block;
   }
   .nav-section .navigation-bar{
