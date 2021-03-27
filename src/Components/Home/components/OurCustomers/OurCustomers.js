@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import img from "../../../../Assets/Images/astrologer2.jpeg";
 import Slider from "react-slick";
 import Container from "react-bootstrap/Container";
@@ -11,11 +11,27 @@ function OurCustomers() {
     slidesToShow: 4,
     slidesToScroll: 1,
   };
+
+  const [sliderSetting, setSliderSetting] = useState(settings)
+
+  useEffect(()=>{
+    const windowWidth = window.innerWidth;
+
+    console.log("testtt",windowWidth)
+    const slidesToShow = windowWidth> 767 ? 4 : 1;
+    const updatedSettings ={...sliderSetting};
+    updatedSettings.slidesToShow = slidesToShow;
+    console.log("testttt", updatedSettings)
+setSliderSetting(updatedSettings);
+  },[])
+  
+   
+
   return (
     <div className="social-reach">
       <Container>
         <h2>What do people say about us</h2>
-        <Slider {...settings}>
+        <Slider {...sliderSetting}>
           {feedback.map((item) => {
             return (
               <div className="card-item">

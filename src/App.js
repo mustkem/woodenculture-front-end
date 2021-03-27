@@ -14,6 +14,7 @@ import "./Assets/Style/Style.scss";
 import "./CSS/App.css";
 import "./CSS/main.css";
 import "./Assets/Style/myAccount/myAccount.scss";
+import "./Assets/Style/responsive.scss";
 
 import theme from "./MaterialUI/theme";
 
