@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import QueryModel from "../../Common/QueryModel";
 
-import "./style/index.scss";
-
 function ScreenBanner() {
   const [bookNowModel, setBookNowModel] = useState(false);
 

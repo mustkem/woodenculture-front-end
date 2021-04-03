@@ -1,13 +1,6 @@
-import { divide } from "ramda";
 import React from "react";
-import { Link } from "react-router-dom";
-
-import tvUnits from "../../../../Assets/Images/tv-unit.jpg";
-import tables from "../../../../Assets/Images/coffee-table.jpg";
 
 import SubcategoryItem from "./components/SubcategoryItem";
-
-import "./style/index.scss";
 
 const data = [
   {
@@ -28,7 +21,7 @@ const data = [
   },
   {
     title: "Tables",
-    imgUrl: tables,
+    imgUrl: "./Images/coffee-table.jpg",
     value: "tables",
   },
   {
@@ -81,5 +74,3 @@ function Subcategories(props) {
 }
 
 export default Subcategories;
-
-

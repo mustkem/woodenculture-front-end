@@ -3,12 +3,9 @@ import React, { useState, useEffect, useRef } from "react";
 import Container from "react-bootstrap/Container";
 import { Modal, Button, Form } from "react-bootstrap";
 import { connect } from "react-redux";
-import { NavLink, useHistory, Link } from "react-router-dom";
 
-import { commonActions } from "../../../../store/common";
+// import { commonActions } from "../../../../store/common";
 import { CgProfile } from "react-icons/cg";
-
-import "./style/index.scss";
 
 import { IoIosCall } from "react-icons/io";
 import Login from "../../../Login";
@@ -17,7 +14,6 @@ import QueryModel from "../../../Common/QueryModel";
 function SecondaryHeader(props) {
   console.log("test5", props.isLogedIn);
 
-  const history = useHistory();
   const myProfileRef = useRef(null);
   const [show, setShow] = useState(false);
   const [bookNowModel, setBookNowModel] = React.useState(false);
@@ -128,7 +124,7 @@ function SecondaryHeader(props) {
 
                   <ul className="sub-dropdown">
                     <li className="nav-item">
-                      <NavLink
+                      <a
                         onClick={() => {
                           document.querySelectorAll(".sub-dropdown").forEach((node) => {
                             node.style.display = "none";
@@ -138,11 +134,11 @@ function SecondaryHeader(props) {
                         to={`/`}
                       >
                         My Profile
-                      </NavLink>
+                      </a>
                     </li>
                     <li className="nav-item">
                       <button className="bt-primary">
-                        <Link to="/wishlist">My Wishlist</Link>
+                        <a href="/wishlist">My Wishlist</a>
                       </button>
                     </li>
                     <li className="nav-item">
@@ -177,19 +173,19 @@ function SecondaryHeader(props) {
 
 const mapStateToProps = (state) => {
   return {
-    signupData: state.common.signup,
-    userData: state.common.user,
-    isLogedIn: state.common.user.data?.isLogedin,
+    // signupData: state.common.signup,
+    // userData: state.common.user,
+    // isLogedIn: state.common.user.data?.isLogedin,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
-  const { login, signup, setLoginModel } = commonActions;
-  return {
-    login: (payload) => dispatch(login(payload)),
-    signup: (payload) => dispatch(signup(payload)),
-    setLoginModel: (payload) => dispatch(setLoginModel(payload)),
-  };
+  // const { login, signup, setLoginModel } = commonActions;
+  // return {
+  //   login: (payload) => dispatch(login(payload)),
+  //   signup: (payload) => dispatch(signup(payload)),
+  //   setLoginModel: (payload) => dispatch(setLoginModel(payload)),
+  // };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SecondaryHeader);

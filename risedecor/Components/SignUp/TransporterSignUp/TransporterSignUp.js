@@ -4,7 +4,7 @@ import * as Yup from "yup";
 import Layout from "../../Layout/Layout";
 import { useDispatch, useSelector } from "react-redux";
 import Button from "react-bootstrap/Button";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 
 import { signup } from "../../../store/actions";
 
@@ -39,7 +39,7 @@ const MyTextInput = ({ label, ...props }) => {
 // And now we can use these
 const SignupForm = () => {
   const dispatch = useDispatch();
-  const history = useHistory();
+  // const history = useHistory();
 
   return (
     <div className="login-page">

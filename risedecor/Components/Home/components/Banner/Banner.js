@@ -1,14 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Slider from "react-slick";
 
-import "./style/index.scss";
-
-import image1 from "../../../../Assets/Images/pexels-pixabay-210265.jpg";
-import image2 from "../../../../Assets/Images/pexels-karl-solano-2883049.jpg";
-
-import image3 from "../../../../Assets/Images/fran-hogan-BDRzsymkZho-unsplash.jpg";
-import tempImg from "../../../../Assets/Images/logo.png";
-
 function Banner() {
   const settings = {
     dots: false,
@@ -22,7 +14,7 @@ function Banner() {
     <div className="banner-strip">
       <Slider className="banner-slider" {...settings}>
         <div className="item">
-          <img src={image1} className="image" alt="" loading="lazy" />
+          <img src="./Images/pexels-pixabay-210265.jpg" className="image" alt="" loading="lazy" />
         </div>
         <div className="item">
           <img

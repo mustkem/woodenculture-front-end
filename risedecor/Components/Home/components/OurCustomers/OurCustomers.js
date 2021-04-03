@@ -1,5 +1,4 @@
 import React from "react";
-import img from "../../../../Assets/Images/astrologer2.jpeg";
 import Slider from "react-slick";
 import Container from "react-bootstrap/Container";
 
@@ -27,15 +26,10 @@ function OurCustomers() {
                     <div className="name">
                       <span className=" block">{item.name}</span>
                     </div>
-                    <div className="location">
-{                    item.location}
-
-                    </div>
+                    <div className="location">{item.location}</div>
                   </div>
 
-                  <p>
-                    {item.comment}
-                  </p>
+                  <p>{item.comment}</p>
                 </div>
               </div>
             );
@@ -50,24 +44,24 @@ export default OurCustomers;
 
 const feedback = [
   {
-    name:"Rahul Kumar",
-    location:"Delhi",
-    comment:"Excellent service loved the values they bought to us."
+    name: "Rahul Kumar",
+    location: "Delhi",
+    comment: "Excellent service loved the values they bought to us.",
   },
   {
-    name:"Divya Goyal",
-    location:"Gurgaon",
-    comment:"Thank you so much for making our home beautiful."
+    name: "Divya Goyal",
+    location: "Gurgaon",
+    comment: "Thank you so much for making our home beautiful.",
   },
   {
-    name:"Jatin Malik",
-    location:"Gurgaon",
-    comment:"I am more than happy with the service I have received and I would have no hesitation in recommending Rise Decor."
+    name: "Jatin Malik",
+    location: "Gurgaon",
+    comment:
+      "I am more than happy with the service I have received and I would have no hesitation in recommending Rise Decor.",
   },
   {
-    name:"Kishore Yerra",
-    location:"Noida",
-    comment:"I am impressed by their expertise, commitment and knowledge in furnitures."
+    name: "Kishore Yerra",
+    location: "Noida",
+    comment: "I am impressed by their expertise, commitment and knowledge in furnitures.",
   },
- 
-]
+];

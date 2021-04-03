@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 import "./style/index.scss";
@@ -17,7 +17,9 @@ function Products(props) {
     return state.common?.user?.data?.user;
   });
 
-  const params = useParams();
+  // const params = useParams();
+  const params = {};
+
   const cate = params.category;
 
   React.useEffect(() => {

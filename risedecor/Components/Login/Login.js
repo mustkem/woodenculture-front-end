@@ -2,12 +2,10 @@ import React, { useState, useEffect, useRef } from "react";
 
 import { Modal, Button, Form } from "react-bootstrap";
 import { connect } from "react-redux";
-import { useHistory } from "react-router-dom";
 
-import { commonActions } from "../../store/common";
+// import { commonActions } from "../../store/common";
 
 function Login(props) {
-  const history = useHistory();
   const myProfileRef = useRef(null);
   const [show, setShow] = useState(false);
   const [isUserLogedin, showIsUserLogedin] = useState(false);
@@ -18,7 +16,7 @@ function Login(props) {
   const [signUpFormData, setSignUpFormData] = useState({ phone_num: "", password: "", name: "" });
 
   const handleClose = () => {
-    props.setLoginModel(false);
+    // props.setLoginModel(false);
   };
 
   const handleChangeLogin = (key, e) => {
@@ -63,17 +61,17 @@ function Login(props) {
   }, [props.signupData?.data?.status]);
 
   useEffect(() => {
-    if (props.userData.data?.userId) {
+    if (props.userData?.data?.userId) {
       showIsUserLogedin(true);
       setShow(false);
     }
-  }, [props.userData.data?.userId]);
+  }, [props.userData?.data?.userId]);
 
   useEffect(() => {
-    if (!props.userData.loading) {
+    if (!props.userData?.loading) {
       handleClose();
     }
-  }, [props.userData.loading]);
+  }, [props.userData?.loading]);
 
   const handleClickOutside = (event) => {
     if (myProfileRef.current && !myProfileRef.current.contains(event.target)) {
@@ -202,18 +200,18 @@ function Login(props) {
 
 const mapStateToProps = (state) => {
   return {
-    signupData: state.common.signup,
-    userData: state.common.user,
-    loginModel: state.common.duck.loginModel,
+    // signupData: state.common.signup,
+    // userData: state.common.user,
+    // loginModel: state.common.duck.loginModel,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
-  const { login, signup, setLoginModel } = commonActions;
+  // const { login, signup, setLoginModel } = commonActions;
   return {
-    login: (payload) => dispatch(login(payload)),
-    signup: (payload) => dispatch(signup(payload)),
-    setLoginModel: (payload) => dispatch(setLoginModel(payload)),
+    // login: (payload) => dispatch(login(payload)),
+    // signup: (payload) => dispatch(signup(payload)),
+    // setLoginModel: (payload) => dispatch(setLoginModel(payload)),
   };
 };
 

@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import Link from "next/link";
 import Container from "react-bootstrap/Container";
 import axios from "axios";
 import { useDispatch } from "react-redux";
-import { commonActions } from "../../../store/common";
+// import { commonActions } from "../../../store/common";
 
-import { RiArrowDropDownLine } from 'react-icons/ri'
-import { MdKeyboardArrowDown } from 'react-icons/md'
-
+import { RiArrowDropDownLine } from "react-icons/ri";
+import { MdKeyboardArrowDown } from "react-icons/md";
 
 import { API_URL } from "../../../config";
 
@@ -15,7 +14,7 @@ const PrimaryHeader = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(commonActions.getUserStatus());
+    // dispatch(commonActions.getUserStatus());
   }, []);
 
   const handleMouseEnter = (e) => {
@@ -44,12 +43,12 @@ const PrimaryHeader = () => {
       <div>
         <header className="header primary-header clearfix">
           <div className="logo">
-            <NavLink to="">
+            <a href="">
               <span className="logo-icon">
                 <span className="logo-icon-2">R</span>
               </span>
               Rise Decor
-            </NavLink>
+            </a>
           </div>
           <div className="nav-section">
             <ul className="navigation-bar">
@@ -69,28 +68,27 @@ const PrimaryHeader = () => {
                     }}
                     className="nav-item inner-dropdown-parent"
                   >
-                    <NavLink class="nav-link" to={`/category/${item.cate}`}>
+                    <a class="nav-link" href={`/category/${item.cate}`}>
                       <span>{item.title}</span>
-                      {
-                        item.categories.length>0 &&
-                      <MdKeyboardArrowDown className="arrow-dropdown" style={{marginLeft:3}} />
-                      }
-                    </NavLink>
+                      {item.categories.length > 0 && (
+                        <MdKeyboardArrowDown className="arrow-dropdown" style={{ marginLeft: 3 }} />
+                      )}
+                    </a>
                     <ul className="inner-dropdown">
                       {item.categories.map((item) => {
                         return (
                           <li className="nav-item">
-                            <NavLink
+                            <a
                               onClick={() => {
                                 document.querySelectorAll(".inner-dropdown").forEach((node) => {
                                   node.style.display = "none";
                                 });
                               }}
                               class="nav-link-inner"
-                              to={`/category/${item.cate}`}
+                              href={`/category/${item.cate}`}
                             >
                               {item.title}
-                            </NavLink>
+                            </a>
                           </li>
                         );
                       })}
@@ -117,16 +115,18 @@ const PrimaryHeader = () => {
                 }}
                 className="nav-item inner-dropdown-parent"
               >
-                <NavLink className="nav-link" to="/">
-                 <span> Company </span>
-                      <MdKeyboardArrowDown className="arrow-dropdown" style={{marginLeft:3}} />
-                </NavLink>
+                <a className="nav-link" href="/">
+                  <>
+                    <span> Company </span>
+                    <MdKeyboardArrowDown className="arrow-dropdown" style={{ marginLeft: 3 }} />
+                  </>
+                </a>
                 <ul className="inner-dropdown">
                   <li className="nav-item">
-                    <NavLink to="/contact-us">Contact Us</NavLink>
+                    <Link href="/contact-us">Contact Us</Link>
                   </li>
                   <li className="nav-item">
-                    <NavLink to="/about-us">About Us</NavLink>
+                    <Link href="/about-us">About Us</Link>
                   </li>
                 </ul>
               </li>
@@ -138,14 +138,11 @@ const PrimaryHeader = () => {
   );
 };
 
-export default PrimaryHeader;
-
 const menu = [
   {
     title: "Bedroom",
     cate: "bedroom",
     categories: [
-     
       {
         title: "Double Bed",
         cate: "double-bed",
@@ -222,7 +219,6 @@ const menu = [
         title: "Door Frames",
         cate: "door-frames",
       },
-    
     ],
   },
   {
@@ -253,3 +249,5 @@ const menu = [
     categories: [],
   },
 ];
+
+export default PrimaryHeader;

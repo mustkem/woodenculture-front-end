@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 import Banner from "./components/Banner";
 import Subcategories from "./components/Subcategories";
@@ -7,9 +7,10 @@ import SubcategoriesInteriors from "./components/Subcategories/SubcategoriesInte
 import ScreenBanner from "../Common/ScreenBanner";
 
 import FeedBacks from "./components/OurCustomers";
+import Layout from "../Layout";
 
 function Home(props) {
-  const { fetchSubCategories, subCategories } = props;
+  const { fetchSubCategories, subCategories = {} } = props;
 
   const subCategoriesDetails = {
     fetchSubCategories,
@@ -19,13 +20,15 @@ function Home(props) {
   };
 
   return (
-    <div>
-      <Banner />
-      <Subcategories subCategoriesDetails={subCategoriesDetails} />
-      <SubcategoriesInteriors />
-      <ScreenBanner />
-      <FeedBacks />
-    </div>
+    <Layout>
+      <div>
+        <Banner />
+        <Subcategories subCategoriesDetails={subCategoriesDetails} />
+        <SubcategoriesInteriors />
+        <ScreenBanner />
+        <FeedBacks />
+      </div>
+    </Layout>
   );
 }
 

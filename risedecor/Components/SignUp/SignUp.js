@@ -5,10 +5,10 @@ import * as Yup from "yup";
 import Layout from "../Layout/Layout";
 
 import Button from "react-bootstrap/Button";
-import { Link } from "react-router-dom";
+import { Link } from "next/link";
 import { useDispatch } from "react-redux";
 import { signup } from "../../store/actions";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 
 const MyTextInput = ({ label, ...props }) => {
   // useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
@@ -25,7 +25,7 @@ const MyTextInput = ({ label, ...props }) => {
 
 function SignUp() {
   const dispatch = useDispatch();
-  const history = useHistory();
+  // const history = useHistory();
 
   return (
     <div className="login-page">

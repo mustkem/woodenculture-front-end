@@ -12,7 +12,7 @@ function QueryModel(props) {
   const [phoneNum, setPhoneNum] = React.useState("");
 
   const isLogedIn = useSelector((state) => {
-    return state.common.user.data?.isLogedin;
+    return state?.common?.user?.data?.isLogedin;
   });
 
   const handleSubmitQuery = (e, productId) => {
