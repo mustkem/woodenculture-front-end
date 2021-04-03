@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
 import { connect } from "react-redux";
 
-// import { commonActions } from "../../store/common";
+import { commonActions } from "../../store/common";
 
 function Login(props) {
   const myProfileRef = useRef(null);
@@ -16,7 +16,7 @@ function Login(props) {
   const [signUpFormData, setSignUpFormData] = useState({ phone_num: "", password: "", name: "" });
 
   const handleClose = () => {
-    // props.setLoginModel(false);
+    props.setLoginModel(false);
   };
 
   const handleChangeLogin = (key, e) => {
@@ -200,18 +200,18 @@ function Login(props) {
 
 const mapStateToProps = (state) => {
   return {
-    // signupData: state.common.signup,
-    // userData: state.common.user,
-    // loginModel: state.common.duck.loginModel,
+    signupData: state.common.signup,
+    userData: state.common.user,
+    loginModel: state.common.duck.loginModel,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
-  // const { login, signup, setLoginModel } = commonActions;
+  const { login, signup, setLoginModel } = commonActions;
   return {
-    // login: (payload) => dispatch(login(payload)),
-    // signup: (payload) => dispatch(signup(payload)),
-    // setLoginModel: (payload) => dispatch(setLoginModel(payload)),
+    login: (payload) => dispatch(login(payload)),
+    signup: (payload) => dispatch(signup(payload)),
+    setLoginModel: (payload) => dispatch(setLoginModel(payload)),
   };
 };
 

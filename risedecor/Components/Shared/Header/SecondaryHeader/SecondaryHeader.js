@@ -4,7 +4,7 @@ import Container from "react-bootstrap/Container";
 import { Modal, Button, Form } from "react-bootstrap";
 import { connect } from "react-redux";
 
-// import { commonActions } from "../../../../store/common";
+import { commonActions } from "../../../../store/common";
 import { CgProfile } from "react-icons/cg";
 
 import { IoIosCall } from "react-icons/io";
@@ -173,19 +173,19 @@ function SecondaryHeader(props) {
 
 const mapStateToProps = (state) => {
   return {
-    // signupData: state.common.signup,
-    // userData: state.common.user,
-    // isLogedIn: state.common.user.data?.isLogedin,
+    signupData: state.common.signup,
+    userData: state.common.user,
+    isLogedIn: state.common.user.data?.isLogedin,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
-  // const { login, signup, setLoginModel } = commonActions;
-  // return {
-  //   login: (payload) => dispatch(login(payload)),
-  //   signup: (payload) => dispatch(signup(payload)),
-  //   setLoginModel: (payload) => dispatch(setLoginModel(payload)),
-  // };
+  const { login, signup, setLoginModel } = commonActions;
+  return {
+    login: (payload) => dispatch(login(payload)),
+    signup: (payload) => dispatch(signup(payload)),
+    setLoginModel: (payload) => dispatch(setLoginModel(payload)),
+  };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SecondaryHeader);

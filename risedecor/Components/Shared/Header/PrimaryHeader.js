@@ -3,7 +3,7 @@ import Link from "next/link";
 import Container from "react-bootstrap/Container";
 import axios from "axios";
 import { useDispatch } from "react-redux";
-// import { commonActions } from "../../../store/common";
+import { commonActions } from "../../../store/common";
 
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { MdKeyboardArrowDown } from "react-icons/md";
@@ -14,7 +14,7 @@ const PrimaryHeader = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // dispatch(commonActions.getUserStatus());
+    dispatch(commonActions.getUserStatus());
   }, []);
 
   const handleMouseEnter = (e) => {
@@ -68,17 +68,22 @@ const PrimaryHeader = () => {
                     }}
                     className="nav-item inner-dropdown-parent"
                   >
-                    <a class="nav-link" href={`/category/${item.cate}`}>
-                      <span>{item.title}</span>
-                      {item.categories.length > 0 && (
-                        <MdKeyboardArrowDown className="arrow-dropdown" style={{ marginLeft: 3 }} />
-                      )}
-                    </a>
+                    <Link class="nav-link" href={`/category/${item.cate}`}>
+                      <a>
+                        <span>{item.title}</span>
+                        {item.categories.length > 0 && (
+                          <MdKeyboardArrowDown
+                            className="arrow-dropdown"
+                            style={{ marginLeft: 3 }}
+                          />
+                        )}
+                      </a>
+                    </Link>
                     <ul className="inner-dropdown">
                       {item.categories.map((item) => {
                         return (
                           <li className="nav-item">
-                            <a
+                            <Link
                               onClick={() => {
                                 document.querySelectorAll(".inner-dropdown").forEach((node) => {
                                   node.style.display = "none";
@@ -87,8 +92,8 @@ const PrimaryHeader = () => {
                               class="nav-link-inner"
                               href={`/category/${item.cate}`}
                             >
-                              {item.title}
-                            </a>
+                              <a>{item.title}</a>
+                            </Link>
                           </li>
                         );
                       })}
@@ -115,18 +120,22 @@ const PrimaryHeader = () => {
                 }}
                 className="nav-item inner-dropdown-parent"
               >
-                <a className="nav-link" href="/">
-                  <>
+                <Link className="nav-link" href="/">
+                  <a>
                     <span> Company </span>
                     <MdKeyboardArrowDown className="arrow-dropdown" style={{ marginLeft: 3 }} />
-                  </>
-                </a>
+                  </a>
+                </Link>
                 <ul className="inner-dropdown">
                   <li className="nav-item">
-                    <Link href="/contact-us">Contact Us</Link>
+                    <Link href="/contact-us">
+                      <a>Contact Us</a>
+                    </Link>
                   </li>
                   <li className="nav-item">
-                    <Link href="/about-us">About Us</Link>
+                    <Link href="/about-us">
+                      <a>About Us</a>
+                    </Link>
                   </li>
                 </ul>
               </li>
