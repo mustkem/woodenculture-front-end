@@ -1,0 +1,75 @@
+@import "../../../../Assets/Style/variables.scss";
+
+.workshop-strip {
+  margin-bottom: 120px;
+  margin-top: 120px;
+
+  .content {
+    display: flex;
+  }
+
+  background-color: #f2f1f2;
+  color: rgb(33, 30, 34);
+  .sec-1 {
+    width: 50%;
+  }
+  .sec-2 {
+    width: 50%;
+  }
+
+  .HomepageContentCTA {
+    padding: 16px 24%;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 100%;
+    text-decoration: none;
+    color: #211e22;
+  }
+  .HomepageContentCTA-title {
+    margin-bottom: 0px;
+    text-align: center;
+    margin-top: 4px;
+    padding: 0 88px;
+  }
+  .HomepageContentCTA-subtitle {
+    text-align: center;
+    padding: 0 10%;
+  }
+  p {
+    color: inherit;
+    font-size: 16px;
+    font-size: 15px;
+    padding: 10px 12%;
+    line-height: 32px;
+    font-weight: bold;
+  }
+  h2 {
+    margin-bottom: 10px;
+    padding-left: 24px;
+    color: $gray-secondary;
+    font-size: 27px;
+  }
+
+  .poster {
+    height: 500px;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+  }
+
+  .learn-more {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-content: space-evenly;
+    height: 100%;
+  }
+}
