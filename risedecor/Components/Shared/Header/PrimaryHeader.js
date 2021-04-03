@@ -68,7 +68,7 @@ const PrimaryHeader = () => {
                     }}
                     className="nav-item inner-dropdown-parent"
                   >
-                    <Link class="nav-link" href={`/category/${item.cate}`}>
+                    <Link class="nav-link" href={`/products/${item.cate}`}>
                       <a>
                         <span>{item.title}</span>
                         {item.categories.length > 0 && (
@@ -90,7 +90,7 @@ const PrimaryHeader = () => {
                                 });
                               }}
                               class="nav-link-inner"
-                              href={`/category/${item.cate}`}
+                              href={`/products/${item.cate}`}
                             >
                               <a>{item.title}</a>
                             </Link>

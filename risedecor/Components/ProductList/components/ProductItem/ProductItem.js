@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-import { path } from "ramda";
 import { Button, Modal, Form } from "react-bootstrap";
 import { BsTagFill } from "react-icons/bs";
-import ReactImageMagnify from "react-image-magnify";
 import Slider from "react-slick";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
@@ -66,7 +64,7 @@ function ProductItem(props) {
       },
     })
       .then(function (response) {
-        getProducts();
+        // getProducts();
         dispatch(commonActions.getUserStatus()); ///get updated user data
         handleShow();
         return response.data;

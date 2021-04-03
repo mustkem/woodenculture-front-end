@@ -7,6 +7,7 @@ import { commonActions } from "../../store/common";
 import { API_URL } from "../../config";
 
 import ProductItem from "../ProductList/components/ProductItem";
+import Layout from "../Layout";
 
 function Wishlist() {
   const [wishlist, setWishlist] = React.useState(null);
@@ -61,26 +62,31 @@ function Wishlist() {
       });
   };
 
+  console.log("test", wishlist);
+
   return (
-    <div className="wishlist-page">
-      <div className="product-list-strip">
-        <div className="container">
-          <div className="product-list">
-            {wishlist &&
-              wishlist.map((item) => {
-                return (
-                  <ProductItem
-                    item={item}
-                    key={item._id}
-                    removeFromWishlist={removeFromWishlist}
-                    wishlistPage
-                  />
-                );
-              })}
+    <Layout>
+      <div className="wishlist-page">
+        <div className="product-list-strip">
+          <div className="container">
+            <div className="product-list">
+              {wishlist &&
+                wishlist.map((item) => {
+                  if (!item) return null;
+                  return (
+                    <ProductItem
+                      item={item}
+                      key={item._id}
+                      removeFromWishlist={removeFromWishlist}
+                      wishlistPage
+                    />
+                  );
+                })}
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </Layout>
   );
 }
 

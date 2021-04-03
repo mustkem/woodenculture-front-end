@@ -1,20 +1,23 @@
 import React, { useState } from "react";
 import axios from "axios";
-// import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+import Layout from "../Layout";
 
 import ScreenBanner from "../Common/ScreenBanner";
 
 import ProductItem from "./components/ProductItem";
 
-function Products(props) {
+import { API_URL } from "../../config";
+
+function Products({ products }) {
   const user = useSelector((state) => {
     return state.common?.user?.data?.user;
   });
 
   return (
-    <div className="product-list-page">
-      {/* <div className="header-strip-product-list">
+    <Layout>
+      <div className="product-list-page">
+        {/* <div className="header-strip-product-list">
         <div className="container">
           <div className="row">
             <div className="col">
@@ -23,19 +26,18 @@ function Products(props) {
           </div>
         </div>
       </div> */}
-      <div className="product-list-strip">
-        <div className="container">
-          <div className="product-list">
-            {/* {products.map((item) => {
-              return (
-                <ProductItem getProducts={getProducts} user={user} item={item} key={item._id} />
-              );
-            })} */}
+        <div className="product-list-strip">
+          <div className="container">
+            <div className="product-list">
+              {products.map((item) => {
+                return <ProductItem user={user} item={item} key={item._id} />;
+              })}
+            </div>
           </div>
         </div>
+        <ScreenBanner />
       </div>
-      <ScreenBanner />
-    </div>
+    </Layout>
   );
 }
 
