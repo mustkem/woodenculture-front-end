@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { combineReducers } from \"redux\";\nimport { homeReducer as home } from \"./Home\";\nimport { commonReducer as common } from \"./common\";\nexport default combineReducers({\n  home,\n  common\n});","map":null,"metadata":{},"sourceType":"module"}

@@ -1,0 +1,1 @@
+{"ast":null,"code":"import * as types from \"./types\";\nexport var fetchSubCategories = function fetchSubCategories(payload) {\n  console.log(\"first action\");\n  return {\n    type: types.FETCH_PRODUCTS,\n    payload: payload\n  };\n};","map":null,"metadata":{},"sourceType":"module"}

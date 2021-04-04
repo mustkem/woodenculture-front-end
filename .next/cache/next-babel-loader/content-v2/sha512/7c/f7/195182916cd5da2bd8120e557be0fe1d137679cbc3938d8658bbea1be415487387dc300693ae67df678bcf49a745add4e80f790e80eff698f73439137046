@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { all } from \"redux-saga/effects\";\nimport { homeSagas } from \"./Home\";\nimport { commonSagas } from \"./common\";\nexport default function* rootSaga() {\n  yield all([...homeSagas, ...commonSagas]);\n}","map":null,"metadata":{},"sourceType":"module"}

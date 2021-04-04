@@ -1,20 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Link from "next/link";
 import Container from "react-bootstrap/Container";
-import axios from "axios";
 import { useDispatch } from "react-redux";
-import { commonActions } from "../../../store/common";
+import { commonApis } from "../../../store-thunk/common";
 
-import { RiArrowDropDownLine } from "react-icons/ri";
 import { MdKeyboardArrowDown } from "react-icons/md";
-
-import { API_URL } from "../../../config";
 
 const PrimaryHeader = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(commonActions.getUserStatus());
+    console.log("testttttttt");
+    dispatch(commonApis.getUserStatus());
   }, []);
 
   const handleMouseEnter = (e) => {
@@ -43,18 +40,21 @@ const PrimaryHeader = () => {
       <div>
         <header className="header primary-header clearfix">
           <div className="logo">
-            <a href="">
-              <span className="logo-icon">
-                <span className="logo-icon-2">R</span>
-              </span>
-              Rise Decor
-            </a>
+            <Link href="/">
+              <a>
+                <span className="logo-icon">
+                  <span className="logo-icon-2">R</span>
+                </span>
+                Rise Decor
+              </a>
+            </Link>
           </div>
           <div className="nav-section">
             <ul className="navigation-bar">
               {menu.map((item) => {
                 return (
                   <li
+                    key={item.title}
                     onMouseEnter={(e) => {
                       handleMouseEnter(e);
                     }}
@@ -82,7 +82,7 @@ const PrimaryHeader = () => {
                     <ul className="inner-dropdown">
                       {item.categories.map((item) => {
                         return (
-                          <li className="nav-item">
+                          <li key={item.title} className="nav-item">
                             <Link
                               onClick={() => {
                                 document.querySelectorAll(".inner-dropdown").forEach((node) => {
@@ -167,20 +167,16 @@ const menu = [
     cate: "living",
     categories: [
       {
-        title: "Cabinates",
-        cate: "cabinates",
+        title: "Storage",
+        cate: "storage",
       },
       {
-        title: "Tv Tables",
-        cate: "tv-tables",
+        title: "Tables",
+        cate: "tables",
       },
       {
-        title: "Dining Tables",
-        cate: "dining-tables",
-      },
-      {
-        title: "Dining Storage",
-        cate: "dining-storage",
+        title: "Almirahs",
+        cate: "almirahs",
       },
     ],
   },
@@ -209,12 +205,16 @@ const menu = [
   //   ],
   // },
   {
-    title: "Gate",
-    cate: "gate",
+    title: "Gates",
+    cate: "gates",
     categories: [
       {
         title: "Doors",
-        cate: "Doors",
+        cate: "doors",
+      },
+      {
+        title: "Windows",
+        cate: "windows",
       },
       {
         title: "Door Frames",
@@ -224,10 +224,6 @@ const menu = [
         title: "Window Frames",
         cate: "window-frames",
       },
-      {
-        title: "Door Frames",
-        cate: "door-frames",
-      },
     ],
   },
   {
@@ -236,7 +232,7 @@ const menu = [
     categories: [
       {
         title: "Home Interior",
-        cate: "home-nterior",
+        cate: "home-interior",
       },
       {
         title: "Appartment Interior",

@@ -1,3 +1,5 @@
+import { Provider } from "react-redux";
+
 import "../styles/globals.css";
 
 // import "react-datepicker/dist/react-datepicker.css";
@@ -10,7 +12,7 @@ import "../styles/myAccount.scss";
 
 import "../styles/app.scss";
 
-import { wrapper } from "../store/store";
+import { wrapper } from "../store-thunk/store";
 
 const WrappedApp = ({ Component, pageProps }) => {
   return <Component {...pageProps} />;

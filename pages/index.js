@@ -1,7 +1,7 @@
 import styles from "../styles/Home.module.css";
 
 import HomeComponent from "../Components/Home";
-import { wrapper as storeWrapper } from "../store/store";
+// import { wrapper as storeWrapper } from "../store/store";
 
 function Home() {
   return (
@@ -11,14 +11,9 @@ function Home() {
   );
 }
 
-export const getStaticProps = storeWrapper.getStaticProps(async ({ store }) => {
-  // await store.dispatch(homeActions.fetchSubCategories());
-  const testData = () => {
-    return store.getState();
-  };
-  return {
-    props: testData(),
-  };
-});
+// This also gets called at build time
+export async function getStaticProps({ params }) {
+  return { props: {} };
+}
 
 export default Home;

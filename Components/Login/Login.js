@@ -1,9 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
+import axios from "axios";
 
 import { Modal, Button, Form } from "react-bootstrap";
 import { connect } from "react-redux";
 
-import { commonActions } from "../../store/common";
+import { commonApis, commonActions } from "../../store-thunk/common";
+
+import { API_URL } from "../../config";
 
 function Login(props) {
   const myProfileRef = useRef(null);
@@ -47,11 +50,21 @@ function Login(props) {
   const handleSubmitSignup = (e) => {
     e.preventDefault();
 
-    props.signup({
-      phone_num: signUpFormData.phone_num,
-      password: signUpFormData.password,
-      name: signUpFormData.name,
-    });
+    axios({
+      method: "put",
+      url: API_URL + "/auth/signup",
+      data: {
+        phone_num: signUpFormData.phone_num,
+        password: signUpFormData.password,
+        name: signUpFormData.name,
+      },
+    })
+      .then(function (response) {
+        setShouldShowLoginForm(true);
+      })
+      .catch(function (error) {
+        return { status: false };
+      });
   };
 
   useEffect(() => {
@@ -207,7 +220,9 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-  const { login, signup, setLoginModel } = commonActions;
+  const { login, signup } = commonApis;
+  const { setLoginModel } = commonActions;
+
   return {
     login: (payload) => dispatch(login(payload)),
     signup: (payload) => dispatch(signup(payload)),

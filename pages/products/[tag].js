@@ -1,7 +1,11 @@
 import React from "react";
 import axios from "axios";
+import { connect } from "react-redux";
 
 import Products from "../../Components/ProductList";
+
+import { wrapper as storeWrapper } from "../../store-thunk/store";
+import { productsActions } from "../../store-thunk/products";
 
 import { API_URL } from "../../config";
 
@@ -40,10 +44,27 @@ export async function getStaticPaths() {
 }
 
 // This also gets called at build time
-export async function getStaticProps({ params }) {
-  // params contains the post `id`.
-  console.log("testtttttttttttttt", params);
-  // If the route is like /posts/1, then params.id is 1
+// export async function getStaticProps({ params }) {
+//   const res = await axios({
+//     method: "get",
+//     url: API_URL + "/feed/products",
+//     params: {
+//       category_slug: params.tag,
+//     },
+//   })
+//     .then(function (response) {
+//       return response.data;
+//     })
+//     .catch(function (error) {
+//       return error;
+//     });
+//   const products = await res.products;
+
+//   // Pass post data to the page via props
+//   return { props: { products } };
+// }
+
+export const getStaticProps = storeWrapper.getStaticProps(async ({ params, store }) => {
   const res = await axios({
     method: "get",
     url: API_URL + "/feed/products",
@@ -57,10 +78,16 @@ export async function getStaticProps({ params }) {
     .catch(function (error) {
       return error;
     });
-  const products = await res.products;
 
-  // Pass post data to the page via props
-  return { props: { products } };
-}
+  await store.dispatch(productsActions.fetchProductsSuccess(res));
 
-export default ProductsPage;
+  return { props: { products: store.getState().products.fetchProducts.data?.products } };
+});
+
+const mapStateToprops = (state) => {
+  return {
+    products: state.products.fetchProducts.data?.products,
+  };
+};
+
+export default connect(mapStateToprops)(ProductsPage);

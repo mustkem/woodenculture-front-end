@@ -1,18 +1,21 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useRouter } from "next/router";
 
 import Container from "react-bootstrap/Container";
-import { Modal, Button, Form } from "react-bootstrap";
 import { connect } from "react-redux";
 
-import { commonActions } from "../../../../store/common";
 import { CgProfile } from "react-icons/cg";
 
 import { IoIosCall } from "react-icons/io";
 import Login from "../../../Login";
 import QueryModel from "../../../Common/QueryModel";
 
+import { commonActions } from "../../../../store-thunk/common";
+
 function SecondaryHeader(props) {
   console.log("test5", props.isLogedIn);
+
+  const router = useRouter();
 
   const myProfileRef = useRef(null);
   const [show, setShow] = useState(false);
@@ -145,8 +148,8 @@ function SecondaryHeader(props) {
                       <button
                         onClick={() => {
                           localStorage.removeItem("woodenculture-token");
-                          history.replace("/");
-                          history.go(0);
+                          router.replace("/");
+                          window.location.reload();
                         }}
                         className="bt-primary"
                       >
@@ -180,10 +183,9 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-  const { login, signup, setLoginModel } = commonActions;
+  const { setLoginModel } = commonActions;
+
   return {
-    login: (payload) => dispatch(login(payload)),
-    signup: (payload) => dispatch(signup(payload)),
     setLoginModel: (payload) => dispatch(setLoginModel(payload)),
   };
 };

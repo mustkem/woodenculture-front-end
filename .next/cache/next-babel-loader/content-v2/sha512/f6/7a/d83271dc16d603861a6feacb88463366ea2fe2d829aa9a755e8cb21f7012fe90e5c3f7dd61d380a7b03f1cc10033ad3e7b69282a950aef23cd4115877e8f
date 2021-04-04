@@ -1,0 +1,1 @@
+{"ast":null,"code":"import SecondaryHeader from \"./SecondaryHeader\";\nexport default SecondaryHeader;","map":null,"metadata":{},"sourceType":"module"}

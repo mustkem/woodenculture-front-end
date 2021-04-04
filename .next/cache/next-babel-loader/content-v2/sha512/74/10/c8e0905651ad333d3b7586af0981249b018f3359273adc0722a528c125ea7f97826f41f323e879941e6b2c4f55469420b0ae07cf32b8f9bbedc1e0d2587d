@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { jsx as _jsx } from \"react/jsx-runtime\";\nimport React from \"react\";\nimport Wishlist from \"../Components/Wishlist\";\n\nfunction WishlistComponent() {\n  return /*#__PURE__*/_jsx(Wishlist, {});\n}\n\nexport default WishlistComponent;","map":null,"metadata":{},"sourceType":"module"}

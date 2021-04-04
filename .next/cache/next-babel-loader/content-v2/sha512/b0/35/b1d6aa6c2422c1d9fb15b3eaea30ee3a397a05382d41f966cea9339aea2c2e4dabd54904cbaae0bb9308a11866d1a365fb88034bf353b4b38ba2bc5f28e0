@@ -1,0 +1,1 @@
+{"ast":null,"code":"import Wishlist from \"./Wishlist\";\nexport default Wishlist;","map":null,"metadata":{},"sourceType":"module"}

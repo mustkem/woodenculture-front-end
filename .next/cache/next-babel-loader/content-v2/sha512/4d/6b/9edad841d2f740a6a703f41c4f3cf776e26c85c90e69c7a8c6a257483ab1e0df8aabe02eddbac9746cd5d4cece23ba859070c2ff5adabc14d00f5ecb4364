@@ -1,0 +1,1 @@
+{"ast":null,"code":"import SubcategoryItem from \"./SubcategoryItem\";\nexport default SubcategoryItem;","map":null,"metadata":{},"sourceType":"module"}
