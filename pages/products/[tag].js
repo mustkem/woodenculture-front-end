@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import Products from "../../Components/ProductList";
 
 import { wrapper as storeWrapper } from "../../store-thunk/store";
-import { productsActions } from "../../store-thunk/products";
+import { productsActions, productsApis } from "../../store-thunk/products";
 
 import { API_URL } from "../../config";
 
@@ -65,21 +65,11 @@ export async function getStaticPaths() {
 // }
 
 export const getStaticProps = storeWrapper.getStaticProps(async ({ params, store }) => {
-  const res = await axios({
-    method: "get",
-    url: API_URL + "/feed/products",
-    params: {
+  await store.dispatch(
+    productsApis.fetchProducts({
       category_slug: params.tag,
-    },
-  })
-    .then(function (response) {
-      return response.data;
     })
-    .catch(function (error) {
-      return error;
-    });
-
-  await store.dispatch(productsActions.fetchProductsSuccess(res));
+  );
 
   return { props: { products: store.getState().products.fetchProducts.data?.products } };
 });

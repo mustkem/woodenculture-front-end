@@ -6,6 +6,7 @@ import Layout from "../Layout";
 import ScreenBanner from "../Common/ScreenBanner";
 
 import ProductItem from "./components/ProductItem";
+import NoRecordFound from "../NoRecordFound";
 
 import { API_URL } from "../../config";
 
@@ -29,10 +30,13 @@ function Products({ products }) {
         <div className="product-list-strip">
           <div className="container">
             <div className="product-list">
-              {products.map((item) => {
-                return <ProductItem user={user} item={item} key={item._id} />;
-              })}
+              {products &&
+                products.length > 0 &&
+                products.map((item) => {
+                  return <ProductItem user={user} item={item} key={item._id} />;
+                })}
             </div>
+            {products && products.length === 0 && <NoRecordFound />}
           </div>
         </div>
         <ScreenBanner />

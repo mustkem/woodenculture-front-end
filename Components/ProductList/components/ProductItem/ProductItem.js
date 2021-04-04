@@ -4,8 +4,10 @@ import { BsTagFill } from "react-icons/bs";
 import Slider from "react-slick";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
+import { useRouter } from "next/router";
 
-import { commonActions } from "../../../../store/common";
+import { commonActions, commonApis } from "../../../../store-thunk/common";
+import { productsApis } from "../../../../store-thunk/products";
 
 import { API_URL } from "../../../../config";
 
@@ -29,11 +31,14 @@ var settingProduct = {
 
 function ProductItem(props) {
   const dispatch = useDispatch();
+  const router = useRouter();
+
+  console.log("testrrrrr eoyter", router.query);
   const isLogedIn = useSelector((state) => {
     return state.common.user.data?.isLogedin;
   });
 
-  const { item, user, getProducts } = props;
+  const { item, user } = props;
   const [nav1, setNav1] = React.useState(null);
   const [nav2, setNav2] = React.useState(null);
   const [bookNowModel, setBookNowModel] = React.useState(false);
@@ -64,8 +69,8 @@ function ProductItem(props) {
       },
     })
       .then(function (response) {
-        // getProducts();
-        dispatch(commonActions.getUserStatus()); ///get updated user data
+        dispatch(productsApis.fetchProducts({ category_slug: router.query.tag }));
+        dispatch(commonApis.getUserStatus()); ///get updated user data
         handleShow();
         return response.data;
       })
@@ -105,7 +110,7 @@ function ProductItem(props) {
               );
             })}
         </Slider>
-        <div className="product-thumbs">
+        {/* <div className="product-thumbs">
           <Slider
             {...settings}
             slidesToShow={item?.images.length < 6 ? item?.images.length : 6}
@@ -127,7 +132,7 @@ function ProductItem(props) {
               );
             })}
           </Slider>
-        </div>
+        </div> */}
       </div>
       <div className="col-6">
         <div className="head-sec">

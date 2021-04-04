@@ -8,6 +8,7 @@ import { API_URL } from "../../config";
 
 import ProductItem from "../ProductList/components/ProductItem";
 import Layout from "../Layout";
+import NoRecordFound from "../NoRecordFound";
 
 function Wishlist() {
   const [wishlist, setWishlist] = React.useState(null);
@@ -28,7 +29,7 @@ function Wishlist() {
       .then(function (response) {
         const updatedData = [];
         response.data.products.forEach((item) => {
-          if (item.status) {
+          if (item.status && item.productId) {
             updatedData.push(item.productId);
           }
         });
@@ -71,6 +72,7 @@ function Wishlist() {
           <div className="container">
             <div className="product-list">
               {wishlist &&
+                wishlist.length > 0 &&
                 wishlist.map((item) => {
                   if (!item) return null;
                   return (
@@ -83,6 +85,7 @@ function Wishlist() {
                   );
                 })}
             </div>
+            {wishlist && wishlist.length === 0 && <NoRecordFound />}
           </div>
         </div>
       </div>
