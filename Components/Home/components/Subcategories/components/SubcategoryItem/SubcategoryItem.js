@@ -7,15 +7,15 @@ function SubcategoryItem(props) {
   console.log(params.category);
   return (
     <div key={item.key} className="col-3 item">
-      <Link href={`/category/${item.value}`}>
-        <>
+      <Link href={`/products/${item.value}`}>
+        <a>
           <div className="poster">
             <img src={item.imgUrl} alt="" />
           </div>
           <div className="head">
             <div className="label">{item.title}</div>
           </div>
-        </>
+        </a>
       </Link>
     </div>
   );

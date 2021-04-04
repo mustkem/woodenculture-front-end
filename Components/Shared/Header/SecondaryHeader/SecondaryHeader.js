@@ -94,7 +94,7 @@ function SecondaryHeader(props) {
     <div className="secondary-strip">
       <Container>
         <div className="content">
-          <p>Wooden Art that speaks for you</p>
+          <p>Easy comfort</p>
           <ul className="navbar-secondary">
             <li>
               <button

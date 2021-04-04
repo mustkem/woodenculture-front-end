@@ -19,15 +19,17 @@ function Subcategories(props) {
             {data2.map((item, index) => {
               return (
                 <div key={item.key} className="col-4 item card-item">
-                  <Link href={`/category/${item.value}`}>
-                    <div className="content">
-                      <div className="poster">
-                        <img src={item.imgUrl} alt="" />
+                  <Link href={`/products/${item.value}`}>
+                    <a>
+                      <div className="content">
+                        <div className="poster">
+                          <img src={item.imgUrl} alt="" />
+                        </div>
+                        <div className="head">
+                          <div className="label">{item.title}</div>
+                        </div>
                       </div>
-                      <div className="head">
-                        <div className="label">{item.title}</div>
-                      </div>
-                    </div>
+                    </a>
                   </Link>
                 </div>
               );
