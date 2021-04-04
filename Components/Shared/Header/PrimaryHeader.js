@@ -10,7 +10,7 @@ const PrimaryHeader = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log("testttttttt");
+    console.log("testtttttttt");
     dispatch(commonApis.getUserStatus());
   }, []);
 
