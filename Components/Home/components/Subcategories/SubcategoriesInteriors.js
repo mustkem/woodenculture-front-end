@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 
 function Subcategories(props) {
-  const {} = props;
+  const { } = props;
   return (
     <div className="subcat-strip subcat-strip-2">
       <div className="container">
@@ -18,7 +18,7 @@ function Subcategories(props) {
           <div className="row">
             {data2.map((item, index) => {
               return (
-                <div key={item.key} className="col-4 item card-item">
+                <div key={item.key} className="col-sm-4 col-12 item card-item">
                   <Link href={`/products/${item.value}`}>
                     <a>
                       <div className="content">

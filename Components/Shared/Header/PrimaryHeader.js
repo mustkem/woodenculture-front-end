@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Container from "react-bootstrap/Container";
 import { useDispatch } from "react-redux";
@@ -8,7 +8,7 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 
 const PrimaryHeader = () => {
   const dispatch = useDispatch();
-
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   useEffect(() => {
     console.log("testtttttttt");
     dispatch(commonApis.getUserStatus());
@@ -38,7 +38,7 @@ const PrimaryHeader = () => {
   return (
     <Container>
       <div>
-        <header className="header primary-header clearfix">
+        <header className="header primary-header">
           <div className="logo">
             <Link href="/">
               <a>
@@ -49,98 +49,108 @@ const PrimaryHeader = () => {
               </a>
             </Link>
           </div>
-          <div className="nav-section">
-            <ul className="navigation-bar">
-              {menu.map((item) => {
-                return (
-                  <li
-                    key={item.title}
-                    onMouseEnter={(e) => {
-                      handleMouseEnter(e);
-                    }}
-                    onMouseLeave={(e) => {
-                      handleMouseLeave(e);
-                    }}
-                    onClick={() => {
-                      document.querySelectorAll(".inner-dropdown").forEach((node) => {
-                        node.style.display = "none";
-                      });
-                    }}
-                    className="nav-item inner-dropdown-parent"
-                  >
-                    <Link class="nav-link" href={`/products/${item.cate}`}>
-                      <a>
-                        <span>{item.title}</span>
-                        {item.categories.length > 0 && (
-                          <MdKeyboardArrowDown
-                            className="arrow-dropdown"
-                            style={{ marginLeft: 3 }}
-                          />
-                        )}
-                      </a>
-                    </Link>
-                    <ul className="inner-dropdown">
-                      {item.categories.map((item) => {
-                        return (
-                          <li key={item.title} className="nav-item">
-                            <Link
-                              onClick={() => {
-                                document.querySelectorAll(".inner-dropdown").forEach((node) => {
-                                  node.style.display = "none";
-                                });
-                              }}
-                              class="nav-link-inner"
-                              href={`/products/${item.cate}`}
-                            >
-                              <a>{item.title}</a>
-                            </Link>
-                          </li>
-                        );
-                      })}
-                    </ul>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
+          <div className={`nav-wrap ${isMobileMenuOpen ? "open" : ""}`}>
+            <div className="nav-section">
+              <ul className="navigation-bar">
+                {menu.map((item) => {
+                  return (
+                    <li
+                      key={item.title}
+                      onMouseEnter={(e) => {
+                        handleMouseEnter(e);
+                      }}
+                      onMouseLeave={(e) => {
+                        handleMouseLeave(e);
+                      }}
+                      onClick={() => {
+                        document.querySelectorAll(".inner-dropdown").forEach((node) => {
+                          node.style.display = "none";
+                        });
+                      }}
+                      className="nav-item inner-dropdown-parent"
+                    >
+                      <Link class="nav-link" href={`/products/${item.cate}`}>
+                        <a>
+                          <span>{item.title}</span>
+                          {item.categories.length > 0 && (
+                            <MdKeyboardArrowDown
+                              className="arrow-dropdown"
+                              style={{ marginLeft: 3 }}
+                            />
+                          )}
+                        </a>
+                      </Link>
+                      <ul className="inner-dropdown">
+                        {item.categories.map((item) => {
+                          return (
+                            <li key={item.title} className="nav-item">
+                              <Link
+                                onClick={() => {
+                                  document.querySelectorAll(".inner-dropdown").forEach((node) => {
+                                    node.style.display = "none";
+                                  });
+                                }}
+                                class="nav-link-inner"
+                                href={`/products/${item.cate}`}
+                              >
+                                <a>{item.title}</a>
+                              </Link>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
 
-          <div className="right-pannel">
-            <ul className="navigation-bar">
-              <li
-                onMouseEnter={(e) => {
-                  handleMouseEnter(e);
-                }}
-                onMouseLeave={(e) => {
-                  handleMouseLeave(e);
-                }}
-                onClick={() => {
-                  document.querySelectorAll(".inner-dropdown").forEach((node) => {
-                    node.style.display = "none";
-                  });
-                }}
-                className="nav-item inner-dropdown-parent"
-              >
-                <Link className="nav-link" href="/">
-                  <a>
-                    <span> Company </span>
-                    <MdKeyboardArrowDown className="arrow-dropdown" style={{ marginLeft: 3 }} />
-                  </a>
-                </Link>
-                <ul className="inner-dropdown">
-                  <li className="nav-item">
-                    <Link href="/contact-us">
-                      <a>Contact Us</a>
-                    </Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link href="/about-us">
-                      <a>About Us</a>
-                    </Link>
-                  </li>
-                </ul>
-              </li>
-            </ul>
+            <div className="right-pannel">
+              <ul className="navigation-bar">
+                <li
+                  onMouseEnter={(e) => {
+                    handleMouseEnter(e);
+                  }}
+                  onMouseLeave={(e) => {
+                    handleMouseLeave(e);
+                  }}
+                  onClick={() => {
+                    document.querySelectorAll(".inner-dropdown").forEach((node) => {
+                      node.style.display = "none";
+                    });
+                  }}
+                  className="nav-item inner-dropdown-parent"
+                >
+                  <Link className="nav-link" href="/">
+                    <a>
+                      <span> Company </span>
+                      <MdKeyboardArrowDown className="arrow-dropdown" style={{ marginLeft: 3 }} />
+                    </a>
+                  </Link>
+                  <ul className="inner-dropdown">
+                    <li className="nav-item">
+                      <Link href="/contact-us">
+                        <a>Contact Us</a>
+                      </Link>
+                    </li>
+                    <li className="nav-item">
+                      <Link href="/about-us">
+                        <a>About Us</a>
+                      </Link>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
           </div>
+          <span onClick={() => {
+            setIsMobileMenuOpen(!isMobileMenuOpen)
+          }}
+            className={`hamburger ${isMobileMenuOpen ? "open" : ""}`}>
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
         </header>
       </div>
     </Container>

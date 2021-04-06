@@ -193,7 +193,10 @@ a {
 .success {
   color: $success-color;
 }
-
+.nav-wrap{
+  display: flex;
+    justify-content: space-between;
+}
 .nav-section {
   .navigation-bar {
     display: flex;

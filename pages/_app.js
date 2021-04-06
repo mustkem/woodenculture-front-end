@@ -11,6 +11,8 @@ import "../styles/style.scss";
 import "../styles/myAccount.scss";
 
 import "../styles/app.scss";
+import "../styles/responsive.scss";
+
 
 import { wrapper } from "../store-thunk/store";
 
