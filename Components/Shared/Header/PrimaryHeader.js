@@ -49,7 +49,7 @@ const PrimaryHeader = () => {
               </a>
             </Link>
           </div>
-          <div className={`nav-wrap ${isMobileMenuOpen ? "open" : ""}`}>
+          <div className={`nav-wrap desktop`}>
             <div className="nav-section">
               <ul className="navigation-bar">
                 {menu.map((item) => {
@@ -143,10 +143,93 @@ const PrimaryHeader = () => {
               </ul>
             </div>
           </div>
-          <span onClick={() => {
-            setIsMobileMenuOpen(!isMobileMenuOpen)
-          }}
-            className={`hamburger ${isMobileMenuOpen ? "open" : ""}`}>
+          <div className={`nav-wrap mobile ${isMobileMenuOpen ? "open" : ""}`}>
+            <div className="nav-section">
+              <ul className="navigation-bar">
+                {menu.map((item) => {
+                  return (
+                    <li key={item.title} className="nav-item inner-dropdown-parent">
+                      <div className="link-wrapper">
+                        <Link class="nav-link" href={`/products/${item.cate}`}>
+                          <a
+                            className="link-l-1"
+                            onClick={() => {
+                              setIsMobileMenuOpen(false);
+                            }}
+                          >
+                            <span>{item.title}</span>
+                          </a>
+                        </Link>
+                        {item.categories.length > 0 && (
+                          <MdKeyboardArrowDown
+                            className="arrow-dropdown mobile"
+                            style={{ marginLeft: 3 }}
+                            onClick={(e) => {
+                              let dropdown = e.target.parentNode.parentNode.querySelectorAll(
+                                ".inner-dropdown"
+                              )[0];
+                              if (dropdown) {
+                                console.log("e.target", dropdown.style.display);
+
+                                if (!dropdown.style.display || dropdown.style.display === "none") {
+                                  dropdown.style.display = "block";
+                                } else {
+                                  console.log("none do");
+                                  dropdown.style.display = "none";
+                                }
+                              }
+                            }}
+                          />
+                        )}
+                      </div>
+
+                      <ul className="inner-dropdown">
+                        {item.categories.map((item) => {
+                          return (
+                            <li key={item.title} className="nav-item">
+                              <Link
+                                onClick={() => {
+                                  document.querySelectorAll(".inner-dropdown").forEach((node) => {
+                                    node.style.display = "none";
+                                  });
+                                }}
+                                class="nav-link-inner"
+                                href={`/products/${item.cate}`}
+                              >
+                                <a
+                                  onClick={() => {
+                                    setIsMobileMenuOpen(false);
+                                  }}
+                                >
+                                  {item.title}
+                                </a>
+                              </Link>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </li>
+                  );
+                })}
+                <li className="nav-item">
+                  <Link href="/contact-us">
+                    <a>Contact Us</a>
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link href="/about-us">
+                    <a>About Us</a>
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <span
+            onClick={() => {
+              setIsMobileMenuOpen(!isMobileMenuOpen);
+            }}
+            className={`hamburger ${isMobileMenuOpen ? "open" : ""}`}
+          >
             <span></span>
             <span></span>
             <span></span>

@@ -2,6 +2,39 @@
 
 @import "../Assets/Style/variables.scss";
 
+html {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+strong,
+b {
+  font-weight: 700;
+}
+body {
+  color: rgba(0, 0, 0, 0.87);
+  margin: 0;
+  font-size: 0.875rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 1.43;
+  letter-spacing: 0.01071em;
+  background-color: #fff;
+}
+@media print {
+  body {
+    background-color: #fff;
+  }
+}
+body::backdrop {
+  background-color: #fff;
+}
+
 .subcat-strip {
   .item {
     margin-bottom: 30px;
@@ -317,14 +350,38 @@
       .actions-product {
         margin: 15px 0;
         display: flex;
+        .bt-main {
+          border: 0;
+          background: hsla(5, 70%, 49%, 1);
+
+          background: linear-gradient(0deg, hsla(5, 70%, 49%, 1) 0%, hsla(26, 98%, 64%, 1) 100%);
+
+          background: -moz-linear-gradient(
+            0deg,
+            hsla(5, 70%, 49%, 1) 0%,
+            hsla(26, 98%, 64%, 1) 100%
+          );
+
+          background: -webkit-linear-gradient(
+            0deg,
+            hsla(5, 70%, 49%, 1) 0%,
+            hsla(26, 98%, 64%, 1) 100%
+          );
+
+          color: white;
+        }
         .left {
           margin-right: 5px;
+          padding: 7px 20px;
+          border-radius: 0;
         }
         .right {
           margin-left: 5px;
+          border-radius: 0;
+
+          padding: 7px 20px;
         }
         button {
-          flex-grow: 1;
         }
       }
     }
