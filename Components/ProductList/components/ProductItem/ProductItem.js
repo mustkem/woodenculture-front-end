@@ -93,7 +93,11 @@ function ProductItem(props) {
 
   return (
     <div className="row product-item">
-      <div className="col-6 sec-1">
+
+      <div className="col-12 col-sm-6 sec-1">
+        <div className="mobile-head-sec">
+          <div className="title">{item?.title}</div>
+        </div>
         <Slider {...settingProduct} asNavFor={nav2} ref={(slider) => (slider1 = slider)}>
           {item.images &&
             item.images.map((item) => {
@@ -134,7 +138,7 @@ function ProductItem(props) {
           </Slider>
         </div> */}
       </div>
-      <div className="col-6">
+      <div className="col-12 col-sm-6">
         <div className="head-sec">
           <div className="title">{item?.title}</div>
         </div>
@@ -150,36 +154,36 @@ function ProductItem(props) {
               Remove from wishlist
             </button>
           ) : (
-            <>
-              {isAddedToWishlist(item._id) ? (
-                <button
-                  onClick={() => {
-                    if (!isLogedIn) {
-                      dispatch(commonActions.setLoginModel(true));
-                      return false;
-                    }
-                    handleAddWishlist(item._id, false);
-                  }}
-                  className="bt-main left"
-                >
-                  Added to wishlist
-                </button>
-              ) : (
-                <button
-                  onClick={() => {
-                    if (!isLogedIn) {
-                      dispatch(commonActions.setLoginModel(true));
-                      return false;
-                    }
-                    handleAddWishlist(item._id, true);
-                  }}
-                  className="bt-main left"
-                >
-                  Add to wishlist
-                </button>
-              )}
-            </>
-          )}
+              <>
+                {isAddedToWishlist(item._id) ? (
+                  <button
+                    onClick={() => {
+                      if (!isLogedIn) {
+                        dispatch(commonActions.setLoginModel(true));
+                        return false;
+                      }
+                      handleAddWishlist(item._id, false);
+                    }}
+                    className="bt-main left"
+                  >
+                    Added to wishlist
+                  </button>
+                ) : (
+                    <button
+                      onClick={() => {
+                        if (!isLogedIn) {
+                          dispatch(commonActions.setLoginModel(true));
+                          return false;
+                        }
+                        handleAddWishlist(item._id, true);
+                      }}
+                      className="bt-main left"
+                    >
+                      Add to wishlist
+                    </button>
+                  )}
+              </>
+            )}
 
           <button
             onClick={() => {

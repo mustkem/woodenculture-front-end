@@ -242,6 +242,19 @@
       display: flex;
     }
   }
+  .mobile-head-sec {
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .product-list-strip {
+    .head-sec {
+      
+      display: none;
+     
+    }
+  }
 }
 @media all and (max-width: 567px) {
   .secondary-strip ul li {
