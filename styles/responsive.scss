@@ -20,6 +20,24 @@
   }
 }
 @media all and (max-width: 991px) {
+  .login-modal .modal-dialog {
+    width: auto;    
+}
+.login-modal .login-wrapper {
+  display: block;
+}
+.login-modal .login-wrapper .sec-1 {
+  
+  width: 100%;
+  padding: 20px;
+}
+.login-modal .login-wrapper .sec-2 {
+  width: 100%;
+  padding: 20px;
+}
+.login-modal .login-wrapper .sec-1 p {
+  margin-bottom: 25px;
+}
   .nav-wrap {
     width: calc(100% - 86px);
   }
@@ -255,6 +273,7 @@
      
     }
   }
+ 
 }
 @media all and (max-width: 567px) {
   .secondary-strip ul li {
