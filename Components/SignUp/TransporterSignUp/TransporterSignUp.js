@@ -17,7 +17,6 @@ const MyTextInput = ({ label, ...props }) => {
     if (value === "admin") {
       error = "Nice try!";
     }
-    console.log("test");
     return error;
   }
 
@@ -74,9 +73,7 @@ const SignupForm = () => {
                     history.push("/login");
                   });
                 }}
-                setFieldError={() => {
-                  console.log("testttt");
-                }}
+                setFieldError={() => {}}
               >
                 <Form>
                   <div class="ip-field-wrp">

@@ -10,7 +10,6 @@ const PrimaryHeader = () => {
   const dispatch = useDispatch();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   useEffect(() => {
-    console.log("testtttttttt");
     dispatch(commonApis.getUserStatus());
   }, []);
 
@@ -169,12 +168,9 @@ const PrimaryHeader = () => {
                                 ".inner-dropdown"
                               )[0];
                               if (dropdown) {
-                                console.log("e.target", dropdown.style.display);
-
                                 if (!dropdown.style.display || dropdown.style.display === "none") {
                                   dropdown.style.display = "block";
                                 } else {
-                                  console.log("none do");
                                   dropdown.style.display = "none";
                                 }
                               }

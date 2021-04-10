@@ -13,8 +13,6 @@ import QueryModel from "../../../Common/QueryModel";
 import { commonActions } from "../../../../store-thunk/common";
 
 function SecondaryHeader(props) {
-  console.log("test5", props.isLogedIn);
-
   const router = useRouter();
 
   const myProfileRef = useRef(null);

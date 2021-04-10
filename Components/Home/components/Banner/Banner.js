@@ -12,25 +12,20 @@ function Banner() {
   };
   return (
     <div className="banner-strip">
-      <Slider className="banner-slider" {...settings}>
+      <Slider key={1} className="banner-slider" {...settings}>
         <div className="item">
           <img src="./Images/pexels-pixabay-210265.jpg" className="image" alt="" loading="lazy" />
         </div>
-        <div className="item">
+        {/* <div key={2} className="item">
           <img
             src={"https://woodenculture.s3.us-east-2.amazonaws.com/images/banner-2.jpg"}
             className="image"
             alt=""
             loading="lazy"
           />
-        </div>
-        <div className="item">
-          <img
-            src={"https://woodenculture.s3.us-east-2.amazonaws.com/images/banner-3.jpg"}
-            className="image"
-            alt=""
-            loading="lazy"
-          />
+        </div> */}
+        <div key={2} className="item">
+          <img src={"./Images/image-furniture-2.jpg"} className="image" alt="" loading="lazy" />
         </div>
       </Slider>
     </div>

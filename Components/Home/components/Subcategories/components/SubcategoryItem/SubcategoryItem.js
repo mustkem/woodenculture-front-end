@@ -4,7 +4,6 @@ import Link from "next/link";
 function SubcategoryItem(props) {
   const { item } = props;
   const params = {};
-  console.log(params.category);
   return (
     <div key={item.key} className="col-sm-3 col-12 item">
       <Link href={`/products/${item.value}`}>

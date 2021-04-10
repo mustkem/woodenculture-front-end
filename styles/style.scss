@@ -202,7 +202,9 @@ a {
     display: flex;
   }
 }
-
+.mobile-head-sec{
+  display: none;
+}
 .primary {
   color: $primary-theme-color;
 }

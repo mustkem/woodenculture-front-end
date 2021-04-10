@@ -63,8 +63,6 @@ function Wishlist() {
       });
   };
 
-  console.log("test", wishlist);
-
   return (
     <Layout>
       <div className="wishlist-page">

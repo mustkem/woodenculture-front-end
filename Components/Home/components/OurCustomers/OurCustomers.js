@@ -10,18 +10,16 @@ function OurCustomers() {
     slidesToShow: 4,
     slidesToScroll: 1,
   };
-  const [sliderSetting, setSliderSetting] = useState(settings)
+  const [sliderSetting, setSliderSetting] = useState(settings);
 
   useEffect(() => {
     const windowWidth = window.innerWidth;
 
-    console.log("testtt", windowWidth)
     const slidesToShow = windowWidth > 767 ? 4 : 1;
     const updatedSettings = { ...sliderSetting };
     updatedSettings.slidesToShow = slidesToShow;
-    console.log("testttt", updatedSettings)
     setSliderSetting(updatedSettings);
-  }, [])
+  }, []);
   return (
     <div className="social-reach">
       <Container>
