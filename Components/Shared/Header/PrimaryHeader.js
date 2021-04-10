@@ -277,10 +277,10 @@ const menu = [
     title: "Office",
     cate: "office",
     categories: [
-      {
-        title: "Office Interior",
-        cate: "office-interior",
-      },
+      // {
+      //   title: "Office Interior",
+      //   cate: "office-interior",
+      // },
       {
         title: "Office Furniture",
         cate: "office-furniture",
@@ -319,28 +319,28 @@ const menu = [
       },
     ],
   },
-  {
-    title: "Interior",
-    cate: "interior",
-    categories: [
-      {
-        title: "Home Interior",
-        cate: "home-interior",
-      },
-      {
-        title: "Appartment Interior",
-        cate: "appartment-interior",
-      },
-      {
-        title: "Kitchen Interior",
-        cate: "kitchen-interior",
-      },
-      {
-        title: "Commercial Interior",
-        cate: "commercial-interior",
-      },
-    ],
-  },
+  // {
+  //   title: "Interior",
+  //   cate: "interior",
+  //   categories: [
+  //     {
+  //       title: "Home Interior",
+  //       cate: "home-interior",
+  //     },
+  //     {
+  //       title: "Appartment Interior",
+  //       cate: "appartment-interior",
+  //     },
+  //     {
+  //       title: "Kitchen Interior",
+  //       cate: "kitchen-interior",
+  //     },
+  //     {
+  //       title: "Commercial Interior",
+  //       cate: "commercial-interior",
+  //     },
+  //   ],
+  // },
   {
     title: "Modular Kitchen",
     cate: "modular-kitchen",

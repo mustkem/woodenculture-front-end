@@ -32,8 +32,8 @@ function Products({ products }) {
             <div className="product-list">
               {products &&
                 products.length > 0 &&
-                products.map((item) => {
-                  return <ProductItem user={user} item={item} key={item._id} />;
+                products.map((item, index) => {
+                  return <ProductItem user={user} item={item} key={index} />;
                 })}
             </div>
             {products && products.length === 0 && <NoRecordFound />}

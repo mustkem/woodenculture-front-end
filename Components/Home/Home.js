@@ -24,7 +24,7 @@ function Home(props) {
       <div>
         <Banner />
         <Subcategories subCategoriesDetails={subCategoriesDetails} />
-        <SubcategoriesInteriors />
+        {/* <SubcategoriesInteriors /> */}
         <ScreenBanner />
         <FeedBacks />
       </div>
